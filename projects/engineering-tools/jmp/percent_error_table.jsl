@@ -1,0 +1,155 @@
+Names Default To Here( 1 );
+
+//////////////////// SETTINGS ////////////////////
+// Reference priority: types earlier in this list become "Type 1".
+// A type in the data but not listed here is appended in first-seen order.
+refOrder = {"Calculation", "LTspice", "Multimeter", "Oscilloscope"};
+
+pairMode = "all";	// "all" = every pair;  "ref" = compare all types to the first one only
+decimals = 2;
+//////////////////////////////////////////////////
+
+// Expected columns (case-insensitive): Section, Measurement, Type, Value, Value Im
+colOf = Function( {t, name}, {DEFAULT LOCAL},
+	c = t << Get Column Names( String );
+	For( j = 1, j <= N Items( c ), j++,
+		If( Uppercase( Trim( c[j] ) ) == Uppercase( name ), Return( c[j] ) )
+	);
+	Return( "" );
+);
+
+usable = Function( {t},
+	colOf( t, "Measurement" ) != "" & colOf( t, "Type" ) != "" & colOf( t, "Value" ) != ""
+);
+
+// Current Data Table() returns the last active window, which after one run is
+// the output table. Verify it, then fall back to a search.
+dt = Empty();
+cur = Try( Current Data Table(), Empty() );
+If( !Is Empty( cur ) & usable( cur ),
+	dt = cur,
+	open = Get Data Table List();
+	For( i = 1, i <= N Items( open ), i++,
+		If( usable( open[i] ), dt = open[i]; Break() )
+	);
+);
+
+If( Is Empty( dt ),
+	Throw( "No open table has Measurement, Type, and Value columns." ||
+		"\!nOpen your lab data workbook (the Data worksheet) and run again." )
+);
+
+dt << Bring Window To Front;
+cSec = colOf( dt, "Section" );
+cMeas = colOf( dt, "Measurement" );
+cType = colOf( dt, "Type" );
+cVal = colOf( dt, "Value" );
+cIm = colOf( dt, "Value Im" );
+
+toPair = Function( {v}, If( Is List( v ), v, Eval List( {v, 0} ) ) );
+
+pctErr = Function( {v1, v2}, {DEFAULT LOCAL},
+	If( Is List( v1 ) | Is List( v2 ),
+		a = toPair( v1 );
+		b = toPair( v2 );
+		den = Sqrt( a[1] ^ 2 + a[2] ^ 2 );
+		If( den == 0, .,
+			Sqrt( (b[1] - a[1]) ^ 2 + (b[2] - a[2]) ^ 2 ) / den * 100
+		),
+		If( v1 == 0, ., Abs( (v2 - v1) / v1 ) * 100 )
+	)
+);
+
+groups = Associative Array();	// "Section|Measurement" -> (Type -> Value)
+keyOrder = {};
+seenTypes = {};
+
+For Each Row( dt,
+	sec = If( cSec == "", "", Trim( Char( Column( dt, cSec )[Row()] ) ) );
+	meas = Trim( Char( Column( dt, cMeas )[Row()] ) );
+	typ = Trim( Char( Column( dt, cType )[Row()] ) );
+	re = Column( dt, cVal )[Row()];
+
+	If( meas == "" | typ == "" | Is Missing( re ), Continue() );
+
+	v = re;
+	If( cIm != "",
+		im = Column( dt, cIm )[Row()];
+		If( !Is Missing( im ), v = Eval List( {re, im} ) )
+	);
+
+	key = sec || "|" || meas;
+	If( !Contains( groups << Get Keys, key ),
+		groups[key] = Associative Array();
+		Insert Into( keyOrder, key );
+	);
+	groups[key][typ] = v;
+	If( !Contains( seenTypes, typ ), Insert Into( seenTypes, typ ) );
+);
+
+ranked = {};
+For( i = 1, i <= N Items( refOrder ), i++,
+	If( Contains( seenTypes, refOrder[i] ) > 0, Insert Into( ranked, refOrder[i] ) )
+);
+For( i = 1, i <= N Items( seenTypes ), i++,
+	If( !Contains( ranked, seenTypes[i] ), Insert Into( ranked, seenTypes[i] ) )
+);
+
+priorList = Get Data Table List();
+For( i = N Items( priorList ), i >= 1, i--,
+	If( Starts With( priorList[i] << Get Name, "Percent Error" ),
+		Try( Close( priorList[i], NoSave ) )
+	)
+);
+
+res = New Table( "Percent Error",
+	New Column( "Section", Character, "Nominal" ),
+	New Column( "Measurement", Character, "Nominal" ),
+	New Column( "Type 1", Character, "Nominal" ),
+	New Column( "Type 2", Character, "Nominal" ),
+	New Column( "Percent Error", Numeric, "Continuous",
+		Format( "Fixed Dec", 8, decimals ) )
+);
+
+skipped = {};
+
+For( i = 1, i <= N Items( keyOrder ), i++,
+	parts = Words( keyOrder[i], "|" );
+	sec = If( N Items( parts ) > 1, parts[1], "" );
+	meas = parts[N Items( parts )];
+	vals = groups[keyOrder[i]];
+	have = vals << Get Keys;
+
+	present = {};
+	For( k = 1, k <= N Items( ranked ), k++,
+		If( Contains( have, ranked[k] ) > 0, Insert Into( present, ranked[k] ) )
+	);
+
+	If( N Items( present ) < 2,
+		Insert Into( skipped, keyOrder[i] );
+		Continue();
+	);
+
+	lastA = If( pairMode == "ref", 1, N Items( present ) - 1 );
+	For( a = 1, a <= lastA, a++,
+		For( b = a + 1, b <= N Items( present ), b++,
+			res << Add Rows( 1 );
+			r = N Rows( res );
+			Column( res, "Section" )[r] = sec;
+			Column( res, "Measurement" )[r] = meas;
+			Column( res, "Type 1" )[r] = present[a];
+			Column( res, "Type 2" )[r] = present[b];
+			Column( res, "Percent Error" )[r] =
+				pctErr( vals[present[a]], vals[present[b]] );
+		)
+	);
+);
+
+Write( "\!nSource: " || (dt << Get Name) || "  |  " || Char( N Rows( res ) ) ||
+	" comparisons from " || Char( N Items( keyOrder ) ) || " measurements." );
+If( N Items( skipped ) > 0,
+	Write( "\!nSkipped (only one value recorded):" );
+	For( i = 1, i <= N Items( skipped ), i++,
+		Write( "\!n   " || Substitute( skipped[i], "|", " / " ) )
+	);
+);

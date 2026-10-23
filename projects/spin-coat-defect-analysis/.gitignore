@@ -1,0 +1,9 @@
+# Raw capture runs (hundreds of MB of PNGs) - keep locally, not in git
+captures/
+inspection/
+
+__pycache__/
+*.pyc
+.venv/
+.claude/
+.vscode/

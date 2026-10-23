@@ -1,0 +1,5 @@
+# Local network/MQTT settings - copy config.example.h to config.h
+config.h
+
+.claude/
+.vscode/

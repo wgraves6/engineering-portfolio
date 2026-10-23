@@ -1,0 +1,13 @@
+
+DOE(
+	Full Factorial Design,
+	{Add Response( Maximize, "Onset Time", ., ., ., ., ., "min" ),
+	Add Response( Minimize, "Nucleation", ., ., ., ., ., "cm^-2 * min^-1 " ),
+	Add Response( Minimize, "Growth Velocity", ., ., ., ., ., "um/min" ),
+	Add Factor( Categorical, {"Yes", "No"}, "Covered", 0 ),
+	Add Factor( Continuous, {2, 15}, "Ramp Time", 0, "s" ),
+	Add Factor( Continuous, {2000, 5000}, "Final Speed", 0, "rpm" ),
+	Add Factor( Continuous, {15, 120}, "Final Dwell", 0, "s" ),
+	Set Random Seed( 434522849 ), Make Design, Center Points( 4 ),
+	Simulate Responses( 0 ), Set Run Order( Randomize ), Make Table}
+);

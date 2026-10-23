@@ -1,0 +1,28 @@
+﻿Contour Plot(
+	X( :"X (cm)"n, :"Y (cm)"n ),
+	Y( :"Thickness # 1 (Å)"n ),
+	Show Data Points( 0 ),
+	Fill Areas( 1 ),
+	Label Contours( 0 ),
+	Transform( "Range Normalized" ),
+	Specify Contours( Min( 1070 ), Max( 1084 ), N( 8 ) ),
+	SendToReport(
+		Dispatch( {}, "1111", ScaleBox,
+			{Legend Model(
+				1,
+				Type( 0, 262144, Item ID( "Thickness # 1 (Å)", 1 ) ),
+				Type Properties(
+					0,
+					"Gradient Contour",
+					{gradient( {Color Theme( "Black Body" )} )}
+				),
+				Properties(
+					0,
+					{gradient( {Color Theme( "Black Body" )} )},
+					Item ID( "Thickness # 1 (Å)", 1 )
+				)
+			)}
+		),
+		Dispatch( {}, "Contour Plot Graph", FrameBox, {Frame Size( 415, 416 )} )
+	)
+);
