@@ -7,6 +7,7 @@ Cleanroom process and metrology data, with the analysis I did on it: thermal oxi
 | Project | Process / measurement | Summary |
 |---|---|---|
 | [`thermal-oxidation-deal-grove/`](thermal-oxidation-deal-grove) | Wet oxidation · Filmetrics · ellipsometry | Deal–Grove fit to furnace data (B = 0.415 µm²/hr, A = 0.272 µm), within 2% of measured except at 5 min; refractive index and uniformity of oxide vs. LPCVD nitride |
+| [`device-iv-characterization/`](device-iv-characterization) | Curve tracer I-V | Zener diode turn-on (0.70–0.71 V) and breakdown voltages within 6% of rated; NMOS characterization in progress |
 
 Each project folder follows [`_template/`](_template): `data/` for raw measurements as CSV, `analysis/` for the scripts that turn them into results, `plots/` for figures, and a README covering goal, data, analysis, results and takeaways.
 
