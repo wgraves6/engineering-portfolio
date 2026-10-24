@@ -1,0 +1,45 @@
+go athena
+
+# UNIFORM GRID
+line x loc=-1.0 spac=0.10
+line x loc=-0.2 spac=0.02
+line x loc=0.2  spac=0.02
+line x loc=1.0  spac=0.10
+line y loc=0    spac=0.05
+line y loc=1.0  spac=0.05
+
+# SILICON SUBSTRATE
+init silicon boron resistivity=10 orientation=100 two.d
+
+# Etch Si LEFT of the fin (x = -1.0 to -0.2), 0.5 um deep
+etch silicon start x=-1.1 y=-0.5
+etch cont x=-1.1 y=0.5
+etch cont x=-0.2 y=0.5
+etch done x=-0.2 y=-0.5
+
+# Etch Si RIGHT of the fin (x = 0.2 to 1.0), 0.5 um deep
+etch silicon start x=0.2 y=-0.5
+etch cont x=0.2 y=0.5
+etch cont x=1.1 y=0.5
+etch done x=1.1 y=-0.5
+
+# DRY OXIDATION
+method compress init.time=0.10 fermi grid.oxide=0.05
+diffus time=30 temp=800 dryo2 press=1.00 hcl.pc=0
+
+# WET OXIDATION (time swept 10-60 min)
+method compress init.time=0.10 fermi grid.oxide=0.05
+diffus time=5 temp=1000 f.h2o=450 f.n2=6 press=1.00
+
+# EXTRACT OXIDE THICKNESS
+extract name="Oxide_Thickness" thickness material="SiO~2" mat.occno=1 x.val=0.5
+extract name="Fin_Si_Width" thickness material="Silicon" mat.occno=1 y.val=0.4
+
+# SAVE OUTPUT FILE
+structure outfile=1000C_wet_ox.str
+structure outfile=Oxide_Thickness.log
+
+# PLOT OUTPUT
+tonyplot -st 1000C_wet_ox.str
+
+quit
