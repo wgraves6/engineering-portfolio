@@ -1,0 +1,27 @@
+go athena
+
+# UNIFORM GRID
+line x loc=0.00 spac=0.05
+line x loc=2 spac=0.05
+line y loc=0 spac=0.05
+line y loc=1.50 spac=0.05
+init gaas orientation=100 space.m=1
+
+deposit oxide thick=0.10 div=10
+
+etch oxide start x=0.75 y=-10
+etch cont x=0.75 y=10
+etch cont x=1.25 y=10
+etch done x=1.25 y=-10
+
+rate.etch machine=11_3 rie gaas n.m chemical=35 directional=90 divergence=40
+rate.etch machine=11_3 rie oxide n.m chemical=3.0 directional=15 divergence=40
+#
+etch mach=11_3 time=1 minutes dx.mult=.5
+
+structure outfile=anelex18.str
+tonyplot anelex18.str
+
+extract name="gaas" thickness material="All" x.val=1
+
+quit

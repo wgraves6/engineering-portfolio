@@ -6,13 +6,9 @@ Semiconductor process and device simulations in Silvaco TCAD: **Athena** for pro
 
 ## Projects
 
-_Decks are being migrated from the Silvaco VM. Projects will be listed here as they're added._
-
-<!-- When adding a project, replace the line above with this table:
 | Project | Tool | Summary |
 |---|---|---|
-| [`project-name/`](project-name) | Athena / Atlas | one line: what was simulated and the key result |
--->
+| [`gaas-rie-etch-selectivity/`](gaas-rie-etch-selectivity) | Athena | GaAs/SiO₂ RIE selectivity (6.9 : 1 blanket, ~6 : 1 in a 0.5 µm trench); JMP DOE sized a 0.171 µm mask and 9.32 min etch for a 1 µm deep trench |
 
 Each project folder follows [`_template/`](_template): `deck/` for input decks, `plots/` for exported figures and a README covering goal, setup, results and takeaways.
 
