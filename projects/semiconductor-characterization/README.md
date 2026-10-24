@@ -1,6 +1,6 @@
-# Fabrication & Characterization
+# Semiconductor Characterization
 
-Cleanroom process and metrology data, with the analysis I did on it: thermal oxidation, thin-film deposition, and thickness and optical measurements (Filmetrics, spectroscopic ellipsometry). The simulation counterparts are in [TCAD Simulations](../tcad-simulations).
+Measured process and device data, with the analysis I did on it: thermal oxide growth and film metrology (Filmetrics, spectroscopic ellipsometry), and I-V characterization of semiconductor devices. The simulation counterparts are in [TCAD Simulations](../tcad-simulations).
 
 ## Projects
 

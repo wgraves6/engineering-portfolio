@@ -6,12 +6,18 @@ Projects from my electrical engineering work at Arizona State University: semico
 
 | Project | What it is | Stack |
 |---|---|---|
-| [**Spin Coater Controller**](projects/sdsemi-spin-coater) | Closed-loop spin coater for the Semiconductor Club, with PID + feedforward RPM control, self-calibration, a recipe editor and vibration telemetry | C++ · Arduino · MQTT |
-| [**Lab Monitoring (IIoT)**](projects/lab-monitoring-iiot) | Arduino sensor nodes streaming equipment data to an Ignition SCADA gateway over MQTT | Arduino · Ignition · MQTT |
-| [**Spin-Coat Defect Analysis**](projects/spin-coat-defect-analysis) | FURI research: automated time-lapse imaging and defect counting for spin-coated films, with a DOE study of process parameters | Python · OpenCV · ImageJ · JMP |
-| [**Fabrication & Characterization**](projects/fab-characterization) | Cleanroom process and metrology data analysis: Deal–Grove fits to furnace data, film thickness and refractive-index uniformity | JMP · Filmetrics · Ellipsometry |
+| [**Sun Devil Semiconductor Club**](projects/sun-devil-semiconductor-club) | Tools and research for the club's cleanroom: a closed-loop spin coater, IIoT lab monitoring, and FURI spin-coat defect analysis | C++ · Arduino · MQTT · Ignition · Python · OpenCV |
+| [**Semiconductor Characterization**](projects/semiconductor-characterization) | Measured process and device data: Deal–Grove fits to furnace data, film thickness and refractive-index uniformity, diode I-V characterization | JMP · Filmetrics · Ellipsometry · Curve tracer |
 | [**TCAD Simulations**](projects/tcad-simulations) | Process and device simulations in Silvaco Athena and Atlas | Silvaco TCAD |
 | [**Engineering Tools**](projects/engineering-tools) | Phasor and impedance math, Bode plots, lab error tables, wafer-map plots | Python · JSL |
+
+### Sun Devil Semiconductor Club
+
+| Project | What it is | Stack |
+|---|---|---|
+| [**Spin Coater Controller**](projects/sun-devil-semiconductor-club/spin-coater) | Closed-loop spin coater with PID + feedforward RPM control, self-calibration, a recipe editor and vibration telemetry | C++ · Arduino · MQTT |
+| [**Lab Monitoring (IIoT)**](projects/sun-devil-semiconductor-club/lab-monitoring-iiot) | Arduino sensor nodes streaming equipment data to an Ignition SCADA gateway over MQTT | Arduino · Ignition · MQTT |
+| [**Spin-Coat Defect Analysis**](projects/sun-devil-semiconductor-club/spin-coat-defect-analysis) | FURI research: automated time-lapse imaging and defect counting for spin-coated films, with a DOE study of process parameters | Python · OpenCV · ImageJ · JMP |
 
 ## Skills
 

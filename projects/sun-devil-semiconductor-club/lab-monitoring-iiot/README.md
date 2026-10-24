@@ -25,7 +25,7 @@ Ignition gateway
 | [`sketches/r4_w5500_mqtt_publish`](sketches/r4_w5500_mqtt_publish) | Uno R4 + W5500 | The same publish pattern on the R4, with JSON built by ArduinoJson. |
 | [`sketches/MPU6050_ignition_upload`](sketches/MPU6050_ignition_upload) | Uno R4 + W5500 | Vibration monitoring. Samples an MPU-6050 accelerometer, subtracts the calibrated gravity vector and publishes RMS, peak and crest factor once per window. |
 
-The full spin coater firmware, which publishes speed and vibration telemetry during runs, lives in [`../sdsemi-spin-coater`](../sdsemi-spin-coater).
+The full spin coater firmware, which publishes speed and vibration telemetry during runs, lives in [`../spin-coater`](../spin-coater).
 
 ## Diagnostics
 

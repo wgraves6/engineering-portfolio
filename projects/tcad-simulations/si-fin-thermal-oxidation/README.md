@@ -53,7 +53,7 @@ In the simulation the fin always narrows faster than the planar model predicts, 
 
 ## What I learned
 
-- 1D Deal–Grove numbers are a good first estimate for flat areas (on real furnace data the fit held to about 2%; see [Wet Thermal Oxidation: Deal–Grove Fit](../../fab-characterization/thermal-oxidation-deal-grove)) but get steadily worse on narrow features. For this fin the error passed 20% after 40 minutes. Anything sub-micron with exposed sidewalls needs a 2D simulation.
+- 1D Deal–Grove numbers are a good first estimate for flat areas (on real furnace data the fit held to about 2%; see [Wet Thermal Oxidation: Deal–Grove Fit](../../semiconductor-characterization/thermal-oxidation-deal-grove)) but get steadily worse on narrow features. For this fin the error passed 20% after 40 minutes. Anything sub-micron with exposed sidewalls needs a 2D simulation.
 - Where you measure matters. The fin goes from rectangular to tapered, so a single width extracted at one height doesn't fully describe the profile.
 - Oxidation followed by an HF strip is a simple way to trim features below the lithography limit, the same idea as sacrificial oxidation in FinFET processing. The trade-off is that the fin tapers instead of shrinking evenly.
 - Next step: extract the width at several heights to measure the taper, and try a lower temperature or dry oxidation to see whether slower growth keeps the sidewalls straighter.
