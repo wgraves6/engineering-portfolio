@@ -6,7 +6,7 @@ Cleanroom process and metrology data, with the analysis I did on it: thermal oxi
 
 | Project | Process / measurement | Summary |
 |---|---|---|
-| [`thermal-oxidation-deal-grove/`](thermal-oxidation-deal-grove) | Wet oxidation · Filmetrics · ellipsometry | Deal–Grove fit to furnace data (B = 0.415 µm²/hr, A = 0.273 µm), within 2% from 15 to 498 min; thermal oxide vs. LPCVD nitride uniformity |
+| [`thermal-oxidation-deal-grove/`](thermal-oxidation-deal-grove) | Wet oxidation · Filmetrics · ellipsometry | Deal–Grove fit to furnace data (B = 0.415 µm²/hr, A = 0.272 µm), within 2% of measured except at 5 min; refractive index and uniformity of oxide vs. LPCVD nitride |
 
 Each project folder follows [`_template/`](_template): `data/` for raw measurements as CSV, `analysis/` for the scripts that turn them into results, `plots/` for figures, and a README covering goal, data, analysis, results and takeaways.
 

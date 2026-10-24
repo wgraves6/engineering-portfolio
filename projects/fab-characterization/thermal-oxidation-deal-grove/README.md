@@ -1,100 +1,126 @@
 # Wet Thermal Oxidation: Deal–Grove Fit and Film Uniformity
 
-**Tools:** Python (NumPy, Matplotlib), JMP · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU. This was a group lab. This writeup covers my part, the data analysis.
+**Tools:** JMP · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU. This was a group lab. This writeup covers my part, the data analysis.
 
 ## Goal
 
-Extract Deal–Grove rate constants from real furnace data for wet oxidation of silicon, check how well the model predicts thickness over a 100× range of times, and compare the thickness and optical uniformity of thermal oxide against LPCVD silicon nitride.
+Find the Deal–Grove A and B constants from oxide thickness vs. furnace time, check the model against the measured thickness, and compare the refractive index and uniformity of dry oxide, wet oxide and LPCVD nitride films.
 
 ## Data
 
-All data is the **course-provided dataset** from the ASU NanoFab Tystar furnace. My own measurements are in a separate lab. The analysis, fits and figures here are mine.
+The data is the course-provided dataset from the ASU NanoFab furnace runs:
 
-| File | Contents |
-|---|---|
-| [`data/oxide_thickness_vs_time.csv`](data/oxide_thickness_vs_time.csv) | Wet oxide thickness (Å) at 9 points per wafer, measured by spectral reflectance (Filmetrics F20), for 6 furnace times from 5 to 498 min |
-| [`data/refractive_index_632nm.csv`](data/refractive_index_632nm.csv) | Refractive index at 632.8 nm at 21 points per wafer for dry oxide, wet oxide and LPCVD nitride, measured by spectroscopic ellipsometry (Woollam RC2) |
+- Wet oxide thickness at 9 points per wafer, measured with a Filmetrics F20, for 6 furnace times.
+- Thickness maps and refractive index at 21 points per wafer for dry oxide, wet oxide and LPCVD nitride, from Woollam RC2 ellipsometry.
 
-The furnace recipe used N₂ purges and ramps, a 1 h dry O₂ step at 800 °C, a ramp to 1050 °C, and then wet oxidation (O₂ at 6 slm, N₂/H₂O at 450 sccm).
+The same data is also in [`data/`](data) as CSV.
 
-## Analysis
+## Oxide growth: A and B constants
 
-The Deal–Grove model, x² + A·x = B·(t + τ), becomes a straight line when rearranged:
+### Measured thickness
+
+| Furnace time (min) | 1 (Å) | 2 (Å) | 3 (Å) | 4 (Å) | 5 (Å) | 6 (Å) | 7 (Å) | 8 (Å) | 9 (Å) | Average (Å) | Std. dev. (Å) |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 5   | 910.9   | 867.7   | 869.1   | 860.4   | 858.3   | 865.4   | 863.4   | 866.7   | 900.6   | 873.6   | 18.7  |
+| 15  | 2125.4  | 2131.8  | 2140.1  | 2146.9  | 2158.4  | 2146.5  | 2136.0  | 2147.0  | 2151.3  | 2142.6  | 10.2  |
+| 30  | 3471.1  | 3467.8  | 3466.0  | 3472.6  | 3464.4  | 3462.2  | 3470.5  | 3474.0  | 3468.7  | 3468.6  | 3.9   |
+| 66  | 5554.8  | 5569.9  | 5580.1  | 5580.5  | 5579.9  | 5549.8  | 5578.3  | 5584.0  | 5574.5  | 5572.4  | 12.2  |
+| 180 | 9970.0  | 9958.7  | 9946.5  | 9942.5  | 9928.3  | 9959.5  | 9953.0  | 9945.4  | 9935.0  | 9948.8  | 13.0  |
+| 498 | 16925.5 | 17032.0 | 17179.0 | 17201.0 | 17117.5 | 16774.5 | 16947.0 | 17506.5 | 17852.0 | 17170.6 | 329.2 |
+
+Thickness uniformity drops considerably between the 180 and 498 minute runs: the standard deviation jumps from 13 Å to 329 Å.
+
+![Average oxide thickness vs. furnace time](plots/avg_thickness_vs_time.png)
+
+### Linear fit
+
+Plotting t/x (hr/µm) against x (µm) gives a straight line with slope 1/B and intercept A/B.
+
+![Linear fit of t/x vs. x](plots/deal_grove_linear_fit.png)
 
 ```
-t / x = (1/B)·x + A/B
+t/x = 0.6573 + 2.4100·x
+
+B = 1 / slope        = 0.415 µm²/hr
+A = intercept × B    = 0.272 µm
 ```
 
-A linear fit of t/x against x therefore gives **B = 1/slope** and **A = intercept·B**. The offset τ accounts for oxide already on the wafer before the run. I assumed a 20 Å native oxide (x₀ = 0.002 µm), so τ = (x₀² + A·x₀)/B.
+The time offset τ comes from the initial oxide thickness x₀. I assumed a native oxide of 20 Å, which is x₀ = 0.002 µm:
 
-[`analysis/deal_grove_fit.py`](analysis/deal_grove_fit.py) reproduces everything below from the CSV:
-
-```bash
-pip install numpy matplotlib
-python analysis/deal_grove_fit.py
+```
+τ = (x₀² + A·x₀) / B = 1.32 × 10⁻³ hr ≈ 4.8 s
 ```
 
-## Results
+### Predicted vs. measured
 
-### Rate constants
+```
+x(t) = [ −A + √(A² + 4B(t + τ)) ] / 2      (t in hours, x in µm)
+```
 
-![Linearized Deal–Grove fit](plots/deal_grove_linear_fit.png)
+![Predicted and measured oxide thickness vs. furnace time](plots/predicted_vs_measured.png)
 
-| Constant | Value |
-|---|---|
-| B (parabolic) | **0.415 µm²/hr** |
-| A | **0.273 µm** |
-| B/A (linear) | 1.52 µm/hr |
-| τ (20 Å native oxide) | 1.32 × 10⁻³ hr ≈ 4.8 s |
+| Furnace time (min) | Average thickness (µm) | Predicted thickness (µm) | Error |
+|---:|---:|---:|---:|
+| 5   | 0.0874 | 0.0956 | −9.40% |
+| 15  | 0.2143 | 0.2144 | −0.07% |
+| 30  | 0.3469 | 0.3400 | +1.99% |
+| 66  | 0.5572 | 0.5536 | +0.65% |
+| 180 | 0.9949 | 0.9883 | +0.66% |
+| 498 | 1.7171 | 1.7251 | −0.47% |
 
-All six wafers fall on the line. τ is a few seconds, which is negligible against even the 5-minute run.
+Error = (average − predicted) / average.
 
-### Model vs. measurement
+The fit is good: the model is within 2% of the measured thickness at every time except 5 minutes. τ is only a few seconds, so calculating it after A and B doesn't affect the fit.
 
-![Thickness vs. furnace time](plots/thickness_vs_time.png)
-
-| Furnace time (min) | Measured mean (µm) | Deal–Grove (µm) | Error |
-|---|---|---|---|
-| 5   | 0.0874 | 0.0954 | −8.4% |
-| 15  | 0.2143 | 0.2142 | +0.0% |
-| 30  | 0.3469 | 0.3397 | +2.1% |
-| 66  | 0.5572 | 0.5532 | +0.7% |
-| 180 | 0.9949 | 0.9879 | +0.7% |
-| 498 | 1.7171 | 1.7246 | −0.4% |
-
-From 15 minutes on, the model is within about 2%. The 5-minute wafer is 8% thinner than predicted. At that thickness growth is still mostly reaction-limited, so the result is sensitive to the starting oxide and to exactly when the wafer reaches full temperature and gas flow. A few tens of seconds of delay is a large fraction of a 5-minute run.
-
-### Thickness uniformity
-
-![Within-wafer thickness spread](plots/uniformity_vs_time.png)
-
-Uniformity is best in the middle of the range: σ ≈ 4 Å at 30 minutes, which is about 0.1% of the thickness. At both ends it degrades to roughly 2%: 19 Å on an 874 Å film at 5 minutes, and 329 Å on a 17,170 Å film at 498 minutes. On the shortest run, small differences in the native oxide and in when growth starts are a large fraction of the film. On the longest run, small temperature or gas-flow gradients across the wafer have about 8 hours to add up.
-
-### Thermal oxide vs. LPCVD nitride
+## Ellipsometry
 
 ![Wafer thickness maps](plots/wafer_maps.png)
 
 Wafer thickness maps were made with JMP's contour plot.
 
-| Film | n at 632.8 nm (mean) | Std. dev. across 21 points | Thickness range across wafer |
-|---|---|---|---|
-| Dry oxide | 1.4598 | 3.4 × 10⁻⁵ | ~1068–1086 Å (~1.7%) |
-| Wet oxide | 1.4573 | 1.3 × 10⁻⁵ | ~10470–10540 Å (~0.7%) |
-| LPCVD Si₃N₄ | 2.3027 | 1.4 × 10⁻³ | ~1780–1960 Å (~10%) |
+The refractive index at λ = 0.6328 µm comes from the Cauchy model, n(λ) = A + B/λ² + C/λ⁴, evaluated at each measurement position. Here A, B and C are Cauchy coefficients, not the Deal–Grove constants.
 
-Both oxides have n ≈ 1.46, as expected for thermal SiO₂. The wet oxide has the more uniform thickness, but uniformity is not the same as film quality: dry oxide is still the denser, lower-defect film used for gate dielectrics. The nitride is about 100× less uniform in index and shows a clear top-to-bottom thickness gradient. Thermal oxide is *grown* by consuming the silicon surface, so it is largely self-limiting. LPCVD *deposits* the film from the gas phase, so depletion of the precursor across the wafer and along the boat turns directly into thickness variation.
+| | Dry oxide | Wet oxide | LPCVD nitride |
+|---|---:|---:|---:|
+| Mean n | 1.4598 | 1.4573 | 2.3027 |
+| Std. dev. | 3.40 × 10⁻⁵ | 1.34 × 10⁻⁵ | 1.43 × 10⁻³ |
 
-## What I learned
+<details>
+<summary>Refractive index at all 21 positions</summary>
 
-- The linearized t/x vs. x fit is a simple, robust way to get Deal–Grove constants from a handful of wafers, and the model holds to about 2% from 0.2 to 1.7 µm of oxide.
-- Check the units in τ. Å, µm and hours all appear in one expression, and a slip in converting x₀ changes τ by 100×. Here τ is small either way, so it barely changed the predictions.
-- Grown films and deposited films behave differently: thermal oxide is self-limiting and uniform, while LPCVD uniformity depends on gas transport.
-- Deal–Grove works on flat wafers. My 2D TCAD study, [Thermal Oxidation of an Etched Si Fin](../../tcad-simulations/si-fin-thermal-oxidation), shows where the planar picture breaks down on narrow features.
+| Position | Dry oxide | Wet oxide | LPCVD nitride |
+|---:|---:|---:|---:|
+| 1  | 1.4598452 | 1.4573363 | 2.3021540 |
+| 2  | 1.4597765 | 1.4573376 | 2.3027921 |
+| 3  | 1.4597990 | 1.4573376 | 2.3029286 |
+| 4  | 1.4598215 | 1.4573376 | 2.3009166 |
+| 5  | 1.4597753 | 1.4573613 | 2.2997796 |
+| 6  | 1.4598202 | 1.4573376 | 2.3025913 |
+| 7  | 1.4598215 | 1.4573132 | 2.3032161 |
+| 8  | 1.4597759 | 1.4573388 | 2.3031046 |
+| 9  | 1.4597316 | 1.4573139 | 2.3034678 |
+| 10 | 1.4597309 | 1.4573382 | 2.3031419 |
+| 11 | 1.4597765 | 1.4573376 | 2.3028913 |
+| 12 | 1.4597540 | 1.4573376 | 2.3013417 |
+| 13 | 1.4597072 | 1.4573394 | 2.3007418 |
+| 14 | 1.4597765 | 1.4573388 | 2.3017915 |
+| 15 | 1.4597765 | 1.4573132 | 2.3020169 |
+| 16 | 1.4597753 | 1.4573376 | 2.3025423 |
+| 17 | 1.4597984 | 1.4573151 | 2.3044422 |
+| 18 | 1.4597547 | 1.4573170 | 2.3055169 |
+| 19 | 1.4597528 | 1.4573139 | 2.3023048 |
+| 20 | 1.4597534 | 1.4573157 | 2.3029538 |
+| 21 | 1.4597528 | 1.4573170 | 2.3057165 |
+
+</details>
+
+LPCVD nitride has the largest refractive index but is also the least uniform. Dry and wet oxide have about the same refractive index, but wet oxide is slightly more uniform.
+
+**Related:** [Thermal Oxidation of an Etched Si Fin](../../tcad-simulations/si-fin-thermal-oxidation), a 2D TCAD simulation of wet oxidation on a narrow fin.
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `data/` | Course thickness and refractive-index data as CSV |
-| [`analysis/deal_grove_fit.py`](analysis/deal_grove_fit.py) | Averages the wafers, fits Deal–Grove, prints the comparison table and writes the plots |
-| `plots/` | Fit, model-vs-measured, uniformity and wafer-map figures |
+| `data/` | Thickness and refractive-index data as CSV |
+| `plots/` | JMP figures: thickness vs. time, linear fit, predicted vs. measured, wafer maps |
