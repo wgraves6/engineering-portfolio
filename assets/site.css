@@ -429,6 +429,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .card.featured .g-main img { position: absolute; inset: 0; }
 .card.featured .card-body { padding: 30px 32px; }
 .card.featured h3 { font-size: 27px; }
+.card.featured + .card.featured { margin-top: 22px; }
 .featured-flag {
   display: inline-flex;
   align-items: center;
