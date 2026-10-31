@@ -84,20 +84,22 @@ Each Dektak scan is processed in Gwyddion:
 |---|---|
 | ![Raw Dektak profile in Gwyddion, tilted baseline](docs/images/gwyddion_raw_profile_1000rpm.png) | ![Gwyddion Remove Polynomial Background, degree 2 fit on 4.33–8 mm](docs/images/gwyddion_polynomial_leveling_1000rpm.png) |
 
-| Film plateau (1000 rpm) | Film plateau (1250 rpm) |
+| Film plateau (1000 rpm, coupon 1) | Film plateau (1250 rpm) |
 |---|---|
 | ![Gwyddion statistics on the 1000 rpm film plateau](docs/images/gwyddion_stats_film_plateau_1000rpm.png) | ![Gwyddion statistics on the 1250 rpm film plateau](docs/images/gwyddion_stats_film_plateau_1250rpm.png) |
 
 | Speed | Plateau range | Thickness (mean) | Ra | Rq | Edge ridge (max) |
 |---|---|---|---|---|---|
-| 1000 rpm | 0–2.57 mm | 7.10 µm | 142 nm | 160 nm | 122 µm |
-| 1250 rpm | 0–1.57 mm | 6.14 µm | 48 nm | 61 nm | ~110 µm |
+| 1000 rpm (coupon 1) | 0–2.57 mm | 7.10 µm | 142 nm | 160 nm | 122 µm |
+| 1000 rpm (coupon 2) | 0–1.57 mm | 6.14 µm | 48 nm | 61 nm | ~110 µm |
+| 1250 rpm | 0–2.71 mm | 5.01 µm | 411 nm | 495 nm | ~125 µm |
 
-The 1250 rpm ridge height is read from the plot, not from a statistics range.
+Ridge heights marked ~ are read from the plot, not from a statistics range.
 
 <details>
-<summary>Bare Si baseline and edge-ridge statistics (1000 rpm)</summary>
+<summary>Second 1000 rpm coupon, bare Si baseline and edge-ridge statistics</summary>
 
+![Gwyddion statistics on the film plateau of a second 1000 rpm coupon](docs/images/gwyddion_stats_film_plateau_1000rpm_coupon2.png)
 ![Gwyddion statistics on leveled bare Si](docs/images/gwyddion_stats_si_baseline_1000rpm.png)
 ![Gwyddion statistics on the edge ridge](docs/images/gwyddion_stats_edge_ridge_1000rpm.png)
 
