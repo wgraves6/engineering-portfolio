@@ -71,6 +71,38 @@ h = δ[(ω/ω₀)ⁿ − 1]
 
 Thickness was measured on a Bruker Dektak XT with 3 mg stylus force. Kapton tape masks each coupon and is peeled after cure, and scans start away from the resin ridge at the tape edge. The 1000 rpm scan shows a ~7 µm film plateau, a ~120 µm edge ridge, then bare Si.
 
+### Profile analysis in Gwyddion
+
+Each Dektak scan is processed in Gwyddion:
+
+1. **Level.** The raw scan is tilted (the baseline slopes about 5 µm per mm). A degree-2 polynomial is fit to the bare Si only (4.33–8 mm) and subtracted, so the substrate sits at zero.
+2. **Check the baseline.** On the leveled bare Si (4.61–8 mm), the mean height is ≈ 0 and Rq is 9.8 nm.
+3. **Read the film.** The mean height of the film plateau, away from the ridge, is the cured thickness. Ra and Rq on the same range give film roughness.
+4. **Read the ridge.** The maximum height near the tape edge gives the edge-ridge height.
+
+| Raw scan (1000 rpm) | Polynomial leveling on bare Si |
+|---|---|
+| ![Raw Dektak profile in Gwyddion, tilted baseline](docs/images/gwyddion_raw_profile_1000rpm.png) | ![Gwyddion Remove Polynomial Background, degree 2 fit on 4.33–8 mm](docs/images/gwyddion_polynomial_leveling_1000rpm.png) |
+
+| Film plateau (1000 rpm) | Film plateau (1250 rpm) |
+|---|---|
+| ![Gwyddion statistics on the 1000 rpm film plateau](docs/images/gwyddion_stats_film_plateau_1000rpm.png) | ![Gwyddion statistics on the 1250 rpm film plateau](docs/images/gwyddion_stats_film_plateau_1250rpm.png) |
+
+| Speed | Plateau range | Thickness (mean) | Ra | Rq | Edge ridge (max) |
+|---|---|---|---|---|---|
+| 1000 rpm | 0–2.57 mm | 7.10 µm | 142 nm | 160 nm | 122 µm |
+| 1250 rpm | 0–1.57 mm | 6.14 µm | 48 nm | 61 nm | ~110 µm |
+
+The 1250 rpm ridge height is read from the plot, not from a statistics range.
+
+<details>
+<summary>Bare Si baseline and edge-ridge statistics (1000 rpm)</summary>
+
+![Gwyddion statistics on leveled bare Si](docs/images/gwyddion_stats_si_baseline_1000rpm.png)
+![Gwyddion statistics on the edge ridge](docs/images/gwyddion_stats_edge_ridge_1000rpm.png)
+
+</details>
+
 ### Obstacles
 
 Ellipsometry would not fit, because the ~9 µm grey film absorbs and scatters, and the film was too thick for optical profilometry. So n and k at 405 nm were not extracted.
