@@ -2,6 +2,8 @@
 
 Projects from my electrical engineering work at Arizona State University: semiconductor processing, embedded systems and lab automation. Each project folder has its own README covering the design, hardware and how to run it.
 
+**Portfolio site:** [wgraves6.github.io/engineering-portfolio](https://wgraves6.github.io/engineering-portfolio/)
+
 ## Projects
 
 | Project | What it is | Stack |
