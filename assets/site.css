@@ -427,6 +427,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .card.featured .gallery { border-right: 1px solid var(--line); border-bottom: 0; }
 .card.featured .g-main { aspect-ratio: auto; flex: 1; min-height: 380px; }
 .card.featured .g-main img { position: absolute; inset: 0; }
+.card.featured .g-main.photo img { object-fit: contain; }
 .card.featured .card-body { padding: 30px 32px; }
 .card.featured h3 { font-size: 27px; }
 .card.featured + .card.featured { margin-top: 22px; }
