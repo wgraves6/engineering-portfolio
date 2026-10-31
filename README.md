@@ -19,7 +19,7 @@ Projects from my electrical engineering work at Arizona State University: semico
 |---|---|---|
 | [**Spin Coater Controller**](projects/sun-devil-semiconductor-club/spin-coater) | Closed-loop spin coater with PID + feedforward RPM control, self-calibration, a recipe editor and vibration telemetry | C++ · Arduino · MQTT |
 | [**Lab Monitoring (IIoT)**](projects/sun-devil-semiconductor-club/lab-monitoring-iiot) | Arduino sensor nodes streaming equipment data to an Ignition SCADA gateway over MQTT | Arduino · Ignition · MQTT |
-| [**Spin-Coat Defect Analysis**](projects/sun-devil-semiconductor-club/spin-coat-defect-analysis) | FURI research: automated time-lapse imaging and defect counting for spin-coated films, with a DOE study of process parameters | Python · OpenCV · ImageJ · JMP |
+| [**Spin-Coat Defect Analysis**](projects/sun-devil-semiconductor-club/spin-coat-defect-analysis) | FURI research: 405 nm SLA resin as a low-cost photoresist, with spin-speed thickness and adhesion characterization and automated defect imaging (DOE in progress) | Python · OpenCV · ImageJ · JMP · Dektak |
 
 ## Skills
 

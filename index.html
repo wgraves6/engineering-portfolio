@@ -32,7 +32,7 @@
       <div>
         <div class="eyebrow">Electrical Engineering · Arizona State University</div>
         <h1>Semiconductor processing, embedded systems and lab automation.</h1>
-        <p>Projects from my work at ASU: a closed-loop spin coater and IIoT lab monitoring for the Sun Devil Semiconductor Club, FURI research on spin-coated film defects, process and device characterization, and Silvaco TCAD simulations.</p>
+        <p>Projects from my work at ASU: a closed-loop spin coater and IIoT lab monitoring for the Sun Devil Semiconductor Club, FURI research on SLA resin as a low-cost photoresist, process and device characterization, and Silvaco TCAD simulations.</p>
         <div class="buttons">
           <a class="btn primary" href="#club">View projects</a>
           <a class="btn" href="https://github.com/wgraves6/engineering-portfolio">Source on GitHub</a>
@@ -71,7 +71,7 @@
       <div class="group-head">
         <h2>Sun Devil Semiconductor Club</h2>
         <div class="rule"></div>
-        <p>The club's spin coater, the network that monitors it, and my FURI research on spin-coated films.</p>
+        <p>The club's spin coater, the network that monitors it, and my FURI research on SLA resin as a low-cost photoresist.</p>
       </div>
       <div class="grid">
 
@@ -119,20 +119,24 @@
         </article>
 
         <article class="card">
-          <div class="media pair">
-            <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/run02_1_t00030s_1_check.jpg" alt="Spin-coated shard 30 seconds after the spin stops">
-            <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/run02_1_t03600s_1_check.jpg" alt="Same shard at 60 minutes with defects outlined">
+          <div class="media">
+            <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cured_thickness_vs_speed.png" alt="Cured resin film thickness vs. spin speed with model fit">
           </div>
           <div class="body">
-            <h3>Spin-Coat Defect Analysis</h3>
-            <p class="context">FURI research · Fall 2026</p>
-            <p class="summary">Automated time-lapse imaging and defect counting for spin-coated films, to find how spin parameters affect when defects first appear and how quickly they nucleate and grow. Shown: the same shard 30 s and 60 min after the spin stops, with defects outlined.</p>
+            <h3>SLA Resin as a 405 nm Photoresist</h3>
+            <p class="context">FURI research · Fall 2026 · sponsored by TSMC</p>
+            <p class="summary">Characterizing a low-cost 405 nm UV-curable SLA resin as a photoresist for the club's photolithography process: how spin speed sets cured thickness and adhesion, and how quickly defects form in the wet film.</p>
+            <div class="stats">
+              <div class="stat"><b>≤ 1550 rpm</b><span>good cured film; removed above 2100</span></div>
+              <div class="stat"><b>7.3 → 0.8 µm</b><span>cured thickness, 1000 → 2000 rpm</span></div>
+              <div class="stat"><b>δ = 13.5 µm</b><span>uncured layer lost in IPA rinse</span></div>
+            </div>
             <ul>
-              <li>Python capture of a USB microscope on a fixed schedule, lamp switched by an Arduino Opta with a 30 s hardware auto-off</li>
-              <li>ImageJ macro: flat-field correction, thresholding and per-image defect counts</li>
-              <li>Full-factorial JMP DOE over cover, ramp time, final speed and dwell</li>
+              <li>Constant-loss model fit to Dektak XT stylus profilometry</li>
+              <li>Automated microscope time-lapse with an Opta-switched lamp and ImageJ defect counting</li>
+              <li>Defect-onset DOE in progress</li>
             </ul>
-            <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">ImageJ</span><span class="tag">JMP DOE</span></div>
+            <div class="tags"><span class="tag">Dektak XT</span><span class="tag">JMP</span><span class="tag">Python</span><span class="tag">ImageJ</span></div>
             <a class="more" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis">Read the write-up →</a>
           </div>
         </article>
