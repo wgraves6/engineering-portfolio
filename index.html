@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>William Graves · Electrical Engineering Portfolio</title>
-  <meta name="description" content="William Graves, Electrical Engineering at Arizona State University. Semiconductor process and characterization, TSMC-sponsored FURI photoresist research, equipment design and lab automation.">
+  <meta name="description" content="William Graves, Electrical Engineering at Arizona State University. Semiconductor processing, device characterization and circuits, including TSMC-sponsored FURI photoresist research.">
   <meta name="theme-color" content="#8c1d40">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="William Graves · Electrical Engineering Portfolio">
-  <meta property="og:description" content="Semiconductor process and characterization, TSMC-sponsored FURI photoresist research, equipment design and lab automation at Arizona State University.">
+  <meta property="og:description" content="Semiconductor processing, device characterization and circuits at Arizona State University, including TSMC-sponsored FURI photoresist research.">
   <meta property="og:url" content="https://wgraves6.github.io/engineering-portfolio/">
   <meta property="og:image" content="https://wgraves6.github.io/engineering-portfolio/assets/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site.css?v=20261031a">
   <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
 </head>
 <body>
@@ -71,21 +71,19 @@
       <div>
         <p class="kicker">Electrical Engineering · Arizona State University · Class of 2028</p>
         <h1>William Graves</h1>
-        <p class="lede">Semiconductor <em>process &amp; characterization</em>, equipment design and lab automation.</p>
-        <p class="intro">I'm an electrical engineering junior focused on semiconductor physics and manufacturing. My hands-on work spans photolithography process development, defect characterization and DOE, supported by the equipment, automation and data infrastructure I design and build.</p>
+        <p class="lede">Semiconductor processing, device characterization and circuits.</p>
+        <p class="intro">I'm an electrical engineering junior focused on semiconductor physics and manufacturing. My hands-on work covers photolithography process development, thin-film metrology, device I-V characterization and design of experiments.</p>
         <div class="seeking"><span class="dot"></span><span><b>Seeking a Summer 2027 internship</b> in process, equipment or integration engineering</span></div>
         <div class="buttons">
-          <a class="btn btn-primary" href="#club">View projects <svg><use href="#i-down"/></svg></a>
-          <a class="btn" href="https://www.linkedin.com/in/graves-william"><svg><use href="#i-linkedin"/></svg> LinkedIn</a>
-          <a class="btn" href="https://github.com/wgraves6/engineering-portfolio"><svg><use href="#i-github"/></svg> GitHub</a>
+          <a class="btn btn-primary" href="#club">View projects <svg width="16" height="16" aria-hidden="true"><use href="#i-down"/></svg></a>
+          <a class="btn" href="https://www.linkedin.com/in/graves-william"><svg width="16" height="16" aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn</a>
+          <a class="btn" href="https://github.com/wgraves6/engineering-portfolio"><svg width="16" height="16" aria-hidden="true"><use href="#i-github"/></svg> GitHub</a>
         </div>
       </div>
       <figure class="hero-media">
         <div class="hero-photo">
           <img src="assets/images/cleanroom-pair.jpg" alt="Two students in full cleanroom gowns giving a thumbs up at the cleanroom entrance" width="1050" height="1400">
         </div>
-        <div class="badge-float b1"><span class="ico"><svg><use href="#i-flask"/></svg></span><span><b>TSMC-sponsored FURI</b>405 nm photoresist research</span></div>
-        <div class="badge-float b2"><span class="ico"><svg><use href="#i-shield"/></svg></span><span><b>Cleanroom trained</b>ASU NanoFab wafer labs</span></div>
         <figcaption>Gowned up for cleanroom lab work at ASU.</figcaption>
       </figure>
     </div>
@@ -107,7 +105,7 @@
         <span class="section-num">01</span>
         <h2>Sun Devil Semiconductor Club</h2>
         <div class="rule"></div>
-        <p>Research and equipment for the club's student-run photolithography process: a low-cost 405 nm photoresist study, the spin coater that applies it, and the network that monitors the tools.</p>
+        <p>My FURI research on a low-cost 405 nm photoresist for the club's student-run photolithography process, plus equipment I've helped build.</p>
         <div class="club-mark" role="img" aria-label="Sun Devil Semiconductor Club logo">
           <svg viewBox="0 0 600 600"><use href="#sdsc-mark" width="600" height="600"/></svg>
         </div>
@@ -118,7 +116,7 @@
         <div class="gallery">
           <a class="g-main photo" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" data-caption="Defect imaging setup: Olympus BH microscope with an eyepiece webcam and a relay-switched lamp.">
             <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" alt="Microscope with eyepiece webcam next to a laptop running the capture script" width="1600" height="1200">
-            <span class="zoom"><svg width="14" height="14"><use href="#i-zoom"/></svg> Enlarge</span>
+            <span class="zoom"><svg width="14" height="14" aria-hidden="true"><use href="#i-zoom"/></svg> Enlarge</span>
           </a>
           <p class="g-caption">Defect imaging setup: Olympus BH microscope with an eyepiece webcam and a relay-switched lamp.</p>
           <div class="g-thumbs">
@@ -151,146 +149,41 @@
           <ul class="did">
             <li>Ran spin, cure and develop lift-off tests (14 runs, 6 coupons) to set the usable speed window.</li>
             <li>Measured cured thickness by Bruker Dektak XT stylus profilometry and fit a constant-loss rinse model, h = δ[(ω/ω₀)ⁿ − 1], in JMP (RMSE 0.59 µm).</li>
-            <li>Built an automated microscope time-lapse rig: Python capture, an Arduino Opta lamp relay with a 30 s hardware auto-off, and ImageJ defect counting.</li>
+            <li>Set up time-lapse microscope imaging of the wet film with ImageJ defect counting.</li>
             <li>Designing a full-factorial DOE (ramp time × final speed, with center points) for defect onset time and nucleation.</li>
           </ul>
           <div class="tags">
-            <span class="tag">Spin coating</span><span class="tag">Photolithography</span><span class="tag">Stylus profilometry</span><span class="tag">JMP · DOE</span><span class="tag">Python</span><span class="tag">ImageJ</span><span class="tag">Arduino Opta</span>
+            <span class="tag">Spin coating</span><span class="tag">Photolithography</span><span class="tag">Stylus profilometry</span><span class="tag">JMP · DOE</span><span class="tag">ImageJ</span>
           </div>
           <div class="links">
-            <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis">Read the write-up <svg><use href="#i-arrow"/></svg></a>
-            <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/capture"><svg><use href="#i-code"/></svg> Capture code</a>
+            <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/capture"><svg width="16" height="16" aria-hidden="true"><use href="#i-code"/></svg> Capture code</a>
           </div>
         </div>
       </article>
 
-      <p class="sub-head reveal">Equipment &amp; automation</p>
+      <p class="sub-head reveal">Also built for the club</p>
       <div class="grid-2">
-
-        <!-- Spin coater -->
-        <article class="card reveal">
-          <div class="diagram" role="img" aria-label="Block diagram of the spin coater control loop">
-            <svg viewBox="0 0 680 330">
-              <defs>
-                <marker id="ah1" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker>
-                <marker id="ah1fb" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path class="dg-arrow fb" d="M0,0 L8,4 L0,8 z"/></marker>
-              </defs>
-              <rect class="dg-box" x="12" y="40" width="118" height="64" rx="10"/>
-              <text class="dg-t" x="71" y="68" text-anchor="middle">Recipe step</text>
-              <text class="dg-s" x="71" y="87" text-anchor="middle">RPM set point</text>
-              <path class="dg-line" d="M130 72 H147" marker-end="url(#ah1)"/>
-              <circle class="dg-sum" cx="162" cy="72" r="13"/>
-              <text class="dg-s" x="162" y="77" text-anchor="middle">Σ</text>
-              <path class="dg-line" d="M175 72 H194" marker-end="url(#ah1)"/>
-              <rect class="dg-box key" x="196" y="40" width="176" height="64" rx="10"/>
-              <text class="dg-t" x="284" y="68" text-anchor="middle">Controller, 50 Hz</text>
-              <text class="dg-s" x="284" y="87" text-anchor="middle">feedforward map + PID</text>
-              <path class="dg-line" d="M372 72 H394" marker-end="url(#ah1)"/>
-              <rect class="dg-box" x="396" y="40" width="120" height="64" rx="10"/>
-              <text class="dg-t" x="456" y="68" text-anchor="middle">XY160D</text>
-              <text class="dg-s" x="456" y="87" text-anchor="middle">H-bridge, PWM</text>
-              <path class="dg-line" d="M516 72 H538" marker-end="url(#ah1)"/>
-              <rect class="dg-box" x="540" y="40" width="128" height="64" rx="10"/>
-              <text class="dg-t" x="604" y="68" text-anchor="middle">DC motor</text>
-              <text class="dg-s" x="604" y="87" text-anchor="middle">+ wafer chuck</text>
-              <path class="dg-line" d="M604 104 V148" marker-end="url(#ah1)"/>
-              <rect class="dg-box" x="540" y="150" width="128" height="58" rx="10"/>
-              <text class="dg-t" x="604" y="175" text-anchor="middle">Hall sensor</text>
-              <text class="dg-s" x="604" y="194" text-anchor="middle">ISR tachometer</text>
-              <path class="dg-line fb" d="M540 179 H162 V87" marker-end="url(#ah1fb)"/>
-              <text class="dg-l" x="420" y="170" text-anchor="middle">MEASURED RPM</text>
-              <rect class="dg-box soft" x="12" y="250" width="150" height="64" rx="10"/>
-              <text class="dg-t" x="87" y="278" text-anchor="middle">OLED + encoder</text>
-              <text class="dg-s" x="87" y="297" text-anchor="middle">recipe editor</text>
-              <path class="dg-line" d="M71 250 V106" marker-end="url(#ah1)"/>
-              <rect class="dg-box soft" x="196" y="250" width="176" height="64" rx="10"/>
-              <text class="dg-t" x="284" y="278" text-anchor="middle">SD card</text>
-              <text class="dg-s" x="284" y="297" text-anchor="middle">self-calibrated motor map</text>
-              <path class="dg-line" d="M284 250 V106" marker-end="url(#ah1)"/>
-              <rect class="dg-box soft" x="396" y="250" width="272" height="64" rx="10"/>
-              <text class="dg-t" x="532" y="278" text-anchor="middle">Telemetry → Ignition SCADA</text>
-              <text class="dg-s" x="532" y="297" text-anchor="middle">RPM + vibration, JSON over MQTT</text>
-              <path class="dg-line" d="M604 208 V248" marker-end="url(#ah1)"/>
-            </svg>
-          </div>
+        <article class="card compact reveal">
           <div class="card-body">
-            <p class="kicker">Club equipment · Equipment Team Lead</p>
-            <h3>Closed-Loop Wafer Spin Coater</h3>
-            <p class="summary">A programmable photoresist spin coater for the club: CNC-machined chuck, Arduino closed-loop motor control and an OLED recipe interface, streaming speed and vibration telemetry to Ignition SCADA.</p>
-            <ul class="did">
-              <li>PID + feedforward RPM control on a fixed 50 Hz tick, with deadband, anti-windup and slew limits.</li>
-              <li>Self-calibration sweeps PWM 30 → 255 and saves the measured PWM→RPM map to SD.</li>
-              <li>Interrupt-driven Hall tachometer and MPU-6050 vibration RMS, peak and crest factor.</li>
-              <li>Non-blocking MQTT telemetry, so a missing broker never stalls the motor.</li>
-            </ul>
-            <div class="tags">
-              <span class="tag">C++</span><span class="tag">Arduino Uno R4</span><span class="tag">PID control</span><span class="tag">MQTT</span><span class="tag">CNC machining</span>
-            </div>
+            <p class="kicker">Club equipment</p>
+            <h3>Spin Coater Controller</h3>
+            <p class="summary">Arduino closed-loop speed control and a recipe menu for the club's photoresist spin coater, with a CNC-machined wafer chuck.</p>
             <div class="links">
-              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coater">Read the write-up <svg><use href="#i-arrow"/></svg></a>
-              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coater/firmware/improved_spin_coater"><svg><use href="#i-code"/></svg> Firmware</a>
+              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coater">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </div>
         </article>
-
-        <!-- Lab monitoring -->
-        <article class="card reveal">
-          <div class="diagram" role="img" aria-label="Architecture diagram of the lab monitoring system">
-            <svg viewBox="-20 0 680 330">
-              <defs>
-                <marker id="ah2" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker>
-              </defs>
-              <rect class="dg-box" x="12" y="30" width="176" height="64" rx="10"/>
-              <text class="dg-t" x="100" y="58" text-anchor="middle">Sensors</text>
-              <text class="dg-s" x="100" y="76" text-anchor="middle">MPU-6050 · Hall · …</text>
-              <path class="dg-line" d="M188 62 H228" marker-end="url(#ah2)"/>
-              <text class="dg-l" x="208" y="52" text-anchor="middle">I2C</text>
-              <rect class="dg-box key" x="232" y="30" width="176" height="64" rx="10"/>
-              <text class="dg-t" x="320" y="58" text-anchor="middle">Arduino node</text>
-              <text class="dg-s" x="320" y="76" text-anchor="middle">Uno R3/R4 + W5100/W5500</text>
-              <path class="dg-line" d="M408 62 H448" marker-end="url(#ah2)"/>
-              <text class="dg-l" x="428" y="52" text-anchor="middle">MQTT</text>
-              <rect class="dg-box" x="452" y="30" width="176" height="64" rx="10"/>
-              <text class="dg-t" x="540" y="58" text-anchor="middle">MQTT Distributor</text>
-              <text class="dg-s" x="540" y="76" text-anchor="middle">broker · port 1883</text>
-              <path class="dg-line" d="M540 94 V138" marker-end="url(#ah2)"/>
-              <rect class="dg-box" x="452" y="140" width="176" height="64" rx="10"/>
-              <text class="dg-t" x="540" y="168" text-anchor="middle">MQTT Engine</text>
-              <text class="dg-s" x="540" y="186" text-anchor="middle">JSON messages → tags</text>
-              <path class="dg-line" d="M452 172 H412" marker-end="url(#ah2)"/>
-              <rect class="dg-box key" x="232" y="140" width="176" height="64" rx="10"/>
-              <text class="dg-t" x="320" y="168" text-anchor="middle">Ignition tags</text>
-              <text class="dg-s" x="320" y="187" text-anchor="middle">trends, history, alarms</text>
-              <path class="dg-line" d="M232 172 H192" marker-end="url(#ah2)"/>
-              <rect class="dg-box" x="12" y="140" width="176" height="64" rx="10"/>
-              <text class="dg-t" x="100" y="168" text-anchor="middle">Perspective</text>
-              <text class="dg-s" x="100" y="186" text-anchor="middle">live dashboards</text>
-              <text class="dg-l" x="540" y="228" text-anchor="middle">IGNITION GATEWAY</text>
-              <rect class="dg-box soft" x="12" y="252" width="616" height="58" rx="10"/>
-              <text class="dg-t" x="320" y="277" text-anchor="middle">Network diagnostics</text>
-              <text class="dg-s" x="320" y="295" text-anchor="middle">DHCP with static fallback · ping router and gateway PC · TCP 1883 check</text>
-            </svg>
-          </div>
+        <article class="card compact reveal">
           <div class="card-body">
-            <p class="kicker">Club infrastructure · IIoT</p>
-            <h3>Lab Monitoring with Ignition SCADA</h3>
-            <p class="summary">Arduino Ethernet sensor nodes that publish lab equipment data over MQTT to an Ignition SCADA gateway, where readings become live tags for trending, dashboards and alarms. Built for the club's tools, starting with the spin coater.</p>
-            <ul class="did">
-              <li>End-to-end Arduino → MQTT → Ignition link with JSON payloads on Uno R3 + W5100 and Uno R4 + W5500.</li>
-              <li>Vibration node publishing gravity-compensated RMS, peak and crest factor per window.</li>
-              <li>Diagnostic sketches that isolate cable/shield, firewall or broker faults.</li>
-              <li>Step-by-step setup guide covering Ignition modules, networking and troubleshooting.</li>
-            </ul>
-            <div class="tags">
-              <span class="tag">Ignition SCADA</span><span class="tag">MQTT</span><span class="tag">Arduino</span><span class="tag">Ethernet</span><span class="tag">JSON</span>
-            </div>
+            <p class="kicker">Club infrastructure</p>
+            <h3>Lab Monitoring</h3>
+            <p class="summary">Arduino sensor nodes that send equipment readings to an Ignition SCADA gateway over MQTT, starting with the spin coater.</p>
             <div class="links">
-              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/lab-monitoring-iiot">Read the write-up <svg><use href="#i-arrow"/></svg></a>
-              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/lab-monitoring-iiot/sketches"><svg><use href="#i-code"/></svg> Sketches</a>
+              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/lab-monitoring-iiot">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </div>
         </article>
-
       </div>
     </div>
   </section>
@@ -311,7 +204,7 @@
           <div class="gallery">
             <a class="g-main" href="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/wafer_maps.png" data-caption="Wafer thickness maps: dry oxide, wet oxide and LPCVD Si₃N₄.">
               <img src="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/wafer_maps.png" alt="Thickness contour maps of three wafers" loading="lazy">
-              <span class="zoom"><svg width="14" height="14"><use href="#i-zoom"/></svg> Enlarge</span>
+              <span class="zoom"><svg width="14" height="14" aria-hidden="true"><use href="#i-zoom"/></svg> Enlarge</span>
             </a>
             <p class="g-caption">Wafer thickness maps: dry oxide, wet oxide and LPCVD Si₃N₄.</p>
             <div class="g-thumbs">
@@ -337,7 +230,7 @@
             </ul>
             <div class="tags"><span class="tag">Deal–Grove</span><span class="tag">Filmetrics</span><span class="tag">Ellipsometry</span><span class="tag">JMP</span></div>
             <div class="links">
-              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/semiconductor-characterization/thermal-oxidation-deal-grove">Read the write-up <svg><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/semiconductor-characterization/thermal-oxidation-deal-grove">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </div>
         </article>
@@ -347,7 +240,7 @@
           <div class="gallery">
             <a class="g-main photo" href="projects/semiconductor-characterization/device-iv-characterization/plots/curve_tracer_setup.jpg" data-caption="Bench setup: LEADER LTC-905 curve tracer driving a Tektronix DPO4032 in XY mode.">
               <img src="projects/semiconductor-characterization/device-iv-characterization/plots/curve_tracer_setup.jpg" alt="Curve tracer, function generator, power supply and oscilloscope on a lab bench" loading="lazy">
-              <span class="zoom"><svg width="14" height="14"><use href="#i-zoom"/></svg> Enlarge</span>
+              <span class="zoom"><svg width="14" height="14" aria-hidden="true"><use href="#i-zoom"/></svg> Enlarge</span>
             </a>
             <p class="g-caption">Bench setup: LEADER LTC-905 curve tracer driving a Tektronix DPO4032 in XY mode.</p>
             <div class="g-thumbs">
@@ -377,7 +270,7 @@
             </ul>
             <div class="tags"><span class="tag">Curve tracer</span><span class="tag">Oscilloscope</span><span class="tag">DMM</span><span class="tag">LTspice</span><span class="tag">JMP</span></div>
             <div class="links">
-              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/semiconductor-characterization/device-iv-characterization">Read the write-up <svg><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/semiconductor-characterization/device-iv-characterization">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </div>
         </article>
@@ -402,7 +295,7 @@
           <div class="gallery">
             <a class="g-main" href="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/final_1um_trench.png" data-caption="Final 1 µm deep GaAs trench with 0.171 µm oxide mask and a 9.32 min etch.">
               <img src="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/final_1um_trench.png" alt="Simulated 1 µm deep GaAs trench cross-section" loading="lazy">
-              <span class="zoom"><svg width="14" height="14"><use href="#i-zoom"/></svg> Enlarge</span>
+              <span class="zoom"><svg width="14" height="14" aria-hidden="true"><use href="#i-zoom"/></svg> Enlarge</span>
             </a>
             <p class="g-caption">Final 1 µm deep GaAs trench with 0.171 µm oxide mask and a 9.32 min etch.</p>
             <div class="g-thumbs">
@@ -428,8 +321,8 @@
             </ul>
             <div class="tags"><span class="tag">Silvaco Athena</span><span class="tag">Reactive ion etch</span><span class="tag">JMP · DOE</span></div>
             <div class="links">
-              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/gaas-rie-etch-selectivity">Read the write-up <svg><use href="#i-arrow"/></svg></a>
-              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/gaas-rie-etch-selectivity/deck"><svg><use href="#i-code"/></svg> Decks</a>
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/gaas-rie-etch-selectivity">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/gaas-rie-etch-selectivity/deck"><svg width="16" height="16" aria-hidden="true"><use href="#i-code"/></svg> Decks</a>
             </div>
           </div>
         </article>
@@ -439,7 +332,7 @@
           <div class="gallery">
             <a class="g-main" href="projects/tcad-simulations/si-fin-thermal-oxidation/plots/fin_oxidation_time_series.png" data-caption="Si fin cross-sections during wet oxidation at 1000 °C, 0 to 60 min.">
               <img src="projects/tcad-simulations/si-fin-thermal-oxidation/plots/fin_oxidation_time_series.png" alt="Time series of fin cross-sections during oxidation" loading="lazy">
-              <span class="zoom"><svg width="14" height="14"><use href="#i-zoom"/></svg> Enlarge</span>
+              <span class="zoom"><svg width="14" height="14" aria-hidden="true"><use href="#i-zoom"/></svg> Enlarge</span>
             </a>
             <p class="g-caption">Si fin cross-sections during wet oxidation at 1000 °C, 0 to 60 min.</p>
             <div class="g-thumbs">
@@ -462,8 +355,8 @@
             </ul>
             <div class="tags"><span class="tag">Silvaco Athena</span><span class="tag">Thermal oxidation</span><span class="tag">JMP</span></div>
             <div class="links">
-              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/si-fin-thermal-oxidation">Read the write-up <svg><use href="#i-arrow"/></svg></a>
-              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/si-fin-thermal-oxidation/deck"><svg><use href="#i-code"/></svg> Deck</a>
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/si-fin-thermal-oxidation">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/si-fin-thermal-oxidation/deck"><svg width="16" height="16" aria-hidden="true"><use href="#i-code"/></svg> Deck</a>
             </div>
           </div>
         </article>
@@ -497,7 +390,7 @@ z.rect_to_phasor(Zin)               <span class="c"># -> (187.964, -57.858)</spa
             </ul>
             <div class="tags"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">openpyxl</span></div>
             <div class="links">
-              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/engineering-tools">Read the write-up <svg><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/engineering-tools">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </div>
         </article>
@@ -513,7 +406,7 @@ z.rect_to_phasor(Zin)               <span class="c"># -> (187.964, -57.858)</spa
             </ul>
             <div class="tags"><span class="tag">JSL</span><span class="tag">JMP</span><span class="tag">DOE</span></div>
             <div class="links">
-              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/engineering-tools/jmp">Browse the scripts <svg><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/engineering-tools/jmp">Browse the scripts <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </div>
         </article>
@@ -538,7 +431,7 @@ z.rect_to_phasor(Zin)               <span class="c"># -> (187.964, -57.858)</spa
               <ul>
                 <li>Characterizing time-dependent dewetting of uncured 405 nm resin films on Si to define the post-spin processing window for photolithography.</li>
                 <li>Designing a full-factorial DOE with center points to separate defect nucleation rate from hole growth velocity; analysis in JMP.</li>
-                <li>Developing low-actinic (&gt;500 nm) time-lapse imaging and ImageJ defect quantification, with Ignition SCADA + PostgreSQL logging of environmental covariates.</li>
+                <li>Developing low-actinic (&gt;500 nm) time-lapse imaging and ImageJ defect quantification.</li>
               </ul>
             </div>
           </li>
@@ -548,8 +441,7 @@ z.rect_to_phasor(Zin)               <span class="c"># -> (187.964, -57.858)</spa
               <p class="tl-org"><svg class="org-mark" viewBox="0 0 600 600" aria-hidden="true"><use href="#sdsc-mark" width="600" height="600"/></svg>Sun Devil Semiconductor Club</p>
               <ul>
                 <li>Lead design, fabrication and integration of equipment for the club's semiconductor processing and characterization work.</li>
-                <li>Designed and built a programmable wafer spin coater: CNC-machined components, Arduino closed-loop motor control and a custom operator interface.</li>
-                <li>Integrated SCADA, PostgreSQL and custom instrumentation for automated data logging and statistical analysis.</li>
+                <li>Built a programmable wafer spin coater for the club's photoresist process.</li>
               </ul>
             </div>
           </li>
@@ -614,28 +506,28 @@ z.rect_to_phasor(Zin)               <span class="c"># -> (187.964, -57.858)</spa
       </header>
       <div class="skills-grid">
         <div class="skill-card reveal">
-          <h3><span class="ico"><svg><use href="#i-shield"/></svg></span>Process &amp; cleanroom</h3>
+          <h3><span class="ico"><svg width="16" height="16" aria-hidden="true"><use href="#i-shield"/></svg></span>Process &amp; cleanroom</h3>
           <div class="chips"><span class="chip">Spin coating</span><span class="chip">Photolithography</span><span class="chip">UV cure &amp; IPA develop</span><span class="chip">Thermal oxidation</span><span class="chip">Image-based defect inspection</span><span class="chip">Cleanroom protocol</span></div>
         </div>
         <div class="skill-card reveal">
-          <h3><span class="ico"><svg><use href="#i-target"/></svg></span>Metrology &amp; characterization</h3>
-          <div class="chips"><span class="chip">Bruker Dektak XT</span><span class="chip">Filmetrics spectral reflectance</span><span class="chip">Spectroscopic ellipsometry</span><span class="chip">Optical microscopy</span><span class="chip">Curve tracer I-V</span><span class="chip">Oscilloscope · DMM · LCR</span></div>
+          <h3><span class="ico"><svg width="16" height="16" aria-hidden="true"><use href="#i-target"/></svg></span>Metrology &amp; characterization</h3>
+          <div class="chips"><span class="chip">Bruker Dektak XT</span><span class="chip">Filmetrics spectral reflectance</span><span class="chip">Spectroscopic ellipsometry</span><span class="chip">Optical microscopy</span><span class="chip">Curve tracer I-V</span><span class="chip">MOSFET parameter extraction</span></div>
         </div>
         <div class="skill-card reveal">
-          <h3><span class="ico"><svg><use href="#i-chart"/></svg></span>Data analysis &amp; process control</h3>
-          <div class="chips"><span class="chip">Design of Experiments</span><span class="chip">JMP</span><span class="chip">SPC</span><span class="chip">Nonlinear model fitting</span><span class="chip">ImageJ / Fiji</span><span class="chip">Python · OpenCV</span><span class="chip">MATLAB</span></div>
+          <h3><span class="ico"><svg width="16" height="16" aria-hidden="true"><use href="#i-chart"/></svg></span>Data analysis &amp; process control</h3>
+          <div class="chips"><span class="chip">Design of Experiments</span><span class="chip">JMP</span><span class="chip">SPC</span><span class="chip">Nonlinear model fitting</span><span class="chip">ImageJ / Fiji</span><span class="chip">Python</span><span class="chip">MATLAB</span></div>
         </div>
         <div class="skill-card reveal">
-          <h3><span class="ico"><svg><use href="#i-layers"/></svg></span>Simulation</h3>
-          <div class="chips"><span class="chip">Silvaco Athena (TCAD)</span><span class="chip">LTspice</span></div>
+          <h3><span class="ico"><svg width="16" height="16" aria-hidden="true"><use href="#i-layers"/></svg></span>Simulation</h3>
+          <div class="chips"><span class="chip">Silvaco Athena (TCAD)</span><span class="chip">LTspice</span><span class="chip">Hand calculations vs. simulation</span></div>
         </div>
         <div class="skill-card reveal">
-          <h3><span class="ico"><svg><use href="#i-chip"/></svg></span>Automation &amp; hardware</h3>
-          <div class="chips"><span class="chip">Ignition SCADA</span><span class="chip">MQTT</span><span class="chip">PostgreSQL / SQL</span><span class="chip">Arduino · Opta PLC</span><span class="chip">ESP32</span><span class="chip">KiCad</span><span class="chip">I2C / SPI</span><span class="chip">CNC machining</span></div>
+          <h3><span class="ico"><svg width="16" height="16" aria-hidden="true"><use href="#i-chip"/></svg></span>Circuits &amp; electronics</h3>
+          <div class="chips"><span class="chip">LTspice</span><span class="chip">Oscilloscope</span><span class="chip">Function generator</span><span class="chip">DMM · LCR meter</span><span class="chip">Breadboard prototyping</span><span class="chip">PCB design (KiCad)</span></div>
         </div>
         <div class="skill-card reveal">
-          <h3><span class="ico"><svg><use href="#i-code"/></svg></span>Languages</h3>
-          <div class="chips"><span class="chip">C++ (Arduino)</span><span class="chip">Python</span><span class="chip">JSL</span><span class="chip">SQL</span><span class="chip">MATLAB</span></div>
+          <h3><span class="ico"><svg width="16" height="16" aria-hidden="true"><use href="#i-code"/></svg></span>Programming</h3>
+          <div class="chips"><span class="chip">Python</span><span class="chip">MATLAB</span><span class="chip">JSL</span><span class="chip">C++ (Arduino)</span></div>
         </div>
       </div>
     </div>
@@ -668,12 +560,12 @@ z.rect_to_phasor(Zin)               <span class="c"># -> (187.964, -57.858)</spa
     <div>
       <p class="kicker">Get in touch</p>
       <h2>Looking for a Summer 2027 internship in process, equipment or integration engineering.</h2>
-      <p>I'd be glad to talk about fab process, metrology or equipment roles. LinkedIn is the best way to reach me, and every project here links to its code and data on GitHub.</p>
+      <p>I'd be glad to talk about fab process, metrology or device characterization roles. LinkedIn is the best way to reach me, and every project here links to its write-up and data on GitHub.</p>
     </div>
     <div class="contact-links">
-      <a class="contact-link" href="https://www.linkedin.com/in/graves-william"><svg><use href="#i-linkedin"/></svg><span><b>LinkedIn</b><span>linkedin.com/in/graves-william</span></span><svg class="arr"><use href="#i-arrow"/></svg></a>
-      <a class="contact-link" href="https://github.com/wgraves6"><svg><use href="#i-github"/></svg><span><b>GitHub</b><span>github.com/wgraves6</span></span><svg class="arr"><use href="#i-arrow"/></svg></a>
-      <a class="contact-link" href="https://github.com/wgraves6/engineering-portfolio"><svg><use href="#i-code"/></svg><span><b>Portfolio source</b><span>Write-ups, firmware, decks and data</span></span><svg class="arr"><use href="#i-arrow"/></svg></a>
+      <a class="contact-link" href="https://www.linkedin.com/in/graves-william"><svg width="16" height="16" aria-hidden="true"><use href="#i-linkedin"/></svg><span><b>LinkedIn</b><span>linkedin.com/in/graves-william</span></span><svg class="arr" width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="contact-link" href="https://github.com/wgraves6"><svg width="16" height="16" aria-hidden="true"><use href="#i-github"/></svg><span><b>GitHub</b><span>github.com/wgraves6</span></span><svg class="arr" width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="contact-link" href="https://github.com/wgraves6/engineering-portfolio"><svg width="16" height="16" aria-hidden="true"><use href="#i-code"/></svg><span><b>Portfolio source</b><span>Write-ups, decks and data</span></span><svg class="arr" width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
@@ -690,12 +582,12 @@ z.rect_to_phasor(Zin)               <span class="c"># -> (187.964, -57.858)</spa
   <div class="lb-inner">
     <div class="lb-stage"><img alt=""></div>
     <div class="lb-bar"><span class="lb-cap"></span><span class="lb-count"></span></div>
-    <button class="lb-btn lb-close" type="button" aria-label="Close"><svg><use href="#i-close"/></svg></button>
-    <button class="lb-btn lb-prev" type="button" aria-label="Previous image"><svg><use href="#i-left"/></svg></button>
-    <button class="lb-btn lb-next" type="button" aria-label="Next image"><svg><use href="#i-right"/></svg></button>
+    <button class="lb-btn lb-close" type="button" aria-label="Close"><svg width="16" height="16" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous image"><svg width="16" height="16" aria-hidden="true"><use href="#i-left"/></svg></button>
+    <button class="lb-btn lb-next" type="button" aria-label="Next image"><svg width="16" height="16" aria-hidden="true"><use href="#i-right"/></svg></button>
   </div>
 </dialog>
 
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v=20261031a"></script>
 </body>
 </html>
