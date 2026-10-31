@@ -1,155 +1,293 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>William Graves · Engineering Portfolio</title>
-  <meta name="description" content="Electrical engineering projects from Arizona State University: semiconductor processing and characterization, TCAD simulation, embedded systems and lab automation.">
+  <title>William Graves · Electrical Engineering Portfolio</title>
+  <meta name="description" content="William Graves, Electrical Engineering at Arizona State University. Semiconductor process and characterization, TSMC-sponsored FURI photoresist research, equipment design and lab automation.">
+  <meta name="theme-color" content="#8c1d40">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="William Graves · Electrical Engineering Portfolio">
+  <meta property="og:description" content="Semiconductor process and characterization, TSMC-sponsored FURI photoresist research, equipment design and lab automation at Arizona State University.">
+  <meta property="og:url" content="https://wgraves6.github.io/engineering-portfolio/">
+  <meta property="og:image" content="https://wgraves6.github.io/engineering-portfolio/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
+  <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
 </head>
 <body>
 
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="m2 13 10 5 10-5"/><path d="m2 18 10 5 10-5"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M6 16V10M11 16V5M16 16v-4M21 16V8"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></symbol>
+  <symbol id="i-zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></symbol>
+  <symbol id="sdsc-mark" viewBox="137 605 600 600"><g fill="none" stroke="#1f2da8" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"><path d="M508 645 L355 797 L560 997 L710 845"/><path d="M608 748 L484 872"/><path d="M478 808 L484 872 L548 878"/><path d="M298 838 L508 1040"/><path d="M168 1165 L395 938"/></g></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></symbol>
+</svg>
+
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="#">William Graves</a>
-    <nav class="nav">
+  <div class="wrap header-row">
+    <a class="brand" href="#top">
+      <span class="mono-mark">WG</span>
+      <span>William Graves<small>Electrical Engineering · ASU</small></span>
+    </a>
+    <nav class="nav" aria-label="Portfolio sections">
       <a href="#club">Semiconductor Club</a>
       <a href="#characterization">Characterization</a>
       <a href="#tcad">TCAD</a>
       <a href="#tools">Tools</a>
-      <a href="https://github.com/wgraves6/engineering-portfolio">GitHub</a>
     </nav>
+    <a class="btn btn-primary btn-sm header-cta" href="#contact">Get in touch</a>
   </div>
 </header>
 
-<main>
+<main id="top">
 
+  <!-- ===================== Hero ===================== -->
   <section class="hero">
-    <div class="wrap">
+    <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow">Electrical Engineering · Arizona State University</div>
-        <h1>Semiconductor processing, embedded systems and lab automation.</h1>
-        <p>Projects from my work at ASU: a closed-loop spin coater and IIoT lab monitoring for the Sun Devil Semiconductor Club, FURI research on SLA resin as a low-cost photoresist, process and device characterization, and Silvaco TCAD simulations.</p>
+        <p class="kicker">Electrical Engineering · Arizona State University · Class of 2028</p>
+        <h1>William Graves</h1>
+        <p class="lede">Semiconductor <em>process &amp; characterization</em>, equipment design and lab automation.</p>
+        <p class="intro">I'm an electrical engineering junior focused on semiconductor physics and manufacturing. My hands-on work spans photolithography process development, defect characterization and DOE, supported by the equipment, automation and data infrastructure I design and build.</p>
+        <div class="seeking"><span class="dot"></span><span><b>Seeking a Summer 2027 internship</b> in process, equipment or integration engineering</span></div>
         <div class="buttons">
-          <a class="btn primary" href="#club">View projects</a>
-          <a class="btn" href="https://github.com/wgraves6/engineering-portfolio">Source on GitHub</a>
-          <!-- TODO: add résumé PDF (e.g. assets/resume.pdf) and LinkedIn link -->
+          <a class="btn btn-primary" href="#club">View projects <svg><use href="#i-down"/></svg></a>
+          <a class="btn" href="https://www.linkedin.com/in/graves-william"><svg><use href="#i-linkedin"/></svg> LinkedIn</a>
+          <a class="btn" href="https://github.com/wgraves6/engineering-portfolio"><svg><use href="#i-github"/></svg> GitHub</a>
         </div>
       </div>
-      <figure style="margin:0">
+      <figure class="hero-media">
         <div class="hero-photo">
-          <img src="assets/images/cleanroom-pair.jpg" alt="Two students in cleanroom gowns giving a thumbs up at the cleanroom entrance">
+          <img src="assets/images/cleanroom-pair.jpg" alt="Two students in full cleanroom gowns giving a thumbs up at the cleanroom entrance" width="1050" height="1400">
         </div>
-        <figcaption class="caption">Gowned up for the cleanroom at ASU.</figcaption>
+        <div class="badge-float b1"><span class="ico"><svg><use href="#i-flask"/></svg></span><span><b>TSMC-sponsored FURI</b>405 nm photoresist research</span></div>
+        <div class="badge-float b2"><span class="ico"><svg><use href="#i-shield"/></svg></span><span><b>Cleanroom trained</b>ASU NanoFab wafer labs</span></div>
+        <figcaption>Gowned up for cleanroom lab work at ASU.</figcaption>
       </figure>
     </div>
-  </section>
 
-  <div class="wrap">
-    <div class="skills">
-      <div>
-        <h3>Languages</h3>
-        <p>C++ (Arduino), Python, JSL</p>
-      </div>
-      <div>
-        <h3>Hardware / lab</h3>
-        <p>Arduino, Arduino Opta PLC, I2C/SPI sensors, CNC machining, ellipsometry, oxidation and etch processing, curve tracer and bench I-V measurement</p>
-      </div>
-      <div>
-        <h3>Tools</h3>
-        <p>Ignition SCADA, MQTT, LTspice, Silvaco TCAD, JMP (DOE), ImageJ/Fiji, OpenCV, Jupyter</p>
+    <div class="wrap">
+      <div class="facts reveal">
+        <div class="fact"><b>4.00 GPA</b><span>B.S.E. Electrical Engineering, expected May 2028</span></div>
+        <div class="fact"><b>FURI Researcher</b><span>TSMC-sponsored, advisor Prof. Michael Kozicki</span></div>
+        <div class="fact"><b>Equipment Team Lead</b><span>Sun Devil Semiconductor Club, Fall 2025 to present</span></div>
+        <div class="fact"><b>Process + Metrology</b><span>Spin coating, oxidation, Dektak, Filmetrics, ellipsometry</span></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Sun Devil Semiconductor Club -->
-  <section class="group" id="club">
+  <!-- ===================== 01 Semiconductor Club ===================== -->
+  <section class="section" id="club">
     <div class="wrap">
-      <div class="group-head">
+      <header class="section-head with-logo reveal">
+        <span class="section-num">01</span>
         <h2>Sun Devil Semiconductor Club</h2>
         <div class="rule"></div>
-        <p>The club's spin coater, the network that monitors it, and my FURI research on SLA resin as a low-cost photoresist.</p>
-      </div>
-      <div class="grid">
+        <p>Research and equipment for the club's student-run photolithography process: a low-cost 405 nm photoresist study, the spin coater that applies it, and the network that monitors the tools.</p>
+        <div class="club-mark" role="img" aria-label="Sun Devil Semiconductor Club logo">
+          <svg viewBox="0 0 600 600"><use href="#sdsc-mark" width="600" height="600"/></svg>
+        </div>
+      </header>
 
-        <article class="card">
-          <div class="flow" aria-hidden="true">
-            <div class="node">Hall sensor · MPU-6050 · rotary encoder</div>
-            <div class="arrow">▼</div>
-            <div class="node">Arduino Uno R4 · PID + feedforward @ 50 Hz</div>
-            <div class="arrow">▼</div>
-            <div class="node">XY160D H-bridge → DC motor</div>
+      <!-- Featured: FURI -->
+      <article class="card featured reveal">
+        <div class="gallery">
+          <a class="g-main photo" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" data-caption="Defect imaging setup: Olympus BH microscope with an eyepiece webcam and a relay-switched lamp.">
+            <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" alt="Microscope with eyepiece webcam next to a laptop running the capture script" width="1600" height="1200">
+            <span class="zoom"><svg width="14" height="14"><use href="#i-zoom"/></svg> Enlarge</span>
+          </a>
+          <p class="g-caption">Defect imaging setup: Olympus BH microscope with an eyepiece webcam and a relay-switched lamp.</p>
+          <div class="g-thumbs">
+            <a class="active" data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" data-caption="Defect imaging setup: Olympus BH microscope with an eyepiece webcam and a relay-switched lamp."><img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" alt="Microscope with eyepiece webcam next to a laptop running the capture script" loading="lazy"></a>
+            <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cured_thickness_vs_speed.png" data-caption="Cured film thickness vs. spin speed with the constant-loss model fit and 95% confidence band."><img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cured_thickness_vs_speed.png" alt="Cured film thickness vs. spin speed plot" loading="lazy"></a>
+            <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/liftoff_vs_speed.png" data-caption="Lift-off test: the cured film holds to 1550 rpm, starts peeling at 1600 rpm and is fully removed above 2100 rpm."><img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/liftoff_vs_speed.png" alt="Lift-off result vs. spin speed" loading="lazy"></a>
+            <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/constant_loss_model.png" data-caption="Constant-loss model: the IPA rinse removes a fixed uncured layer (δ ≈ 14 µm), so thin films wash off entirely."><img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/constant_loss_model.png" alt="Constant-loss model plot" loading="lazy"></a>
+            <a data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/dektak_xt.jpg" data-caption="Bruker Dektak XT stylus profilometer used for cured-film thickness."><img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/dektak_xt.jpg" alt="Bruker Dektak XT profilometer and its software" loading="lazy"></a>
+            <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/dektak_scan_1000rpm.png" data-caption="Dektak scan across the tape edge at 1000 rpm: ~7 µm film plateau, ~120 µm edge ridge, bare Si."><img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/dektak_scan_1000rpm.png" alt="Dektak height profile across the film edge" loading="lazy"></a>
+            <a data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/wet_film_defect_t0p5min.jpg" data-caption="Wet resin film 0.5 min after the spin stops."><img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/wet_film_defect_t0p5min.jpg" alt="Microscope view of the wet film at 0.5 minutes" loading="lazy"></a>
+            <a data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/wet_film_defect_t1min.jpg" data-caption="Same field at 1 min: a defect has opened in the wet film."><img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/wet_film_defect_t1min.jpg" alt="Microscope view of the wet film at 1 minute with a defect" loading="lazy"></a>
+            <a data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/run02_1_t03600s_1_check.jpg" data-caption="ImageJ defect detection at 60 min: yellow outlines are counted defects inside the analysis circle."><img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/run02_1_t03600s_1_check.jpg" alt="ImageJ overlay with outlined defects" loading="lazy"></a>
           </div>
-          <div class="body">
-            <h3>Spin Coater Controller</h3>
-            <p class="context">Sun Devil Semiconductor Club</p>
-            <p class="summary">Closed-loop controller for a DIY photoresist spin coater. It holds a brushed DC motor at programmed RPM set points, runs multi-step spin recipes from an OLED menu and streams vibration and speed telemetry to Ignition over MQTT.</p>
-            <ul>
-              <li>Measured PWM→RPM motor map for feedforward, with PID trim, anti-windup and slew limits</li>
-              <li>Self-calibration sweep saved to SD card, with a built-in fallback table</li>
-              <li>Non-blocking telemetry: a missing broker never stalls the motor</li>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="featured-flag">Featured research</span>
+            <span class="pill status">DOE in progress</span>
+          </div>
+          <p class="kicker">FURI · Fall 2026 · Sponsored by TSMC</p>
+          <h3>405 nm SLA Resin as a Low-Cost Photoresist</h3>
+          <p class="summary">Characterizing a consumer 405 nm UV-curable SLA resin (about $37/kg) as a photoresist for the club's photolithography process. Advisor: Prof. Michael Kozicki, School of Electrical, Computer and Energy Engineering.</p>
+          <p class="question"><b>Research question:</b> how do spin-coating parameters control the thickness, wet-film stability and adhesion of the resin on silicon?</p>
+          <div class="stats">
+            <div class="stat"><b>≤ 1550 rpm</b><span>clean cured film; fully removed above 2100</span></div>
+            <div class="stat"><b>7.3 → 0.8 µm</b><span>cured thickness, 1000 → 2000 rpm</span></div>
+            <div class="stat"><b>δ = 13.5 µm</b><span>uncured layer lost in the IPA rinse</span></div>
+          </div>
+          <p class="did-title">What I did</p>
+          <ul class="did">
+            <li>Ran spin, cure and develop lift-off tests (14 runs, 6 coupons) to set the usable speed window.</li>
+            <li>Measured cured thickness by Bruker Dektak XT stylus profilometry and fit a constant-loss rinse model, h = δ[(ω/ω₀)ⁿ − 1], in JMP (RMSE 0.59 µm).</li>
+            <li>Built an automated microscope time-lapse rig: Python capture, an Arduino Opta lamp relay with a 30 s hardware auto-off, and ImageJ defect counting.</li>
+            <li>Designing a full-factorial DOE (ramp time × final speed, with center points) for defect onset time and nucleation.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Spin coating</span><span class="tag">Photolithography</span><span class="tag">Stylus profilometry</span><span class="tag">JMP · DOE</span><span class="tag">Python</span><span class="tag">ImageJ</span><span class="tag">Arduino Opta</span>
+          </div>
+          <div class="links">
+            <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis">Read the write-up <svg><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/capture"><svg><use href="#i-code"/></svg> Capture code</a>
+          </div>
+        </div>
+      </article>
+
+      <p class="sub-head reveal">Equipment &amp; automation</p>
+      <div class="grid-2">
+
+        <!-- Spin coater -->
+        <article class="card reveal">
+          <div class="diagram" role="img" aria-label="Block diagram of the spin coater control loop">
+            <svg viewBox="0 0 680 330">
+              <defs>
+                <marker id="ah1" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker>
+                <marker id="ah1fb" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path class="dg-arrow fb" d="M0,0 L8,4 L0,8 z"/></marker>
+              </defs>
+              <rect class="dg-box" x="12" y="40" width="118" height="64" rx="10"/>
+              <text class="dg-t" x="71" y="68" text-anchor="middle">Recipe step</text>
+              <text class="dg-s" x="71" y="87" text-anchor="middle">RPM set point</text>
+              <path class="dg-line" d="M130 72 H147" marker-end="url(#ah1)"/>
+              <circle class="dg-sum" cx="162" cy="72" r="13"/>
+              <text class="dg-s" x="162" y="77" text-anchor="middle">Σ</text>
+              <path class="dg-line" d="M175 72 H194" marker-end="url(#ah1)"/>
+              <rect class="dg-box key" x="196" y="40" width="176" height="64" rx="10"/>
+              <text class="dg-t" x="284" y="68" text-anchor="middle">Controller, 50 Hz</text>
+              <text class="dg-s" x="284" y="87" text-anchor="middle">feedforward map + PID</text>
+              <path class="dg-line" d="M372 72 H394" marker-end="url(#ah1)"/>
+              <rect class="dg-box" x="396" y="40" width="120" height="64" rx="10"/>
+              <text class="dg-t" x="456" y="68" text-anchor="middle">XY160D</text>
+              <text class="dg-s" x="456" y="87" text-anchor="middle">H-bridge, PWM</text>
+              <path class="dg-line" d="M516 72 H538" marker-end="url(#ah1)"/>
+              <rect class="dg-box" x="540" y="40" width="128" height="64" rx="10"/>
+              <text class="dg-t" x="604" y="68" text-anchor="middle">DC motor</text>
+              <text class="dg-s" x="604" y="87" text-anchor="middle">+ wafer chuck</text>
+              <path class="dg-line" d="M604 104 V148" marker-end="url(#ah1)"/>
+              <rect class="dg-box" x="540" y="150" width="128" height="58" rx="10"/>
+              <text class="dg-t" x="604" y="175" text-anchor="middle">Hall sensor</text>
+              <text class="dg-s" x="604" y="194" text-anchor="middle">ISR tachometer</text>
+              <path class="dg-line fb" d="M540 179 H162 V87" marker-end="url(#ah1fb)"/>
+              <text class="dg-l" x="420" y="170" text-anchor="middle">MEASURED RPM</text>
+              <rect class="dg-box soft" x="12" y="250" width="150" height="64" rx="10"/>
+              <text class="dg-t" x="87" y="278" text-anchor="middle">OLED + encoder</text>
+              <text class="dg-s" x="87" y="297" text-anchor="middle">recipe editor</text>
+              <path class="dg-line" d="M71 250 V106" marker-end="url(#ah1)"/>
+              <rect class="dg-box soft" x="196" y="250" width="176" height="64" rx="10"/>
+              <text class="dg-t" x="284" y="278" text-anchor="middle">SD card</text>
+              <text class="dg-s" x="284" y="297" text-anchor="middle">self-calibrated motor map</text>
+              <path class="dg-line" d="M284 250 V106" marker-end="url(#ah1)"/>
+              <rect class="dg-box soft" x="396" y="250" width="272" height="64" rx="10"/>
+              <text class="dg-t" x="532" y="278" text-anchor="middle">Telemetry → Ignition SCADA</text>
+              <text class="dg-s" x="532" y="297" text-anchor="middle">RPM + vibration, JSON over MQTT</text>
+              <path class="dg-line" d="M604 208 V248" marker-end="url(#ah1)"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <p class="kicker">Club equipment · Equipment Team Lead</p>
+            <h3>Closed-Loop Wafer Spin Coater</h3>
+            <p class="summary">A programmable photoresist spin coater for the club: CNC-machined chuck, Arduino closed-loop motor control and an OLED recipe interface, streaming speed and vibration telemetry to Ignition SCADA.</p>
+            <ul class="did">
+              <li>PID + feedforward RPM control on a fixed 50 Hz tick, with deadband, anti-windup and slew limits.</li>
+              <li>Self-calibration sweeps PWM 30 → 255 and saves the measured PWM→RPM map to SD.</li>
+              <li>Interrupt-driven Hall tachometer and MPU-6050 vibration RMS, peak and crest factor.</li>
+              <li>Non-blocking MQTT telemetry, so a missing broker never stalls the motor.</li>
             </ul>
-            <div class="tags"><span class="tag">C++</span><span class="tag">Arduino</span><span class="tag">MQTT</span><span class="tag">CNC</span></div>
-            <a class="more" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coater">Read the write-up →</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="flow" aria-hidden="true">
-            <div class="node">Sensor (MPU-6050, Hall, …)</div>
-            <div class="arrow">▼ I2C / GPIO</div>
-            <div class="node">Arduino + W5100/W5500 Ethernet</div>
-            <div class="arrow">▼ MQTT · JSON</div>
-            <div class="node">Ignition gateway → tags, dashboards, alarms</div>
-          </div>
-          <div class="body">
-            <h3>Lab Monitoring (IIoT)</h3>
-            <p class="context">Sun Devil Semiconductor Club</p>
-            <p class="summary">Arduino sensor nodes that send lab equipment data to an Ignition SCADA gateway over MQTT, where readings arrive as live tags that can be trended and alarmed on. Built for the club's cleanroom tools, starting with the spin coater.</p>
-            <ul>
-              <li>Vibration node publishing gravity-compensated RMS, peak and crest factor</li>
-              <li>Network diagnostics that isolate cable/shield, firewall or broker faults</li>
-            </ul>
-            <div class="tags"><span class="tag">Arduino</span><span class="tag">Ignition SCADA</span><span class="tag">MQTT</span></div>
-            <a class="more" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/lab-monitoring-iiot">Read the write-up →</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="media">
-            <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cured_thickness_vs_speed.png" alt="Cured resin film thickness vs. spin speed with model fit">
-          </div>
-          <div class="body">
-            <h3>SLA Resin as a 405 nm Photoresist</h3>
-            <p class="context">FURI research · Fall 2026 · sponsored by TSMC</p>
-            <p class="summary">Characterizing a low-cost 405 nm UV-curable SLA resin as a photoresist for the club's photolithography process: how spin speed sets cured thickness and adhesion, and how quickly defects form in the wet film.</p>
-            <div class="stats">
-              <div class="stat"><b>≤ 1550 rpm</b><span>good cured film; removed above 2100</span></div>
-              <div class="stat"><b>7.3 → 0.8 µm</b><span>cured thickness, 1000 → 2000 rpm</span></div>
-              <div class="stat"><b>δ = 13.5 µm</b><span>uncured layer lost in IPA rinse</span></div>
+            <div class="tags">
+              <span class="tag">C++</span><span class="tag">Arduino Uno R4</span><span class="tag">PID control</span><span class="tag">MQTT</span><span class="tag">CNC machining</span>
             </div>
-            <ul>
-              <li>Constant-loss model fit to Dektak XT stylus profilometry</li>
-              <li>Automated microscope time-lapse with an Opta-switched lamp and ImageJ defect counting</li>
-              <li>Defect-onset DOE in progress</li>
-            </ul>
-            <div class="tags"><span class="tag">Dektak XT</span><span class="tag">JMP</span><span class="tag">Python</span><span class="tag">ImageJ</span></div>
-            <a class="more" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis">Read the write-up →</a>
+            <div class="links">
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coater">Read the write-up <svg><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coater/firmware/improved_spin_coater"><svg><use href="#i-code"/></svg> Firmware</a>
+            </div>
           </div>
         </article>
 
-        <article class="card">
-          <div class="media cover">
-            <img src="assets/images/cleanroom-group.jpg" alt="Four students in cleanroom gowns in the gowning room" style="object-position: center 35%">
+        <!-- Lab monitoring -->
+        <article class="card reveal">
+          <div class="diagram" role="img" aria-label="Architecture diagram of the lab monitoring system">
+            <svg viewBox="-20 0 680 330">
+              <defs>
+                <marker id="ah2" viewBox="0 0 8 8" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker>
+              </defs>
+              <rect class="dg-box" x="12" y="30" width="176" height="64" rx="10"/>
+              <text class="dg-t" x="100" y="58" text-anchor="middle">Sensors</text>
+              <text class="dg-s" x="100" y="76" text-anchor="middle">MPU-6050 · Hall · …</text>
+              <path class="dg-line" d="M188 62 H228" marker-end="url(#ah2)"/>
+              <text class="dg-l" x="208" y="52" text-anchor="middle">I2C</text>
+              <rect class="dg-box key" x="232" y="30" width="176" height="64" rx="10"/>
+              <text class="dg-t" x="320" y="58" text-anchor="middle">Arduino node</text>
+              <text class="dg-s" x="320" y="76" text-anchor="middle">Uno R3/R4 + W5100/W5500</text>
+              <path class="dg-line" d="M408 62 H448" marker-end="url(#ah2)"/>
+              <text class="dg-l" x="428" y="52" text-anchor="middle">MQTT</text>
+              <rect class="dg-box" x="452" y="30" width="176" height="64" rx="10"/>
+              <text class="dg-t" x="540" y="58" text-anchor="middle">MQTT Distributor</text>
+              <text class="dg-s" x="540" y="76" text-anchor="middle">broker · port 1883</text>
+              <path class="dg-line" d="M540 94 V138" marker-end="url(#ah2)"/>
+              <rect class="dg-box" x="452" y="140" width="176" height="64" rx="10"/>
+              <text class="dg-t" x="540" y="168" text-anchor="middle">MQTT Engine</text>
+              <text class="dg-s" x="540" y="186" text-anchor="middle">JSON messages → tags</text>
+              <path class="dg-line" d="M452 172 H412" marker-end="url(#ah2)"/>
+              <rect class="dg-box key" x="232" y="140" width="176" height="64" rx="10"/>
+              <text class="dg-t" x="320" y="168" text-anchor="middle">Ignition tags</text>
+              <text class="dg-s" x="320" y="187" text-anchor="middle">trends, history, alarms</text>
+              <path class="dg-line" d="M232 172 H192" marker-end="url(#ah2)"/>
+              <rect class="dg-box" x="12" y="140" width="176" height="64" rx="10"/>
+              <text class="dg-t" x="100" y="168" text-anchor="middle">Perspective</text>
+              <text class="dg-s" x="100" y="186" text-anchor="middle">live dashboards</text>
+              <text class="dg-l" x="540" y="228" text-anchor="middle">IGNITION GATEWAY</text>
+              <rect class="dg-box soft" x="12" y="252" width="616" height="58" rx="10"/>
+              <text class="dg-t" x="320" y="277" text-anchor="middle">Network diagnostics</text>
+              <text class="dg-s" x="320" y="295" text-anchor="middle">DHCP with static fallback · ping router and gateway PC · TCP 1883 check</text>
+            </svg>
           </div>
-          <div class="body">
-            <h3>In the cleanroom</h3>
-            <p class="context">ASU</p>
-            <p class="summary">Cleanroom training and lab work at ASU: gowning and contamination control, wafer cleaning, thermal oxidation in a Tystar furnace, and film measurement with Filmetrics and Woollam ellipsometry.</p>
-            <div class="tags"><span class="tag">Cleanroom protocol</span><span class="tag">Thermal oxidation</span><span class="tag">Metrology</span></div>
+          <div class="card-body">
+            <p class="kicker">Club infrastructure · IIoT</p>
+            <h3>Lab Monitoring with Ignition SCADA</h3>
+            <p class="summary">Arduino Ethernet sensor nodes that publish lab equipment data over MQTT to an Ignition SCADA gateway, where readings become live tags for trending, dashboards and alarms. Built for the club's tools, starting with the spin coater.</p>
+            <ul class="did">
+              <li>End-to-end Arduino → MQTT → Ignition link with JSON payloads on Uno R3 + W5100 and Uno R4 + W5500.</li>
+              <li>Vibration node publishing gravity-compensated RMS, peak and crest factor per window.</li>
+              <li>Diagnostic sketches that isolate cable/shield, firewall or broker faults.</li>
+              <li>Step-by-step setup guide covering Ignition modules, networking and troubleshooting.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Ignition SCADA</span><span class="tag">MQTT</span><span class="tag">Arduino</span><span class="tag">Ethernet</span><span class="tag">JSON</span>
+            </div>
+            <div class="links">
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/lab-monitoring-iiot">Read the write-up <svg><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/lab-monitoring-iiot/sketches"><svg><use href="#i-code"/></svg> Sketches</a>
+            </div>
           </div>
         </article>
 
@@ -157,49 +295,90 @@
     </div>
   </section>
 
-  <!-- Semiconductor Characterization -->
-  <section class="group" id="characterization">
+  <!-- ===================== 02 Characterization ===================== -->
+  <section class="section" id="characterization">
     <div class="wrap">
-      <div class="group-head">
+      <header class="section-head reveal">
+        <span class="section-num">02</span>
         <h2>Semiconductor Characterization</h2>
         <div class="rule"></div>
-        <p>Measured process and device data, and the parameters extracted from it.</p>
-      </div>
-      <div class="grid">
+        <p>Measured process and device data, and the physical parameters extracted from it.</p>
+      </header>
+      <div class="grid-2">
 
-        <article class="card">
-          <div class="media">
-            <img src="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/wafer_maps.png" alt="Thickness maps of dry oxide, wet oxide and LPCVD nitride wafers">
-          </div>
-          <div class="body">
-            <h3>Wet Thermal Oxidation: Deal–Grove Fit</h3>
-            <p class="context">EEE 435 · course-provided furnace data</p>
-            <p class="summary">Deal–Grove constants extracted from oxide thickness vs. furnace time (5 to 498 min), plus refractive index and uniformity of dry oxide, wet oxide and LPCVD nitride from ellipsometry.</p>
-            <div class="stats">
-              <div class="stat"><b>0.415 µm²/hr</b><span>B (parabolic)</span></div>
-              <div class="stat"><b>0.272 µm</b><span>A</span></div>
-              <div class="stat"><b>&lt; 2%</b><span>model error from 15 to 498 min</span></div>
+        <!-- Deal-Grove -->
+        <article class="card reveal">
+          <div class="gallery">
+            <a class="g-main" href="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/wafer_maps.png" data-caption="Wafer thickness maps: dry oxide, wet oxide and LPCVD Si₃N₄.">
+              <img src="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/wafer_maps.png" alt="Thickness contour maps of three wafers" loading="lazy">
+              <span class="zoom"><svg width="14" height="14"><use href="#i-zoom"/></svg> Enlarge</span>
+            </a>
+            <p class="g-caption">Wafer thickness maps: dry oxide, wet oxide and LPCVD Si₃N₄.</p>
+            <div class="g-thumbs">
+              <a class="active" href="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/wafer_maps.png" data-caption="Wafer thickness maps: dry oxide, wet oxide and LPCVD Si₃N₄."><img src="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/wafer_maps.png" alt="Thickness contour maps of three wafers" loading="lazy"></a>
+              <a href="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/predicted_vs_measured.png" data-caption="Deal–Grove prediction vs. measured oxide thickness from 5 to 498 min."><img src="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/predicted_vs_measured.png" alt="Predicted and measured oxide thickness vs. time" loading="lazy"></a>
+              <a href="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/deal_grove_linear_fit.png" data-caption="Linearized fit of t/x vs. x: B = 1/slope, A = intercept × B."><img src="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/deal_grove_linear_fit.png" alt="Linear fit of t over x vs. x" loading="lazy"></a>
+              <a href="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/avg_thickness_vs_time.png" data-caption="Average oxide thickness vs. furnace time."><img src="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/avg_thickness_vs_time.png" alt="Average oxide thickness vs. furnace time" loading="lazy"></a>
             </div>
-            <div class="tags"><span class="tag">JMP</span><span class="tag">Filmetrics</span><span class="tag">Ellipsometry</span></div>
-            <a class="more" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/semiconductor-characterization/thermal-oxidation-deal-grove">Read the write-up →</a>
+          </div>
+          <div class="card-body">
+            <p class="kicker">EEE 435 · CMOS &amp; MEMS processing</p>
+            <h3>Wet Thermal Oxidation: Deal–Grove Fit</h3>
+            <p class="summary">Extracted Deal–Grove rate constants from 9-point oxide thickness measurements at six wet-oxidation times (5 to 498 min), and compared refractive index and uniformity of dry oxide, wet oxide and LPCVD nitride.</p>
+            <div class="stats">
+              <div class="stat"><b>0.415 µm²/hr</b><span>B, parabolic rate constant</span></div>
+              <div class="stat"><b>0.272 µm</b><span>A</span></div>
+              <div class="stat"><b>&lt; 2%</b><span>model error, 15 to 498 min</span></div>
+            </div>
+            <ul class="did">
+              <li>Linearized t/x vs. x fit in JMP; τ from a 20 Å native oxide.</li>
+              <li>Within-wafer σ jumps from 13 Å to 329 Å between the 180 and 498 min runs.</li>
+              <li>Nitride is about 100× less uniform in refractive index than either oxide.</li>
+            </ul>
+            <div class="tags"><span class="tag">Deal–Grove</span><span class="tag">Filmetrics</span><span class="tag">Ellipsometry</span><span class="tag">JMP</span></div>
+            <div class="links">
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/semiconductor-characterization/thermal-oxidation-deal-grove">Read the write-up <svg><use href="#i-arrow"/></svg></a>
+            </div>
           </div>
         </article>
 
-        <article class="card">
-          <div class="media">
-            <img src="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_cs_transfer.png" alt="Measured VDS vs. VGS transfer characteristic of an NMOS common-source amplifier">
+        <!-- Device IV -->
+        <article class="card reveal">
+          <div class="gallery">
+            <a class="g-main photo" href="projects/semiconductor-characterization/device-iv-characterization/plots/curve_tracer_setup.jpg" data-caption="Bench setup: LEADER LTC-905 curve tracer driving a Tektronix DPO4032 in XY mode.">
+              <img src="projects/semiconductor-characterization/device-iv-characterization/plots/curve_tracer_setup.jpg" alt="Curve tracer, function generator, power supply and oscilloscope on a lab bench" loading="lazy">
+              <span class="zoom"><svg width="14" height="14"><use href="#i-zoom"/></svg> Enlarge</span>
+            </a>
+            <p class="g-caption">Bench setup: LEADER LTC-905 curve tracer driving a Tektronix DPO4032 in XY mode.</p>
+            <div class="g-thumbs">
+              <a class="active" data-fit="cover" href="projects/semiconductor-characterization/device-iv-characterization/plots/curve_tracer_setup.jpg" data-caption="Bench setup: LEADER LTC-905 curve tracer driving a Tektronix DPO4032 in XY mode."><img src="projects/semiconductor-characterization/device-iv-characterization/plots/curve_tracer_setup.jpg" alt="Curve tracer bench setup" loading="lazy"></a>
+              <a href="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_cs_transfer.png" data-caption="Measured common-source transfer characteristic of the CD4007 NMOS."><img src="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_cs_transfer.png" alt="VDS vs. VGS transfer curve" loading="lazy"></a>
+              <a href="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_vt_fit.png" data-caption="√iD vs. VGS fit: Vt = 0.872 V and kn'(W/L) = 0.436 mA/V²."><img src="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_vt_fit.png" alt="Square root of drain current vs. gate voltage fit" loading="lazy"></a>
+              <a href="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_id_vs_vds.png" data-caption="iD vs. VDS at VGS = 3 V and 5 V, used for ro and λ."><img src="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_id_vs_vds.png" alt="Drain current vs. drain voltage" loading="lazy"></a>
+              <a href="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_cs_amp_ltspice.png" data-caption="LTspice common-source amplifier using the measured KP, VTO and LAMBDA."><img src="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_cs_amp_ltspice.png" alt="LTspice schematic with the measured NMOS model" loading="lazy"></a>
+              <a data-fit="cover" href="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_cs_amp_built.jpg" data-caption="The common-source amplifier built on a breadboard with the CD4007."><img src="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_cs_amp_built.jpg" alt="Breadboarded common-source amplifier" loading="lazy"></a>
+              <a href="projects/semiconductor-characterization/device-iv-characterization/plots/1N5237_forward_iv.png" data-caption="1N5237 Zener diode forward I-V curve from the curve tracer."><img src="projects/semiconductor-characterization/device-iv-characterization/plots/1N5237_forward_iv.png" alt="Zener diode forward I-V curve" loading="lazy"></a>
+              <a href="projects/semiconductor-characterization/device-iv-characterization/plots/1N5237_reverse_iv.png" data-caption="1N5237 reverse I-V curve: breakdown at 7.72 V."><img src="projects/semiconductor-characterization/device-iv-characterization/plots/1N5237_reverse_iv.png" alt="Zener diode reverse breakdown curve" loading="lazy"></a>
+            </div>
           </div>
-          <div class="body">
-            <h3>Device I-V Characterization</h3>
-            <p class="context">EEE 334 lab</p>
-            <p class="summary">Zener diode turn-on and breakdown voltages from curve-tracer I-V curves, and CD4007 NMOS square-law parameters used to build an LTspice model of a common-source amplifier.</p>
+          <div class="card-body">
+            <p class="kicker">EEE 334 lab · Bench measurement</p>
+            <h3>Diode &amp; MOSFET I-V Characterization</h3>
+            <p class="summary">Measured Zener diode I-V curves on a curve tracer and extracted CD4007 NMOS square-law parameters, then used them in an LTspice model of a common-source amplifier and compared it against the bench circuit.</p>
             <div class="stats">
-              <div class="stat"><b>0.872 V</b><span>NMOS Vt</span></div>
+              <div class="stat"><b>0.872 V</b><span>NMOS threshold, Vt</span></div>
               <div class="stat"><b>0.436 mA/V²</b><span>kn'(W/L)</span></div>
               <div class="stat"><b>−8.48 V/V</b><span>CS gain at Q (LTspice −7.59)</span></div>
             </div>
-            <div class="tags"><span class="tag">Curve tracer</span><span class="tag">DMM</span><span class="tag">JMP</span><span class="tag">LTspice</span></div>
-            <a class="more" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/semiconductor-characterization/device-iv-characterization">Read the write-up →</a>
+            <ul class="did">
+              <li>Zener turn-on 0.70 to 0.71 V; breakdown within 6% of rated.</li>
+              <li>Extracted λ = 0.00593 V⁻¹ (VA ≈ 169 V), ro and gm from saturation fits.</li>
+              <li>Refitting over the operating current range brought the hand-calculated gain within 2.5% of measured.</li>
+            </ul>
+            <div class="tags"><span class="tag">Curve tracer</span><span class="tag">Oscilloscope</span><span class="tag">DMM</span><span class="tag">LTspice</span><span class="tag">JMP</span></div>
+            <div class="links">
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/semiconductor-characterization/device-iv-characterization">Read the write-up <svg><use href="#i-arrow"/></svg></a>
+            </div>
           </div>
         </article>
 
@@ -207,49 +386,85 @@
     </div>
   </section>
 
-  <!-- TCAD -->
-  <section class="group" id="tcad">
+  <!-- ===================== 03 TCAD ===================== -->
+  <section class="section" id="tcad">
     <div class="wrap">
-      <div class="group-head">
+      <header class="section-head reveal">
+        <span class="section-num">03</span>
         <h2>TCAD Simulations</h2>
         <div class="rule"></div>
-        <p>Process simulations in Silvaco Athena.</p>
-      </div>
-      <div class="grid">
+        <p>Process simulations in Silvaco Athena, checked against hand calculations and tuned with designed experiments.</p>
+      </header>
+      <div class="grid-2">
 
-        <article class="card">
-          <div class="media">
-            <img src="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/final_1um_trench.png" alt="Simulated 1 µm deep GaAs trench after RIE">
-          </div>
-          <div class="body">
-            <h3>GaAs RIE: Etch Selectivity and Mask Design</h3>
-            <p class="context">EEE 435 · Athena</p>
-            <p class="summary">Measured GaAs and SiO₂ etch rates, found the selectivity, and used a JMP DOE to pick the thinnest oxide mask and shortest etch that reach a 1 µm deep trench without losing the mask.</p>
-            <div class="stats">
-              <div class="stat"><b>6.93 : 1</b><span>blanket selectivity</span></div>
-              <div class="stat"><b>0.171 µm</b><span>oxide mask</span></div>
-              <div class="stat"><b>9.32 min</b><span>etch for 1 µm</span></div>
+        <!-- GaAs RIE -->
+        <article class="card reveal">
+          <div class="gallery">
+            <a class="g-main" href="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/final_1um_trench.png" data-caption="Final 1 µm deep GaAs trench with 0.171 µm oxide mask and a 9.32 min etch.">
+              <img src="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/final_1um_trench.png" alt="Simulated 1 µm deep GaAs trench cross-section" loading="lazy">
+              <span class="zoom"><svg width="14" height="14"><use href="#i-zoom"/></svg> Enlarge</span>
+            </a>
+            <p class="g-caption">Final 1 µm deep GaAs trench with 0.171 µm oxide mask and a 9.32 min etch.</p>
+            <div class="g-thumbs">
+              <a class="active" href="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/final_1um_trench.png" data-caption="Final 1 µm deep GaAs trench with 0.171 µm oxide mask and a 9.32 min etch."><img src="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/final_1um_trench.png" alt="Final trench" loading="lazy"></a>
+              <a href="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/8min_mask_lost.png" data-caption="Baseline 0.10 µm mask after 8 min: the mask is gone and the field is recessed."><img src="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/8min_mask_lost.png" alt="Overetched trench with mask consumed" loading="lazy"></a>
+              <a href="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/doe_prediction_profiler.png" data-caption="JMP prediction profiler picking oxide thickness and etch time for a 1 µm depth."><img src="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/doe_prediction_profiler.png" alt="JMP prediction profiler" loading="lazy"></a>
+              <a href="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/gaas_etch_rate_fit.png" data-caption="Blanket GaAs etch rate fit: 0.00208 µm/s."><img src="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/gaas_etch_rate_fit.png" alt="GaAs etch rate linear fit" loading="lazy"></a>
+              <a href="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/final_mask_remaining.png" data-caption="Zoom on the field: about 3 nm of oxide mask survives."><img src="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/final_mask_remaining.png" alt="Remaining oxide mask, zoomed" loading="lazy"></a>
             </div>
-            <div class="tags"><span class="tag">Silvaco Athena</span><span class="tag">JMP DOE</span></div>
-            <a class="more" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/gaas-rie-etch-selectivity">Read the write-up →</a>
+          </div>
+          <div class="card-body">
+            <p class="kicker">EEE 435 · Silvaco Athena</p>
+            <h3>GaAs RIE: Etch Selectivity &amp; Mask Design</h3>
+            <p class="summary">Simulated reactive ion etching of a 0.5 µm wide GaAs trench under an SiO₂ hard mask, measured blanket etch rates and selectivity, then used a JMP DOE to size the thinnest mask and shortest etch for a 1 µm deep trench.</p>
+            <div class="stats">
+              <div class="stat"><b>6.93 : 1</b><span>blanket GaAs : SiO₂ selectivity</span></div>
+              <div class="stat"><b>0.171 µm</b><span>oxide mask</span></div>
+              <div class="stat"><b>9.32 min</b><span>etch to 1 µm depth</span></div>
+            </div>
+            <ul class="did">
+              <li>Showed the hand calculation falls about 14% short in a narrow trench vs. blanket rates.</li>
+              <li>Two-factor DOE found the operating point with about 3 nm of mask to spare.</li>
+            </ul>
+            <div class="tags"><span class="tag">Silvaco Athena</span><span class="tag">Reactive ion etch</span><span class="tag">JMP · DOE</span></div>
+            <div class="links">
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/gaas-rie-etch-selectivity">Read the write-up <svg><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/gaas-rie-etch-selectivity/deck"><svg><use href="#i-code"/></svg> Decks</a>
+            </div>
           </div>
         </article>
 
-        <article class="card">
-          <div class="media">
-            <img src="projects/tcad-simulations/si-fin-thermal-oxidation/plots/fin_oxidation_time_series.png" alt="Si fin cross-sections during wet oxidation from 0 to 60 minutes">
-          </div>
-          <div class="body">
-            <h3>Thermal Oxidation of an Etched Si Fin</h3>
-            <p class="context">EEE 435 · Athena</p>
-            <p class="summary">Wet oxidation of a 0.4 µm silicon fin at 1000 °C from 0 to 60 min, compared against a planar Deal–Grove width prediction, and oxidation used to trim or widen the fin.</p>
-            <div class="stats">
-              <div class="stat"><b>up to 41%</b><span>thinner than planar prediction</span></div>
-              <div class="stat"><b>60 min</b><span>fin pinches off</span></div>
-              <div class="stat"><b>400 → 200 nm</b><span>trim with oxidation + HF</span></div>
+        <!-- Si fin -->
+        <article class="card reveal">
+          <div class="gallery">
+            <a class="g-main" href="projects/tcad-simulations/si-fin-thermal-oxidation/plots/fin_oxidation_time_series.png" data-caption="Si fin cross-sections during wet oxidation at 1000 °C, 0 to 60 min.">
+              <img src="projects/tcad-simulations/si-fin-thermal-oxidation/plots/fin_oxidation_time_series.png" alt="Time series of fin cross-sections during oxidation" loading="lazy">
+              <span class="zoom"><svg width="14" height="14"><use href="#i-zoom"/></svg> Enlarge</span>
+            </a>
+            <p class="g-caption">Si fin cross-sections during wet oxidation at 1000 °C, 0 to 60 min.</p>
+            <div class="g-thumbs">
+              <a class="active" href="projects/tcad-simulations/si-fin-thermal-oxidation/plots/fin_oxidation_time_series.png" data-caption="Si fin cross-sections during wet oxidation at 1000 °C, 0 to 60 min."><img src="projects/tcad-simulations/si-fin-thermal-oxidation/plots/fin_oxidation_time_series.png" alt="Fin oxidation time series" loading="lazy"></a>
+              <a href="projects/tcad-simulations/si-fin-thermal-oxidation/plots/fin_width_vs_time.png" data-caption="Simulated fin width vs. the planar Deal–Grove prediction."><img src="projects/tcad-simulations/si-fin-thermal-oxidation/plots/fin_width_vs_time.png" alt="Fin width vs. time compared to prediction" loading="lazy"></a>
             </div>
-            <div class="tags"><span class="tag">Silvaco Athena</span><span class="tag">JMP</span></div>
-            <a class="more" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/si-fin-thermal-oxidation">Read the write-up →</a>
+          </div>
+          <div class="card-body">
+            <p class="kicker">EEE 435 · Silvaco Athena</p>
+            <h3>Thermal Oxidation of an Etched Si Fin</h3>
+            <p class="summary">Simulated wet oxidation of a 0.4 µm silicon fin and compared the remaining fin width with a planar Deal–Grove prediction, then used oxidation to trim or widen the fin.</p>
+            <div class="stats">
+              <div class="stat"><b>up to 41%</b><span>narrower than the planar prediction</span></div>
+              <div class="stat"><b>60 min</b><span>fin pinches off</span></div>
+              <div class="stat"><b>400 → 200 nm</b><span>trim by oxidation + HF strip</span></div>
+            </div>
+            <ul class="did">
+              <li>Oxidant reaches the fin from the top and both sidewalls, so it tapers faster than flat-surface oxidation predicts.</li>
+              <li>Keeping the oxide instead widens the structure to about 600 nm.</li>
+            </ul>
+            <div class="tags"><span class="tag">Silvaco Athena</span><span class="tag">Thermal oxidation</span><span class="tag">JMP</span></div>
+            <div class="links">
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/si-fin-thermal-oxidation">Read the write-up <svg><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/si-fin-thermal-oxidation/deck"><svg><use href="#i-code"/></svg> Deck</a>
+            </div>
           </div>
         </article>
 
@@ -257,50 +472,230 @@
     </div>
   </section>
 
-  <!-- Tools -->
-  <section class="group" id="tools">
+  <!-- ===================== 04 Tools ===================== -->
+  <section class="section" id="tools">
     <div class="wrap">
-      <div class="group-head">
+      <header class="section-head reveal">
+        <span class="section-num">04</span>
         <h2>Engineering Tools</h2>
         <div class="rule"></div>
         <p>Small utilities for circuit analysis and lab data reduction, reused across courses.</p>
+      </header>
+      <div class="grid-2">
+        <article class="card reveal">
+          <div class="card-body">
+            <p class="kicker">Python</p>
+            <h3>Circuit &amp; lab-data helpers</h3>
+<pre class="code"><span class="k">import</span> impedance <span class="k">as</span> z
+z.set_frequency(<span class="n">1e3</span>)                <span class="c"># 1 kHz</span>
+Zin = z.Zser(<span class="n">100</span>, z.Zcap(<span class="n">1e-6</span>))   <span class="c"># 100 Ω + 1 µF</span>
+z.rect_to_phasor(Zin)               <span class="c"># -> (187.964, -57.858)</span></pre>
+            <ul class="did">
+              <li><b>impedance.py</b>: phasor and AC impedance helpers, series/parallel, rectangular ↔ polar.</li>
+              <li><b>bode_plotter.py</b>: magnitude and phase plots for any H(jω).</li>
+              <li><b>percent_error_table.py</b>: pairs calculation, LTspice and bench values in an Excel workbook and writes a formatted percent-error table.</li>
+            </ul>
+            <div class="tags"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">openpyxl</span></div>
+            <div class="links">
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/engineering-tools">Read the write-up <svg><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="card-body">
+            <p class="kicker">JMP Scripting Language</p>
+            <h3>JMP data-analysis scripts</h3>
+            <p class="summary">Scripts for the analysis I run in JMP across labs and research.</p>
+            <ul class="did">
+              <li><b>ellipsometry_contour_plot.jsl</b>: wafer-map contour plot of film thickness from ellipsometer X/Y measurements.</li>
+              <li><b>percent_error_table.jsl</b>: the same percent-error comparison run directly on a JMP data table, with configurable reference priority.</li>
+              <li><b>defect_doe_design.jsl</b>: full-factorial DOE generator for the FURI defect study.</li>
+            </ul>
+            <div class="tags"><span class="tag">JSL</span><span class="tag">JMP</span><span class="tag">DOE</span></div>
+            <div class="links">
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/engineering-tools/jmp">Browse the scripts <svg><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="grid">
-        <article class="card">
-          <div class="body">
-            <h3>Python</h3>
+    </div>
+  </section>
+
+  <!-- ===================== Experience ===================== -->
+  <section class="section nav-end" id="experience">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <span class="section-num">05</span>
+        <h2>Experience &amp; Education</h2>
+        <div class="rule"></div>
+      </header>
+      <div class="exp-grid">
+        <ol class="timeline">
+          <li class="reveal">
+            <div class="tl-card">
+              <div class="tl-top"><h3>Undergraduate Researcher</h3><span class="tl-when">Fall 2026</span></div>
+              <p class="tl-org">TSMC-Sponsored FURI Program · advisor Prof. Michael Kozicki</p>
+              <ul>
+                <li>Characterizing time-dependent dewetting of uncured 405 nm resin films on Si to define the post-spin processing window for photolithography.</li>
+                <li>Designing a full-factorial DOE with center points to separate defect nucleation rate from hole growth velocity; analysis in JMP.</li>
+                <li>Developing low-actinic (&gt;500 nm) time-lapse imaging and ImageJ defect quantification, with Ignition SCADA + PostgreSQL logging of environmental covariates.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="tl-card">
+              <div class="tl-top"><h3>Equipment Team Lead</h3><span class="tl-when">Fall 2025 – Present</span></div>
+              <p class="tl-org"><svg class="org-mark" viewBox="0 0 600 600" aria-hidden="true"><use href="#sdsc-mark" width="600" height="600"/></svg>Sun Devil Semiconductor Club</p>
+              <ul>
+                <li>Lead design, fabrication and integration of equipment for the club's semiconductor processing and characterization work.</li>
+                <li>Designed and built a programmable wafer spin coater: CNC-machined components, Arduino closed-loop motor control and a custom operator interface.</li>
+                <li>Integrated SCADA, PostgreSQL and custom instrumentation for automated data logging and statistical analysis.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="tl-card">
+              <div class="tl-top"><h3>Thermal Oxidation &amp; Process Modeling</h3><span class="tl-when">2026</span></div>
+              <p class="tl-org">EEE 435 · ASU NanoFab</p>
+              <ul>
+                <li>Gowned into the ASU NanoFab cleanroom for wafer-processing labs; trained in contamination control and cleanroom protocol.</li>
+                <li>Analyzed oxide thickness data from spectroscopic ellipsometry and spectral reflectance, and fit the Deal–Grove model to wet-oxidation data.</li>
+                <li>Modeled etch and oxidation processes in Silvaco Athena.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="tl-card">
+              <div class="tl-top"><h3>Battery Management Subteam</h3><span class="tl-when">Fall 2025 – Spring 2026</span></div>
+              <p class="tl-org">Sun Devil Motorsports EV</p>
+              <ul>
+                <li>Designed an ESP32-based temperature-monitoring PCB in KiCad with multiplexed NTC thermistors for up to 304 sense points on a ~1200-cell FSAE accumulator.</li>
+                <li>Supported CAN communication, sensor selection and high-voltage accumulator integration.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+
+        <div class="side-stack">
+          <div class="panel reveal">
+            <p class="kicker">Education</p>
+            <h3>Arizona State University</h3>
+            <p class="sub">B.S.E. Electrical Engineering</p>
+            <div class="big">
+              <div><b>4.00</b><span>GPA</span></div>
+              <div><b>May 2028</b><span>expected graduation</span></div>
+            </div>
+            <p class="did-title">Relevant coursework</p>
             <ul>
-              <li><b>impedance.py</b>: phasor and AC impedance helpers (series/parallel, rectangular ↔ polar)</li>
-              <li><b>bode_plotter.py</b>: magnitude and phase plots for any H(jω)</li>
-              <li><b>percent_error_table.py</b>: pairs calculation, LTspice and bench values in an Excel workbook and writes a formatted percent-error table</li>
+              <li>Properties of Electronic Materials</li>
+              <li>Fundamentals of Solid-State Devices</li>
+              <li>Fundamentals of CMOS &amp; MEMS Processing</li>
+              <li>Circuits I/II · Signals &amp; Systems · Electromagnetics</li>
             </ul>
-            <div class="tags"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">openpyxl</span></div>
-            <a class="more" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/engineering-tools">Read the write-up →</a>
           </div>
-        </article>
-        <article class="card">
-          <div class="body">
-            <h3>JMP scripts</h3>
-            <ul>
-              <li><b>ellipsometry_contour_plot.jsl</b>: wafer thickness contour maps</li>
-              <li><b>percent_error_table.jsl</b>: percent-error tables in JMP</li>
-            </ul>
-            <div class="tags"><span class="tag">JSL</span><span class="tag">JMP</span></div>
-            <a class="more" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/engineering-tools/jmp">Browse the scripts →</a>
+          <div class="panel reveal">
+            <p class="kicker">Awards</p>
+            <h3>Eagle Scout</h3>
+            <p class="sub" style="margin:0">Boy Scouts of America, 2022</p>
           </div>
-        </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Skills ===================== -->
+  <section class="section" id="skills">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <span class="section-num">06</span>
+        <h2>Skills &amp; Equipment</h2>
+        <div class="rule"></div>
+        <p>Tools and techniques I've used hands-on in the projects above.</p>
+      </header>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <h3><span class="ico"><svg><use href="#i-shield"/></svg></span>Process &amp; cleanroom</h3>
+          <div class="chips"><span class="chip">Spin coating</span><span class="chip">Photolithography</span><span class="chip">UV cure &amp; IPA develop</span><span class="chip">Thermal oxidation</span><span class="chip">Image-based defect inspection</span><span class="chip">Cleanroom protocol</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ico"><svg><use href="#i-target"/></svg></span>Metrology &amp; characterization</h3>
+          <div class="chips"><span class="chip">Bruker Dektak XT</span><span class="chip">Filmetrics spectral reflectance</span><span class="chip">Spectroscopic ellipsometry</span><span class="chip">Optical microscopy</span><span class="chip">Curve tracer I-V</span><span class="chip">Oscilloscope · DMM · LCR</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ico"><svg><use href="#i-chart"/></svg></span>Data analysis &amp; process control</h3>
+          <div class="chips"><span class="chip">Design of Experiments</span><span class="chip">JMP</span><span class="chip">SPC</span><span class="chip">Nonlinear model fitting</span><span class="chip">ImageJ / Fiji</span><span class="chip">Python · OpenCV</span><span class="chip">MATLAB</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ico"><svg><use href="#i-layers"/></svg></span>Simulation</h3>
+          <div class="chips"><span class="chip">Silvaco Athena (TCAD)</span><span class="chip">LTspice</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ico"><svg><use href="#i-chip"/></svg></span>Automation &amp; hardware</h3>
+          <div class="chips"><span class="chip">Ignition SCADA</span><span class="chip">MQTT</span><span class="chip">PostgreSQL / SQL</span><span class="chip">Arduino · Opta PLC</span><span class="chip">ESP32</span><span class="chip">KiCad</span><span class="chip">I2C / SPI</span><span class="chip">CNC machining</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ico"><svg><use href="#i-code"/></svg></span>Languages</h3>
+          <div class="chips"><span class="chip">C++ (Arduino)</span><span class="chip">Python</span><span class="chip">JSL</span><span class="chip">SQL</span><span class="chip">MATLAB</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== In the lab ===================== -->
+  <section class="section" id="lab">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <span class="section-num">07</span>
+        <h2>In the Lab</h2>
+        <div class="rule"></div>
+        <p>From the cleanroom gowning room to the profilometer and the bench.</p>
+      </header>
+      <div class="mosaic reveal" data-lightbox-group>
+        <a href="assets/images/cleanroom-group.jpg" data-caption="Gowned up with classmates for cleanroom lab work at ASU."><img src="assets/images/cleanroom-group.jpg" alt="Four students in cleanroom gowns in the gowning room" loading="lazy" style="object-position:center 30%"><span>Cleanroom</span></a>
+        <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/dektak_xt.jpg" data-caption="Bruker Dektak XT stylus profilometer measuring a cured resin film."><img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/dektak_xt.jpg" alt="Bruker Dektak XT profilometer" loading="lazy"><span>Profilometry</span></a>
+        <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" data-caption="Automated microscope time-lapse rig for wet-film defect imaging."><img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" alt="Microscope imaging setup with laptop" loading="lazy"><span>Defect imaging</span></a>
+        <a href="projects/semiconductor-characterization/device-iv-characterization/plots/curve_tracer_setup.jpg" data-caption="Curve tracer and oscilloscope set up for diode I-V characterization."><img src="projects/semiconductor-characterization/device-iv-characterization/plots/curve_tracer_setup.jpg" alt="Curve tracer bench setup" loading="lazy"><span>I-V characterization</span></a>
+        <a href="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_cs_amp_built.jpg" data-caption="CD4007 NMOS common-source amplifier on the breadboard."><img src="projects/semiconductor-characterization/device-iv-characterization/plots/nmos_cs_amp_built.jpg" alt="Breadboarded NMOS amplifier" loading="lazy"><span>Circuit build</span></a>
       </div>
     </div>
   </section>
 
 </main>
 
+<!-- ===================== Contact ===================== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Get in touch</p>
+      <h2>Looking for a Summer 2027 internship in process, equipment or integration engineering.</h2>
+      <p>I'd be glad to talk about fab process, metrology or equipment roles. LinkedIn is the best way to reach me, and every project here links to its code and data on GitHub.</p>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="https://www.linkedin.com/in/graves-william"><svg><use href="#i-linkedin"/></svg><span><b>LinkedIn</b><span>linkedin.com/in/graves-william</span></span><svg class="arr"><use href="#i-arrow"/></svg></a>
+      <a class="contact-link" href="https://github.com/wgraves6"><svg><use href="#i-github"/></svg><span><b>GitHub</b><span>github.com/wgraves6</span></span><svg class="arr"><use href="#i-arrow"/></svg></a>
+      <a class="contact-link" href="https://github.com/wgraves6/engineering-portfolio"><svg><use href="#i-code"/></svg><span><b>Portfolio source</b><span>Write-ups, firmware, decks and data</span></span><svg class="arr"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
-    <span>William Graves · Electrical Engineering, Arizona State University</span>
-    <span><a href="https://github.com/wgraves6">github.com/wgraves6</a></span>
+    <span>© 2026 William Graves · Electrical Engineering, Arizona State University</span>
+    <span>Built with plain HTML &amp; CSS · <a href="https://github.com/wgraves6/engineering-portfolio">source</a></span>
   </div>
 </footer>
 
+<!-- Lightbox -->
+<dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+  <div class="lb-inner">
+    <div class="lb-stage"><img alt=""></div>
+    <div class="lb-bar"><span class="lb-cap"></span><span class="lb-count"></span></div>
+    <button class="lb-btn lb-close" type="button" aria-label="Close"><svg><use href="#i-close"/></svg></button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous image"><svg><use href="#i-left"/></svg></button>
+    <button class="lb-btn lb-next" type="button" aria-label="Next image"><svg><use href="#i-right"/></svg></button>
+  </div>
+</dialog>
+
+<script src="assets/site.js"></script>
 </body>
 </html>
