@@ -7,7 +7,7 @@ Projects from my electrical engineering work at Arizona State University: semico
 | Project | What it is | Stack |
 |---|---|---|
 | [**Sun Devil Semiconductor Club**](projects/sun-devil-semiconductor-club) | Tools and research for the club's cleanroom: a closed-loop spin coater, IIoT lab monitoring, and FURI spin-coat defect analysis | C++ · Arduino · MQTT · Ignition · Python · OpenCV |
-| [**Semiconductor Characterization**](projects/semiconductor-characterization) | Measured process and device data: Deal–Grove fits to furnace data, film thickness and refractive-index uniformity, diode I-V characterization | JMP · Filmetrics · Ellipsometry · Curve tracer |
+| [**Semiconductor Characterization**](projects/semiconductor-characterization) | Measured process and device data: Deal–Grove fits to furnace data, film thickness and refractive-index uniformity, diode and MOSFET I-V characterization | JMP · LTspice · Filmetrics · Ellipsometry · Curve tracer |
 | [**TCAD Simulations**](projects/tcad-simulations) | Process and device simulations in Silvaco Athena and Atlas | Silvaco TCAD |
 | [**Engineering Tools**](projects/engineering-tools) | Phasor and impedance math, Bode plots, lab error tables, wafer-map plots | Python · JSL |
 
