@@ -394,6 +394,40 @@
           </div>
         </article>
 
+        <!-- Poly-buffered LOCOS -->
+        <article class="card reveal">
+          <div class="gallery">
+            <a class="g-main" href="projects/tcad-simulations/poly-buffered-locos/plots/final_pbl_cross_section.png" data-caption="Poly-buffered LOCOS after 120 min wet oxidation at 1000 °C (half of the active region).">
+              <img src="projects/tcad-simulations/poly-buffered-locos/plots/final_pbl_cross_section.png" alt="Simulated poly-buffered LOCOS cross-section after field oxidation" loading="lazy">
+              <span class="zoom"><svg width="14" height="14" aria-hidden="true"><use href="#i-zoom"/></svg> Enlarge</span>
+            </a>
+            <p class="g-caption">Poly-buffered LOCOS after 120 min wet oxidation at 1000 °C (half of the active region).</p>
+            <div class="g-thumbs">
+              <a class="active" href="projects/tcad-simulations/poly-buffered-locos/plots/final_pbl_cross_section.png" data-caption="Poly-buffered LOCOS after 120 min wet oxidation at 1000 °C (half of the active region)."><img src="projects/tcad-simulations/poly-buffered-locos/plots/final_pbl_cross_section.png" alt="Final PBL cross-section" loading="lazy"></a>
+              <a href="projects/tcad-simulations/poly-buffered-locos/plots/pre_oxidation_stack.png" data-caption="Before oxidation: 20 nm pad oxide, 100 nm poly-Si and 150 nm nitride etched left of x = −0.4 µm."><img src="projects/tcad-simulations/poly-buffered-locos/plots/pre_oxidation_stack.png" alt="Pre-oxidation stack" loading="lazy"></a>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="kicker">EEE 435 · Silvaco Athena</p>
+            <h3>Poly-Buffered LOCOS: Usable Active Width</h3>
+            <p class="summary">Ran Silvaco's poly-buffered LOCOS example and added an oxide-extent extraction to find how much of the drawn active region survives bird's-beak encroachment.</p>
+            <div class="stats">
+              <div class="stat"><b>2.2 µm</b><span>drawn active region</span></div>
+              <div class="stat"><b>1.85 µm</b><span>usable after field oxidation</span></div>
+              <div class="stat"><b>≤ 5%</b><span>allowed pad-oxide growth</span></div>
+            </div>
+            <ul class="did">
+              <li>Measured the SiO₂ extent at 1.05 × the pad-oxide thickness to set the usable edge.</li>
+              <li>The poly-Si layer releases stress so the bending nitride doesn't break.</li>
+            </ul>
+            <div class="tags"><span class="tag">Silvaco Athena</span><span class="tag">LOCOS isolation</span><span class="tag">Thermal oxidation</span></div>
+            <div class="links">
+              <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/poly-buffered-locos">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/poly-buffered-locos/deck"><svg width="16" height="16" aria-hidden="true"><use href="#i-code"/></svg> Deck</a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
