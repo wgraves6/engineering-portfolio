@@ -1,5 +1,6 @@
 /* ---------- Tokens ---------- */
 :root {
+  color-scheme: light;
   --bg: #f7f6f3;
   --bg-2: #efede8;
   --surface: #ffffff;
@@ -29,32 +30,6 @@
 
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0e0e11;
-    --bg-2: #131317;
-    --surface: #17171c;
-    --text: #ececef;
-    --text-2: #b6b6c0;
-    --muted: #8a8a95;
-    --line: #25252c;
-    --line-2: #32323a;
-
-    --maroon: #a32a52;
-    --maroon-ink: #ff86ab;
-    --maroon-soft: #2a1720;
-    --gold-soft: #2b2410;
-    --ok: #4cc58a;
-
-    --media-bg: #f3f3f1;
-    --code-bg: #0b0b0e;
-
-    --shadow-sm: none;
-    --shadow: 0 1px 0 rgba(255, 255, 255, .02);
-    --shadow-lg: 0 24px 60px rgba(0, 0, 0, .5);
-  }
 }
 
 /* ---------- Base ---------- */
@@ -825,6 +800,7 @@ footer a { color: #d9cfd3; }
   }
   .nav::-webkit-scrollbar { display: none; }
   .hero { padding-top: 32px; }
+  .name-row { flex-direction: column; align-items: flex-start; gap: 14px; }
   .grid-2, .skills-grid { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr 1fr; }
   .card-body, .card.featured .card-body { padding: 20px; }
