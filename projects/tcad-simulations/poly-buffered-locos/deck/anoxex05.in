@@ -27,6 +27,7 @@ tonyplot anoxex05_preox.str
 method fermi compress
 diffuse time=120 temp=1000 weto2
 #
+# Added for EEE 435 HW6 (not in the Silvaco example): SiO2 extent at 1.05 x pad oxide
 extract name="Oxide_Thickness" thickness material="SiO~2" mat.occno=1 y.val=0.021
 #
 structure outfile=anoxex05.str

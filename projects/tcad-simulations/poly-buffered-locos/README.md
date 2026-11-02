@@ -1,6 +1,8 @@
 # Poly-Buffered LOCOS: Bird's Beak and Usable Active Width
 
-**Tool:** Athena · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU. Homework simulation based on Silvaco's `anoxex05` example (Athena_OXIDATION → Poly Buffered LOCOS). I added the `extract` step that measures how far the field oxide encroaches into the active region.
+**Tool:** Athena · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU, homework.
+
+**Source:** The process deck is Silvaco's built-in example `anoxex05` (Examples → Athena_OXIDATION → Poly Buffered LOCOS), run unchanged. **My part:** one added `extract` line that measures how far the field oxide encroaches into the active region, and the usable-length analysis below.
 
 ## Goal
 
@@ -8,7 +10,7 @@ LOCOS isolation grows a thick field oxide everywhere the nitride mask is removed
 
 ## Setup
 
-The simulation covers half of the active region: the right edge (x = 0.7 µm) is the center of the active area.
+The simulation covers half of the active region: the right edge (x = 0.7 µm) is the center of the active area. Every row except the last comes from Silvaco's example.
 
 | Parameter | Value |
 |---|---|
@@ -17,7 +19,7 @@ The simulation covers half of the active region: the right edge (x = 0.7 µm) is
 | Stack | 20 nm pad oxide / 100 nm poly-Si / 150 nm nitride |
 | Mask | Nitride etched left of x = −0.4 µm |
 | Field oxidation | Wet O₂, 1000 °C, 120 min (`method fermi compress`) |
-| Added measurement | Lateral SiO₂ extent at y = 0.021 µm (`extract ... thickness material="SiO~2" y.val=0.021`) |
+| **Added measurement (mine)** | Lateral SiO₂ extent at y = 0.021 µm (`extract ... thickness material="SiO~2" y.val=0.021`) |
 
 ## Results
 
@@ -48,5 +50,5 @@ Usable length = (total width − oxide extent) × 2
 
 | File | Purpose |
 |---|---|
-| [`deck/anoxex05.in`](deck/anoxex05.in) | DeckBuild input deck (Silvaco example with the added `extract` line) |
+| [`deck/anoxex05.in`](deck/anoxex05.in) | Silvaco's `anoxex05` example deck; the commented `extract` line is the only change |
 | `plots/` | TonyPlot cross-sections before and after field oxidation |
