@@ -1,8 +1,45 @@
-// Galleries, lightbox, active-section nav and scroll reveal for the portfolio page.
+// Theme toggle, barcode, galleries, lightbox, defect time-lapse and analytics tags for the portfolio page.
 (function () {
   "use strict";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var root = document.documentElement;
+
+  /* ---------- Theme: white light / yellow room ---------- */
+  var toggle = document.querySelector(".theme-toggle");
+  var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  function isDark() { return root.dataset.theme ? root.dataset.theme === "dark" : darkQuery.matches; }
+  function syncToggle() {
+    var dark = isDark();
+    toggle.setAttribute("aria-pressed", dark ? "true" : "false");
+    toggle.title = dark ? "White light" : "Yellow room";
+    toggle.querySelector(".sr-only").textContent = dark ? "Switch to the white-light (light) theme" : "Switch to the yellow-room (dark) theme";
+  }
+  toggle.addEventListener("click", function () {
+    root.dataset.theme = isDark() ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+    syncToggle();
+  });
+  darkQuery.addEventListener("change", syncToggle);
+  syncToggle();
+
+  /* ---------- Barcode (decorative, drawn from the lot number) ---------- */
+  document.querySelectorAll(".barcode[data-code]").forEach(function (svg) {
+    var code = "*" + svg.dataset.code + "*";
+    var bars = "";
+    var x = 0;
+    for (var i = 0; i < code.length; i++) {
+      var c = code.charCodeAt(i);
+      for (var b = 0; b < 5; b++) {
+        var w = ((c >> b) & 1) ? 3 : 1.4;
+        if (b % 2 === 0) bars += '<rect x="' + x.toFixed(1) + '" y="0" width="' + w + '" height="34"/>';
+        x += w + 1.6;
+      }
+      x += 2;
+    }
+    svg.setAttribute("viewBox", "0 0 " + x.toFixed(1) + " 34");
+    svg.innerHTML = bars;
+  });
 
   /* ---------- Lightbox ---------- */
   var lb = document.getElementById("lightbox");
@@ -75,48 +112,90 @@
     });
   });
 
-  /* ---------- Photo mosaic ---------- */
-  document.querySelectorAll("[data-lightbox-group]").forEach(function (group) {
-    var links = Array.prototype.slice.call(group.querySelectorAll("a"));
-    var list = links.map(itemFrom);
-    links.forEach(function (a, i) {
-      a.addEventListener("click", function (e) {
-        e.preventDefault();
-        open(list, i);
-      });
+  // Single photos outside a gallery
+  document.querySelectorAll("a[data-lightbox]").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      open([itemFrom(a)], 0);
     });
   });
 
-  /* ---------- Header shadow + active section ---------- */
-  var header = document.querySelector(".site-header");
-  function onScroll() { header.classList.toggle("scrolled", window.scrollY > 8); }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+  /* ---------- Defect time-lapse ---------- */
+  document.querySelectorAll(".timelapse").forEach(function (tl) {
+    var base = tl.dataset.base;
+    var times = tl.dataset.times.split(",").map(Number);
+    var frame = tl.querySelector(".tl-frame");
+    var check = tl.querySelector(".tl-check");
+    var timeEl = tl.querySelector(".tl-time");
+    var range = tl.querySelector(".tl-range");
+    var play = tl.querySelector(".tl-play");
+    var outlines = tl.querySelector(".tl-toggle input");
+    var timer = null;
+    var loaded = false;
+    var i = 0;
 
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav a[href^='#']"));
-  var sections = navLinks.map(function (a) { return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
+    function pad(t) { return ("0000" + t).slice(-5); }
+    function src(t, overlay) { return base + (overlay ? "check_t" : "t") + pad(t) + ".webp"; }
+    function clock(t) { return Math.floor(t / 60) + ":" + ("0" + (t % 60)).slice(-2); }
 
-  var lastId = null;
-  function setActive() {
-    var y = window.scrollY + 140;
-    var active = null;
-    sections.forEach(function (s) { if (s.offsetTop <= y) active = s; });
-    // Past the last project section (experience, skills, contact) no tab is active
-    var end = document.querySelector(".nav-end");
-    if (end && end.offsetTop <= y) active = null;
-    var id = active ? active.id : null;
-    if (id === lastId) return;
-    lastId = id;
-    navLinks.forEach(function (a) {
-      var on = id && a.getAttribute("href") === "#" + id;
-      a.classList.toggle("active", !!on);
-      if (on && window.innerWidth < 760) {
-        a.parentElement.scrollTo({ left: a.offsetLeft - 16, behavior: reduceMotion ? "auto" : "smooth" });
+    function preload() {
+      if (loaded) return;
+      loaded = true;
+      times.forEach(function (t) { new Image().src = src(t, false); new Image().src = src(t, true); });
+    }
+
+    function render() {
+      var t = times[i];
+      frame.src = src(t, false);
+      check.src = src(t, true);
+      frame.alt = "Microscope view of the wet resin film " + clock(t) + " after the spin stops";
+      timeEl.textContent = clock(t);
+      range.value = i;
+    }
+
+    function setPlaying(on) {
+      if (on && timer) return;
+      if (on) {
+        preload();
+        if (i >= times.length - 1) i = 0;
+        render();
+        timer = setInterval(function () {
+          if (i >= times.length - 1) { setPlaying(false); return; }
+          i++;
+          render();
+        }, 520);
+      } else {
+        clearInterval(timer);
+        timer = null;
       }
+      play.innerHTML = '<svg width="18" height="18" aria-hidden="true"><use href="#i-' + (on ? "pause" : "play") + '"/></svg>';
+      play.setAttribute("aria-label", on ? "Pause the time-lapse" : "Play the time-lapse");
+    }
+
+    range.addEventListener("input", function () {
+      preload();
+      setPlaying(false);
+      i = Number(range.value);
+      render();
     });
-  }
-  window.addEventListener("scroll", setActive, { passive: true });
-  setActive();
+    play.addEventListener("click", function () { setPlaying(!timer); });
+    outlines.addEventListener("change", function () { tl.classList.toggle("outlines", outlines.checked); });
+
+    if ("IntersectionObserver" in window) {
+      var played = false;
+      new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          preload();
+          if (!played && !reduceMotion && en.intersectionRatio > 0.55) {
+            played = true;
+            setPlaying(true);
+            obs.disconnect();
+          }
+        });
+      }, { threshold: [0, 0.6] }).observe(tl);
+    }
+  });
 
   /* ---------- Click events for GoatCounter ---------- */
   // count.js (loaded after this file) counts clicks on any element with data-goatcounter-click,
@@ -133,20 +212,4 @@
     }
     if (name) a.setAttribute("data-goatcounter-click", name);
   });
-
-  /* ---------- Reveal on scroll ---------- */
-  var reveals = document.querySelectorAll(".reveal");
-  if (!reduceMotion && "IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          en.target.classList.add("in");
-          io.unobserve(en.target);
-        }
-      });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
-    reveals.forEach(function (el) { io.observe(el); });
-  } else {
-    reveals.forEach(function (el) { el.classList.add("in"); });
-  }
 })();

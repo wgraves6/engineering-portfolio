@@ -7,9 +7,8 @@
 > **Status:** process characterization (lift-off and cured thickness) is done. The defect-onset DOE is in progress, and its results will be added here.
 
 <p align="center">
-  <img src="docs/images/run02_1_t00030s_1_check.jpg" width="45%" alt="Shard at 30 s after spin stop">
-  <img src="docs/images/run02_1_t03600s_1_check.jpg" width="45%" alt="Same shard at 60 min, defects outlined">
-  <br><em>The same shard 30 s and 60 min after the spin stops. Yellow outlines are defects found by the ImageJ macro inside the analysis circle.</em>
+  <img src="docs/images/defect_timelapse_run02_1.webp" width="70%" alt="Time-lapse of the wet resin film from 3 s to 60 min after the spin stops, with a defect opening near 1 min">
+  <br><em>The same field of the wet film from 3 s to 60 min after the spin stops (capture run 02, shard 1). A defect opens between 30 s and 1 min.</em>
 </p>
 
 ## Key results
@@ -124,6 +123,12 @@ An Olympus BH microscope with a webcam on the eyepiece images the wet film. The 
 | ![Wet film at 0.5 min](docs/images/wet_film_defect_t0p5min.jpg) | ![Wet film at 1 min, defect appearing](docs/images/wet_film_defect_t1min.jpg) |
 
 *A defect appearing on the wet film between 0.5 and 1 min.*
+
+<p align="center">
+  <img src="docs/images/run02_1_t00030s_1_check.jpg" width="45%" alt="Shard at 30 s after spin stop">
+  <img src="docs/images/run02_1_t03600s_1_check.jpg" width="45%" alt="Same shard at 60 min, defects outlined">
+  <br><em>The same shard 30 s and 60 min after the spin stops. Yellow outlines are defects found by the ImageJ macro inside the analysis circle.</em>
+</p>
 
 **Planned design:** a 2² full factorial with 3 center points on the wet film, with dwell fixed at 60 s. The responses are onset time (time to the first defect) and nucleation (defects/mm² by a set time). The factor levels below are tentative.
 
