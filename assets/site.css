@@ -1,6 +1,6 @@
 /* ---------- Tokens ---------- */
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
   --bg: #f7f6f3;
   --bg-2: #efede8;
   --surface: #ffffff;
@@ -30,6 +30,32 @@
 
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e0e11;
+    --bg-2: #131317;
+    --surface: #17171c;
+    --text: #ececef;
+    --text-2: #b6b6c0;
+    --muted: #8a8a95;
+    --line: #25252c;
+    --line-2: #32323a;
+
+    --maroon: #a32a52;
+    --maroon-ink: #ff86ab;
+    --maroon-soft: #2a1720;
+    --gold-soft: #2b2410;
+    --ok: #4cc58a;
+
+    --media-bg: #f3f3f1;
+    --code-bg: #0b0b0e;
+
+    --shadow-sm: none;
+    --shadow: 0 1px 0 rgba(255, 255, 255, .02);
+    --shadow-lg: 0 24px 60px rgba(0, 0, 0, .5);
+  }
 }
 
 /* ---------- Base ---------- */
@@ -203,6 +229,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   object-fit: cover;
   border: 1px solid var(--line-2);
 }
+@media (prefers-color-scheme: dark) { .headshot { filter: brightness(.9); } }
 .hero .lede {
   margin: 0 0 18px;
   font-size: clamp(19px, 2.1vw, 22px);
@@ -552,6 +579,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .tl-card li { margin-bottom: 5px; }
 
 .side-stack { display: grid; gap: 22px; }
+@media (min-width: 901px) { .side-stack { position: sticky; top: 96px; } }
 .panel {
   padding: 22px 24px;
   border: 1px solid var(--line);
