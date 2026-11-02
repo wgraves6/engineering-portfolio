@@ -1,6 +1,10 @@
 // Process view: a schematic cross-section that follows the operation in view.
-// Scroll position inside each .op sets that step's progress (0..1); the drawing for step i
-// assumes every earlier step is finished. Numbers shown in the readout come from the linked work.
+// Each <article class="op"> in index.html carries its own panel text: the number (.op-no),
+// the name (h3), data-note (the line under the panel) and data-stage, which picks the drawing below.
+// Scroll position inside an op sets that stage's progress (0..1); the drawing for a stage assumes
+// every earlier stage is finished. An op whose data-stage is empty or unknown keeps the previous
+// drawing and shows the first three rows of its recipe table in the readout, so a new op can be
+// added in index.html alone. Numbers in the readout come from the linked work.
 // The drawing only moves while the reader scrolls, so it stays on with prefers-reduced-motion;
 // the autonomous animations (photon dashes, time-lapse autoplay) are off in that case.
 (function () {
@@ -10,7 +14,8 @@
   if (!svg) return;
   var NS = "http://www.w3.org/2000/svg";
   var ops = Array.prototype.slice.call(document.querySelectorAll(".op"));
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".route-nav a"));
+  // Drawing stages, in process order. data-stage on each op names one of these.
+  var STAGES = ["clean", "oxidize", "coat", "hold", "expose", "develop", "measure", "etch", "test", "analyze"];
   var q = function (sel) { return svg.querySelector(sel); };
 
   /* ---------- Geometry (SVG units) ---------- */
@@ -178,18 +183,31 @@
     });
   }
 
-  var STEPS = [
-    { op: "0010", name: "Clean", note: "Coupon prep from my FURI runs." },
-    { op: "0020", name: "Oxidize", note: "Thickness from my Deal–Grove fit: B = 0.415 µm²/hr, A = 0.272 µm." },
-    { op: "0030", name: "Coat", note: "Recipe from my FURI spin runs; 1500 rpm sits inside the clean-film window." },
-    { op: "0040", name: "Hold", note: "Inset: real frames from FURI capture run 02, same field." },
-    { op: "0050", name: "Expose", note: "My FURI runs cure the whole film; the mask is schematic." },
-    { op: "0060", name: "Develop", note: "Top-layer loss δ from my constant-loss fit in JMP." },
-    { op: "0070", name: "Measure", note: "Stylus profilometry, as in my FURI metrology." },
-    { op: "0080", name: "Etch", note: "Etch numbers from my GaAs RIE simulation in Silvaco Athena." },
-    { op: "0090", name: "Test", note: "Measured points from my EEE 334 lab data." },
-    { op: "0100", name: "Analyze", note: "Planned design from my FURI write-up; levels are tentative." }
-  ];
+
+  /* ---------- Operations: panel text from the HTML, header nav built from the ops ---------- */
+  var meta = ops.map(function (op) {
+    var rows = Array.prototype.slice.call(op.querySelectorAll(".recipe tr")).slice(0, 3).map(function (tr) {
+      return [tr.cells[0].textContent.trim(), tr.cells[1].textContent.trim()];
+    });
+    while (rows.length < 3) rows.push(["", ""]);
+    return {
+      no: op.querySelector(".op-no").textContent.trim(),
+      name: op.querySelector(".op-title h3").textContent.trim(),
+      note: op.dataset.note || "",
+      stage: STAGES.indexOf(op.dataset.stage || ""),
+      recipe: rows
+    };
+  });
+  var nav = document.querySelector(".route-nav");
+  var navLinks = ops.map(function (op, k) {
+    var a = document.createElement("a");
+    a.href = "#" + op.id;
+    a.innerHTML = "<b></b><span></span>";
+    a.firstChild.textContent = meta[k].no;
+    a.lastChild.textContent = meta[k].name;
+    if (nav) nav.appendChild(a);
+    return a;
+  });
 
   /* ---------- Frame preloading for the hold inset ---------- */
   var framesLoaded = false;
@@ -201,10 +219,10 @@
   }
 
   /* ---------- Render ---------- */
+  // i is the drawing stage (index into STAGES), p its progress
   var lastFrame = -1;
   function render(i, p) {
     var g = i + p;
-    var st = STEPS[i];
 
     // Oxide grows through op 0020; Si is consumed below the original surface (0.44 of the oxide)
     var tOx = i < 1 ? 0 : i === 1 ? DG.tMax * p : DG.tMax;
@@ -414,13 +432,15 @@
       default: rows = [["Design", "2² + 3 center"], ["Factors", "Ramp, speed"], ["Responses", "Onset, nucleation"]];
     }
     setReadout(rows);
-    if (pvOp.textContent !== st.op) {
-      pvOp.textContent = st.op;
-      bigOp.textContent = st.op;
-      pvName.textContent = st.name;
-      pvNote.textContent = "Schematic, not to scale. " + st.note;
-    }
-    pvBar.style.width = (p * 100).toFixed(1) + "%";
+  }
+
+  // Panel header, watermark and note for the op in view
+  function setPanel(m) {
+    if (pvOp.textContent === m.no && pvName.textContent === m.name) return;
+    pvOp.textContent = m.no;
+    bigOp.textContent = m.no;
+    pvName.textContent = m.name;
+    pvNote.textContent = "Schematic, not to scale. " + m.note;
   }
 
   /* ---------- Scroll tracking ---------- */
@@ -441,7 +461,20 @@
       if (i === ops.length - 1 && anchor > tops[i] + heights[i]) inRoute = false;
     }
     var g = i + p;
-    if (Math.abs(g - lastG) > 0.0004) { render(i, p); lastG = g; }
+    if (Math.abs(g - lastG) > 0.0004) {
+      var m = meta[i];
+      if (m.stage >= 0) render(m.stage, p);
+      else {
+        // No drawing of its own: hold the last drawn stage and show this op's recipe
+        var prev = -1;
+        for (var k2 = i - 1; k2 >= 0 && prev < 0; k2--) prev = meta[k2].stage;
+        render(Math.max(prev, 0), prev < 0 ? 0 : 1);
+        setReadout(m.recipe);
+      }
+      setPanel(m);
+      pvBar.style.width = (p * 100).toFixed(1) + "%";
+      lastG = g;
+    }
 
     // Sign each operation once it has been passed
     while (signed < ops.length && (signed < i || (signed === i && p > 0.3) || (!inRoute && anchor >= tops[0]))) {

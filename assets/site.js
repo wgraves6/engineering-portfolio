@@ -1,27 +1,8 @@
-// Theme toggle, barcode, galleries, lightbox, defect time-lapse and analytics tags for the portfolio page.
+// Barcode, galleries, lightbox, defect time-lapse and analytics tags for the portfolio page.
 (function () {
   "use strict";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var root = document.documentElement;
-
-  /* ---------- Theme: white light / yellow room ---------- */
-  var toggle = document.querySelector(".theme-toggle");
-  var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  function isDark() { return root.dataset.theme ? root.dataset.theme === "dark" : darkQuery.matches; }
-  function syncToggle() {
-    var dark = isDark();
-    toggle.setAttribute("aria-pressed", dark ? "true" : "false");
-    toggle.title = dark ? "White light" : "Yellow room";
-    toggle.querySelector(".sr-only").textContent = dark ? "Switch to the white-light (light) theme" : "Switch to the yellow-room (dark) theme";
-  }
-  toggle.addEventListener("click", function () {
-    root.dataset.theme = isDark() ? "light" : "dark";
-    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
-    syncToggle();
-  });
-  darkQuery.addEventListener("change", syncToggle);
-  syncToggle();
 
   /* ---------- Barcode (decorative, drawn from the lot number) ---------- */
   document.querySelectorAll(".barcode[data-code]").forEach(function (svg) {

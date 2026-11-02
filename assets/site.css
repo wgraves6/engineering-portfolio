@@ -1,109 +1,29 @@
 /* ==========================================================================
-   Process traveler: light "white light" and dark "yellow room" themes
+   Process traveler, dark "yellow room" theme (amber like a lithography bay)
    ========================================================================== */
 
 :root {
-  color-scheme: light;
-  --paper: #f2efe7;
-  --sheet: #fbfaf6;
-  --raised: #ffffff;
-  --ink: #1d1c19;
-  --ink-2: #47443d;
-  --muted: #6a665d;             /* 5.0:1 on --paper */
-  --rule: #ddd7ca;
-  --rule-2: #c8c0ae;
-  --grid: rgba(29, 28, 25, .055);
-  --accent: #8c1d40;            /* ASU maroon: stamps, primary buttons */
-  --accent-ink: #8c1d40;
-  --accent-soft: #f4e5ea;
-  --on-accent: #ffffff;
-  --gold: #e8a900;
-  --ok: #2c7a4b;
-  --media: #ffffff;
-  --code-bg: #1b1a17;
-  --shadow: 0 1px 0 rgba(29, 28, 25, .04), 0 18px 40px -22px rgba(29, 28, 25, .28);
-
-  /* process materials */
-  --si: #ccd1d8;
-  --si-line: #8d95a1;
-  --si-hatch: rgba(80, 90, 105, .28);
-  --ox: #a7d0ea;
-  --ox-line: #5b98bf;
-  --resin: #f3bb63;
-  --resin-line: #c98a2b;
-  --cured: #b8661e;
-  --cured-line: #85480f;
-  --chrome: #2b2b31;
-  --quartz: rgba(150, 190, 215, .32);
-  --uv: #7b5cff;
-  --screen: #0f1913;
-  --screen-grid: rgba(120, 255, 180, .09);
-  --trace: #62f0a3;
-
-  --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
-  --max: 1320px;
-  --radius: 6px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --paper: #13110b;
-    --sheet: #1a170f;
-    --raised: #211d14;
-    --ink: #f4ead0;
-    --ink-2: #d4c8a8;
-    --muted: #a69a7c;
-    --rule: #383120;
-    --rule-2: #4b422d;
-    --grid: rgba(255, 196, 92, .05);
-    --accent: #ffb547;
-    --accent-ink: #ffc266;
-    --accent-soft: #2f2511;
-    --on-accent: #1a1406;
-    --gold: #ffb547;
-    --ok: #8fdca7;
-    --media: #f3ede0;
-    --code-bg: #0d0b06;
-    --shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 24px 48px -24px rgba(0, 0, 0, .7);
-    --si: #8f8b80;
-    --si-line: #bdb7a8;
-    --si-hatch: rgba(30, 26, 16, .35);
-    --ox: #79a9c4;
-    --ox-line: #a9cfe3;
-    --resin: #f6c46e;
-    --resin-line: #ffdc9a;
-    --cured: #cf7a2c;
-    --cured-line: #f0a35a;
-    --chrome: #0d0c09;
-    --quartz: rgba(200, 220, 230, .18);
-    --uv: #9d86ff;
-    --screen: #0a0905;
-    --screen-grid: rgba(255, 190, 80, .09);
-    --trace: #ffc766;
-  }
-}
-:root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #13110b;
-  --sheet: #1a170f;
-  --raised: #211d14;
+  --paper: #13110b;             /* page background */
+  --sheet: #1a170f;             /* traveler sheets, panels */
+  --raised: #211d14;            /* cards, buttons */
   --ink: #f4ead0;
   --ink-2: #d4c8a8;
-  --muted: #a69a7c;
+  --muted: #a69a7c;             /* 6.3:1 on --sheet */
   --rule: #383120;
   --rule-2: #4b422d;
   --grid: rgba(255, 196, 92, .05);
-  --accent: #ffb547;
+  --accent: #ffb547;            /* amber: stamps, primary buttons, links */
   --accent-ink: #ffc266;
   --accent-soft: #2f2511;
   --on-accent: #1a1406;
   --gold: #ffb547;
   --ok: #8fdca7;
-  --media: #f3ede0;
+  --media: #f3ede0;             /* light backing behind plots and screenshots */
   --code-bg: #0d0b06;
   --shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 24px 48px -24px rgba(0, 0, 0, .7);
+
+  /* process materials (process view) */
   --si: #8f8b80;
   --si-line: #bdb7a8;
   --si-hatch: rgba(30, 26, 16, .35);
@@ -119,6 +39,11 @@
   --screen: #0a0905;
   --screen-grid: rgba(255, 190, 80, .09);
   --trace: #ffc766;
+
+  --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --max: 1320px;
+  --radius: 6px;
 }
 
 /* ---------- Base ---------- */
@@ -137,7 +62,6 @@ body {
   font: 16px/1.6 var(--font);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  transition: background-color .4s, color .4s;
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -277,20 +201,6 @@ h1, h2, h3, h4 { margin: 0; letter-spacing: -.015em; }
 .route-nav a.active::after { background: var(--accent-ink); }
 
 .bar-end { display: flex; align-items: center; gap: 8px; }
-.theme-toggle {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 4px;
-  border: 1px solid var(--rule-2);
-  background: var(--raised);
-  color: var(--ink);
-  cursor: pointer;
-  transition: background .2s, color .2s, border-color .2s;
-}
-.theme-toggle:hover { border-color: var(--ink-2); }
-.theme-toggle[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 
 /* ---------- Sheets (traveler paper) ---------- */
 .sheet {
@@ -922,6 +832,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 }
 
 @media print {
+  :root { --paper: #fff; --sheet: #fff; --raised: #fff; --ink: #111; --ink-2: #333; --muted: #555; --rule: #ccc; --rule-2: #bbb; --accent: #8c1d40; --accent-ink: #8c1d40; --accent-soft: #f4e5ea; --on-accent: #fff; }
   body { background: #fff; }
   .bar, .lightbox, .process, .g-thumbs, .tl-controls { display: none; }
   .op { min-height: 0; break-inside: avoid; }
