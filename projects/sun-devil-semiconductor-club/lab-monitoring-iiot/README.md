@@ -1,4 +1,4 @@
-# Lab Monitoring (IIoT)
+# Lab Monitoring
 
 Arduino sensor nodes that send lab equipment data to an **Ignition SCADA** gateway over **MQTT**. Readings arrive as live tags that can be trended and alarmed on. Built for the Semiconductor Club cleanroom tools, starting with the spin coater.
 
@@ -13,9 +13,6 @@ Ignition gateway
         │
      Tags → Perspective dashboard / historian / alarms
 ```
-
-<!-- TODO: add screenshots of the Ignition tag browser and dashboard -->
-<!-- ![Ignition dashboard](docs/images/dashboard.png) -->
 
 ## Sketches
 

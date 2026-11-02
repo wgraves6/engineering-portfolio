@@ -4,9 +4,25 @@
   Put .in decks in deck/ and exported PNG plots in plots/.
 -->
 
-# <Project title>
+# [Project title]
 
-**Tool:** Athena / Atlas · **Course / context:** <e.g. EEE 436, personal study>
+**Tool:** Silvaco Athena / Atlas · **Course / context:** [e.g. EEE 436, personal study]
+
+<!--
+  Lead figure: the result cross-section or plot, also used on the site card. Uncomment and fill in:
+<p align="center">
+  <img src="plots/your-plot.png" width="70%" alt="Description of plot">
+  <br><em>One-line caption.</em>
+</p>
+-->
+
+## Key results
+
+<!-- Three bullets with the headline numbers. Use the same numbers as the site card. -->
+
+- [headline number and what it shows]
+- [headline number and what it shows]
+- [headline number and what it shows]
 
 ## Goal
 
@@ -24,15 +40,13 @@
 
 <!-- 2-4 plots from plots/ with one sentence each. Compare to hand calculations or measured data where possible. -->
 
-<!-- ![Description of plot](plots/your-plot.png) -->
+## Conclusions
 
-## What I learned
-
-<!-- What changed between runs, what surprised you, what you would do next. -->
+<!-- The conclusions from the report. -->
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `deck/<name>.in` | DeckBuild input deck |
+| `deck/[name].in` | DeckBuild input deck |
 | `plots/` | Exported TonyPlot figures |

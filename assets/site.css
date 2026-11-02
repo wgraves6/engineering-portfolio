@@ -6,7 +6,7 @@
   --surface: #ffffff;
   --text: #131316;
   --text-2: #484852;
-  --muted: #7b7b85;
+  --muted: #6e6e78;           /* 4.6:1 on --bg, AA for small text */
   --line: #e4e2dc;
   --line-2: #d4d1c9;
 
@@ -431,16 +431,17 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .card.compact p.summary { margin-bottom: 0; font-size: 15px; }
 .card.compact .links { margin-top: 16px; }
 
-/* Featured card */
-.card.featured {
+/* Featured and wide cards: gallery beside the text. A wide card spans both
+   columns of a .grid-2, for sections with an odd number of cards. */
+.card.featured, .card.wide {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
 }
-.card.featured .gallery { border-right: 1px solid var(--line); border-bottom: 0; }
-.card.featured .g-main { aspect-ratio: auto; flex: 1; min-height: 380px; }
-.card.featured .g-main img { position: absolute; inset: 0; }
-.card.featured .g-main.photo img { object-fit: contain; }
-.card.featured .card-body { padding: 30px 32px; }
+.grid-2 > .card.wide { grid-column: 1 / -1; }
+.card.featured .gallery, .card.wide .gallery { justify-content: center; border-right: 1px solid var(--line); border-bottom: 0; }
+.card.featured .g-main, .card.wide .g-main { aspect-ratio: 4 / 3; }
+.card.featured .g-main.photo img, .card.wide .g-main.photo img { object-fit: contain; }
+.card.featured .card-body, .card.wide .card-body { padding: 30px 32px; }
 .card.featured h3 { font-size: 27px; }
 .card.featured + .card.featured { margin-top: 22px; }
 .featured-flag {
@@ -795,9 +796,9 @@ footer a { color: #d9cfd3; }
 }
 
 @media (max-width: 1060px) {
-  .card.featured { grid-template-columns: 1fr; }
-  .card.featured .gallery { border-right: 0; border-bottom: 1px solid var(--line); }
-  .card.featured .g-main { aspect-ratio: 16 / 10; flex: none; min-height: 0; }
+  .card.featured, .card.wide { grid-template-columns: 1fr; }
+  .card.featured .gallery, .card.wide .gallery { border-right: 0; border-bottom: 1px solid var(--line); }
+  .card.featured .g-main, .card.wide .g-main { aspect-ratio: 16 / 10; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
   .contact .wrap { grid-template-columns: 200px 1fr; }
   .contact-links { grid-column: 1 / -1; }
@@ -831,7 +832,7 @@ footer a { color: #d9cfd3; }
   .name-row { flex-direction: column; align-items: flex-start; gap: 14px; }
   .grid-2, .skills-grid { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr 1fr; }
-  .card-body, .card.featured .card-body { padding: 20px; }
+  .card-body, .card.featured .card-body, .card.wide .card-body { padding: 20px; }
   .section { padding-top: 64px; }
   .section-head, .section-head.with-logo { grid-template-columns: 1fr; }
   .section-head p, .section-head .rule,

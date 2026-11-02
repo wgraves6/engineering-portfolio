@@ -1,6 +1,18 @@
 # GaAs RIE: Etch Selectivity and Mask Design
 
-**Tool:** Athena · **Course / context:** EEE 435 (Microelectronics), ASU
+**Tools:** Silvaco Athena, JMP · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU
+
+<p align="center">
+  <img src="plots/8min_mask_lost.png" height="320" alt="Overetched trench with the 0.10 µm oxide mask consumed after 8 min">
+  <img src="plots/final_1um_trench.png" height="320" alt="Final 1 µm deep GaAs trench">
+  <br><em>Left: the 0.10 µm baseline mask is gone after 8 min and the field is recessed. Right: the final 1 µm deep trench with a 0.171 µm mask and a 9.32 min etch.</em>
+</p>
+
+## Key results
+
+- **6.93 : 1** blanket GaAs : SiO₂ selectivity, from linear etch-rate fits in JMP.
+- In the 0.5 µm trench the hand calculation falls about **14% short**, and the effective selectivity is about 6 : 1.
+- A two-factor JMP DOE found the operating point: **0.171 µm of oxide and 9.32 min** for a 1 µm deep trench, with about 3 nm of mask to spare.
 
 ## Goal
 
@@ -25,10 +37,10 @@ I measured etch rates on blanket films so the trench geometry wouldn't skew them
 
 **Blanket etch rates.** Both films etch at a constant rate, and the linear fits pass through every point:
 
-| Material | Etch rate | |
+| Material | Etch rate | JMP fit |
 |---|---|---|
-| GaAs | 0.00208 µm/s (0.125 µm/min) | ![GaAs fit](plots/gaas_etch_rate_fit.png) |
-| SiO₂ | 0.0003 µm/s (0.018 µm/min) | ![Oxide fit](plots/oxide_etch_rate_fit.png) |
+| GaAs | 0.00208 µm/s (0.125 µm/min) | <img src="plots/gaas_etch_rate_fit.png" width="260" alt="GaAs fit"> |
+| SiO₂ | 0.0003 µm/s (0.018 µm/min) | <img src="plots/oxide_etch_rate_fit.png" width="260" alt="Oxide fit"> |
 
 That gives a **selectivity of 6.93 : 1** (GaAs : SiO₂). Etching 1 µm of GaAs should then need at least 1 / 6.93 = **0.144 µm** of oxide and about **8.0 min** of etch time.
 
@@ -50,7 +62,7 @@ The optimum was **0.171 µm of oxide and 9.32 min**. Rerunning the deck with tho
 
 Within the trench, the GaAs rate works out to 1 µm / 9.32 min ≈ 0.107 µm/min. The oxide consumed is about 0.168 µm, so the effective selectivity for this feature is about **6 : 1**, not the blanket value of 6.9.
 
-## What I learned
+## Conclusions
 
 - Etch rates from blanket films are a starting point, not an answer. In a feature this narrow (0.5 µm), the GaAs rate dropped by about 14%, and the mask needed to be about 20% thicker than the selectivity calculation predicted.
 - When the mask runs out, the damage goes beyond a deeper etch: the field is etched as well, so the trench is shallower relative to the surface, and the profile is ruined.

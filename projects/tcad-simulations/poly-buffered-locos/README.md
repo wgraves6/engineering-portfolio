@@ -1,8 +1,18 @@
 # Poly-Buffered LOCOS: Bird's Beak and Usable Active Width
 
-**Tool:** Athena · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU, homework.
+**Tool:** Silvaco Athena · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU, homework.
 
 **Source:** The process deck is Silvaco's built-in example `anoxex05` (Examples → Athena_OXIDATION → Poly Buffered LOCOS), run unchanged. **My part:** one added `extract` line that measures how far the field oxide encroaches into the active region, and the usable-length analysis below.
+
+<p align="center">
+  <img src="plots/final_pbl_cross_section.png" width="70%" alt="Simulated poly-buffered LOCOS cross-section after field oxidation">
+  <br><em>Poly-buffered LOCOS after 120 min wet oxidation at 1000 °C (half of the active region).</em>
+</p>
+
+## Key results
+
+- **1.85 µm** of the **2.2 µm** drawn active region stays usable after field oxidation, taking ≤ 5% pad-oxide growth as the limit.
+- The usable edge comes from the added `extract` line: the lateral SiO₂ extent at y = 0.021 µm is 1.276 µm.
 
 ## Goal
 

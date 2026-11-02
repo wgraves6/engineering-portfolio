@@ -1,9 +1,9 @@
 # Sun Devil Semiconductor Club
 
-Projects connected to the Sun Devil Semiconductor Club at ASU: the club's spin coater, the network that monitors it, and my FURI research on spin-coated films.
+My FURI research on a low-cost 405 nm photoresist for the club's student-run photolithography process, plus equipment I've helped build as the club's Equipment Team Lead.
 
-| Project | What it is | Stack |
+| Project | What it is | Tools |
 |---|---|---|
-| [**Spin Coater Controller**](spin-coater) | Closed-loop spin coater with PID + feedforward RPM control, self-calibration, a recipe editor and vibration telemetry | C++ · Arduino · MQTT |
-| [**Lab Monitoring (IIoT)**](lab-monitoring-iiot) | Arduino sensor nodes streaming equipment data to an Ignition SCADA gateway over MQTT, starting with the spin coater | Arduino · Ignition · MQTT |
-| [**Spin-Coat Defect Analysis**](spin-coat-defect-analysis) | FURI research: 405 nm SLA resin as a low-cost photoresist, with spin-speed thickness and adhesion characterization and automated defect imaging (DOE in progress) | Python · OpenCV · ImageJ · JMP · Dektak · Gwyddion |
+| [**405 nm SLA Resin as a Low-Cost Photoresist**](spin-coat-defect-analysis) | TSMC-sponsored FURI research: lift-off and cured thickness vs. spin speed, a constant-loss model for the IPA rinse, and time-lapse imaging of defect onset in the wet film (DOE in progress) | Dektak · Gwyddion · ImageJ · JMP · Python |
+| [**Spin Coater Controller**](spin-coater) | Closed-loop spin coater with PID + feedforward RPM control, self-calibration, a recipe editor and vibration telemetry | C++ · Arduino |
+| [**Lab Monitoring**](lab-monitoring-iiot) | Arduino sensor nodes streaming equipment data to an Ignition SCADA gateway over MQTT, starting with the spin coater | Arduino · MQTT |

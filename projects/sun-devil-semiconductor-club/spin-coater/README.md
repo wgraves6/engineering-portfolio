@@ -1,9 +1,6 @@
-# SDSemi Spin Coater
+# Spin Coater Controller
 
 Closed-loop controller for a DIY photoresist spin coater, built for the Semiconductor Club. An Arduino Uno R4 holds a brushed DC motor at user-programmed RPM set points, runs multi-step spin recipes from an OLED menu, calibrates its own motor curve to an SD card, and streams vibration and speed telemetry to an Ignition SCADA gateway over MQTT.
-
-<!-- TODO: add a photo of the coater and a plot of target vs. measured RPM during a run -->
-<!-- ![Spin coater](docs/images/coater.jpg) -->
 
 ## Highlights
 

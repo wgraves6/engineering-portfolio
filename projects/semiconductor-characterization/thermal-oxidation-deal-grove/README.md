@@ -2,6 +2,17 @@
 
 **Tools:** JMP · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU. This was a group lab. This writeup covers my part, the data analysis.
 
+<p align="center">
+  <img src="plots/predicted_vs_measured.png" width="70%" alt="Deal–Grove prediction and measured oxide thickness vs. furnace time">
+  <br><em>Deal–Grove prediction vs. measured wet-oxide thickness, 5 to 498 min.</em>
+</p>
+
+## Key results
+
+- **B = 0.415 µm²/hr** and **A = 0.272 µm** from a linearized t/x vs. x fit in JMP.
+- The model is **within 2%** of the measured thickness at every furnace time from 15 to 498 min (−9.4% at 5 min).
+- Within-wafer σ jumps from **13 Å to 329 Å** between the 180 and 498 min runs. LPCVD nitride's refractive index varies about **40× more than dry oxide's and 100× more than wet oxide's**.
+
 ## Goal
 
 Find the Deal–Grove A and B constants from oxide thickness vs. furnace time, check the model against the measured thickness, and compare the refractive index and uniformity of dry oxide, wet oxide and LPCVD nitride films.

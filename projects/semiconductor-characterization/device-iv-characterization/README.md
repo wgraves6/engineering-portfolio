@@ -1,8 +1,22 @@
-# Device I-V Characterization
+# Diode & MOSFET I-V Characterization
 
 **Tools:** Curve tracer, oscilloscope, DMM, JMP, LTspice · **Course / context:** EEE 334 lab, ASU.
 
 I-V measurements on discrete semiconductor devices, and the device parameters extracted from them.
+
+<p align="center">
+  <img src="plots/nmos_cs_amp_built.jpg" height="260" alt="Breadboarded CD4007 common-source amplifier">
+  <img src="plots/nmos_cs_transfer.png" height="260" alt="Measured VDS vs. VGS transfer curve of the common-source amplifier">
+  <br><em>The CD4007 NMOS common-source amplifier on the breadboard, and its measured transfer characteristic.</em>
+</p>
+
+## Key results
+
+- **Vt = 0.872 V** and **kn'(W/L) = 0.436 mA/V²** for the CD4007 NMOS from a √iD vs. VGS fit, with λ = 0.00593 V⁻¹ (VA ≈ 169 V).
+- Common-source gain at Q of **−8.48 V/V** measured vs. −7.59 V/V in LTspice with the measured parameters. Refitting over the operating current range brought the hand-calculated gain within **2.5%** of the measurement.
+- Zener turn-on of **0.70 to 0.71 V**, and breakdown within **6%** of rated for all three diodes.
+
+## Devices
 
 | Device | Parameters extracted |
 |---|---|
@@ -20,7 +34,7 @@ Measure the forward and reverse I-V curves of three Zener diodes and extract the
 
 ### Setup
 
-![Curve tracer and oscilloscope setup](plots/curve_tracer_setup.jpg)
+<p align="center"><img src="plots/curve_tracer_setup.jpg" width="70%" alt="Curve tracer and oscilloscope setup"></p>
 
 A LEADER LTC-905 curve tracer sweeps the voltage across the diode. It sends the voltage to the X input and the current to the Y input of a Tektronix DPO4032 oscilloscope in XY mode, which draws the I-V curve. The scope data was saved as CSV, converted to current with the curve tracer's volts-to-amps table, and plotted in JMP.
 
@@ -142,7 +156,7 @@ The hand calculation Av = −kn'(W/L)(VGS − Vt)RD with the parameters above gi
 | gm at VDS = 10 V (average) | 1.65 to 1.71 mA/V |
 | Common-source gain at Q | −8.48 V/V measured, −7.59 V/V LTspice |
 
-The square-law model described the device well enough that the calculated ro, gm and Q point came within about 1 to 8% of the measurements. The largest errors came from the extracted parameters, not the measurements: a single Vt and kn'(W/L) cannot fit the whole 0 to 8 V range, because mobility degradation and series resistance reduce the current at high VGS. The main takeaway is that device parameters should be extracted over the same current range the circuit will operate in. Refit over the low-current range near the Q point, the calculated gain matched the measurement within 2.5%.
+The square-law model described the device well enough that the calculated ro, gm and Q point came within about 1 to 8% of the measurements. The largest errors came from the extracted parameters, not the measurements: a single Vt and kn'(W/L) cannot fit the whole 0 to 8 V range, because mobility degradation and series resistance reduce the current at high VGS. The main takeaway is that device parameters should be extracted over the same current range the circuit will operate in. With the parameters refit over the low-current range near the Q point, the calculated gain matched the measurement within 2.5%.
 
 <details>
 <summary>Measured data</summary>

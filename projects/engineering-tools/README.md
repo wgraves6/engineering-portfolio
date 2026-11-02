@@ -35,3 +35,4 @@ python python/percent_error_table.py my_lab_data.xlsx
 |---|---|
 | [`percent_error_table.jsl`](jmp/percent_error_table.jsl) | The same percent-error comparison as the Python version, run directly on a JMP data table. Supports configurable reference priority and either all-pairs or reference-only comparison. |
 | [`ellipsometry_contour_plot.jsl`](jmp/ellipsometry_contour_plot.jsl) | Wafer-map contour plot of film thickness from ellipsometer X/Y measurements, used to visualize oxide uniformity. |
+| [`defect_doe_design.jsl`](../sun-devil-semiconductor-club/spin-coat-defect-analysis/analysis/jmp/defect_doe_design.jsl) | Full-factorial DOE generator for the FURI defect study. It lives with that project in [`spin-coat-defect-analysis/analysis/jmp`](../sun-devil-semiconductor-club/spin-coat-defect-analysis/analysis/jmp). |

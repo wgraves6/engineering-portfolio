@@ -118,6 +118,22 @@
   window.addEventListener("scroll", setActive, { passive: true });
   setActive();
 
+  /* ---------- Click events for GoatCounter ---------- */
+  // count.js (loaded after this file) counts clicks on any element with data-goatcounter-click,
+  // so name the links that leave the page: résumé, email, LinkedIn and each GitHub write-up.
+  document.querySelectorAll("a[href]").forEach(function (a) {
+    var href = a.getAttribute("href");
+    var name = null;
+    if (/\.pdf$/i.test(href)) name = "resume-pdf";
+    else if (href.indexOf("mailto:") === 0) name = "email";
+    else if (href.indexOf("linkedin.com") > -1) name = "linkedin";
+    else if (href.indexOf("github.com") > -1) {
+      var tree = href.match(/\/tree\/main\/projects\/([^#]+)/);
+      name = "github/" + (tree ? tree[1] : href.replace(/^https:\/\/github\.com\//, ""));
+    }
+    if (name) a.setAttribute("data-goatcounter-click", name);
+  });
+
   /* ---------- Reveal on scroll ---------- */
   var reveals = document.querySelectorAll(".reveal");
   if (!reduceMotion && "IntersectionObserver" in window) {

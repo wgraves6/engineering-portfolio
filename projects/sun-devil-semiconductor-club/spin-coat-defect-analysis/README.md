@@ -1,6 +1,6 @@
-# Spin-Coat Defect Analysis
+# 405 nm SLA Resin as a Low-Cost Photoresist
 
-**Characterization of 405 nm UV-curable SLA resin as a photoresist for silicon photolithography.** ASU FURI research project (Fall 2026), sponsored by TSMC through FURI. Mentor: Prof. Michael Kozicki, School of Electrical, Computer and Energy Engineering.
+**Characterization of 405 nm UV-curable SLA resin as a photoresist for silicon photolithography.** ASU FURI research project (Fall 2026), sponsored by TSMC through FURI. Advisor: Prof. Michael Kozicki, School of Electrical, Computer and Energy Engineering.
 
 **Research question:** How do spin-coating parameters control the thickness, wet-film stability and adhesion of a 405 nm SLA resin on silicon?
 
@@ -11,6 +11,12 @@
   <img src="docs/images/run02_1_t03600s_1_check.jpg" width="45%" alt="Same shard at 60 min, defects outlined">
   <br><em>The same shard 30 s and 60 min after the spin stops. Yellow outlines are defects found by the ImageJ macro inside the analysis circle.</em>
 </p>
+
+## Key results
+
+- **≤ 1550 rpm** for a clean cured film. It starts peeling at 1600 rpm and is fully removed above 2100 rpm (14 runs, 6 coupons).
+- **6.1–7.3 µm at 1000 rpm down to 0.8 µm at 2000 rpm** cured thickness, by Bruker Dektak XT stylus profilometry with each scan leveled in Gwyddion.
+- **δ = 13.5 µm** of uncured resin lost in the IPA rinse, from a constant-loss model fit in JMP (RMSE 0.59 µm).
 
 ## Background
 

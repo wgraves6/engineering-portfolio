@@ -1,6 +1,17 @@
 # Thermal Oxidation of an Etched Si Fin
 
-**Tool:** Athena · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU. This was a group lab. This writeup covers my part: the 2D fin oxidation simulations and the dimensional-control analysis.
+**Tools:** Silvaco Athena, JMP · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU. This was a group lab. This writeup covers my part: the 2D fin oxidation simulations and the dimensional-control analysis.
+
+<p align="center">
+  <img src="plots/fin_oxidation_time_series.png" width="90%" alt="Si fin cross-sections during wet oxidation from 0 to 60 min">
+  <br><em>Si fin cross-sections during wet oxidation at 1000 °C, 0 to 60 min.</em>
+</p>
+
+## Key results
+
+- The simulated fin narrows faster than the planar Deal–Grove prediction at every step, and is up to **41% narrower** than predicted (at 50 min).
+- At the measurement height the fin **pinches off at 60 min**.
+- About 20 min of oxidation trims the fin from **400 nm to about 200 nm** after an HF strip, or widens it to **about 600 nm** if the oxide is kept.
 
 ## Goal
 
@@ -51,7 +62,7 @@ In the simulation the fin always narrows faster than the planar model predicts, 
 - **Thinning:** Oxidize, then strip the oxide in HF, which removes SiO₂ but not Si. Under these conditions, about 20 minutes takes the fin from 400 nm to about 200 nm of silicon.
 - **Widening:** Oxidize and keep the oxide. About 56% of the oxide thickness grows outward past the original surface. Adding 100 nm per side therefore takes about 180 nm of oxide, which is also about 20 minutes here. The result is a fin about 600 nm wide: a silicon core inside an oxide shell.
 
-## What I learned
+## Conclusions
 
 - 1D Deal–Grove numbers are a good first estimate for flat areas (on real furnace data the fit held to about 2%; see [Wet Thermal Oxidation: Deal–Grove Fit](../../semiconductor-characterization/thermal-oxidation-deal-grove)) but get steadily worse on narrow features. For this fin the error passed 20% after 40 minutes. Anything sub-micron with exposed sidewalls needs a 2D simulation.
 - Where you measure matters. The fin goes from rectangular to tapered, so a single width extracted at one height doesn't fully describe the profile.
