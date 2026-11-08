@@ -176,6 +176,7 @@
   var pvName = document.querySelector(".pv-name");
   var pvBar = document.querySelector(".pv-progress i");
   var pvNote = document.querySelector(".pv-note");
+  var legend = document.querySelector(".legend");
   var readout = document.querySelector(".readout");
   var cells = [0, 1, 2].map(function () {
     var d = document.createElement("div");
@@ -389,6 +390,10 @@
     if (i === 8) { scopeO = ease(seg(p, 0, 0.22)); xsO = 1 - 0.9 * scopeO; }
     if (i === 9) { var m = ease(seg(p, 0, 0.22)); scopeO = 1 - m; doeO = m; xsO = 0.1 * (1 - m); }
     show(xs, xsO); show(scope, scopeO); show(doe, doeO);
+    // The material legend goes with the wafer: gone once the scope or DOE plot has taken over (ops 0090, 0100)
+    var legendO = clamp((xsO - 0.1) / 0.9, 0, 1);
+    show(legend, legendO);
+    legend.style.display = legendO > 0.001 ? "" : "none";
     if (i >= 8) {
       var reveal = i === 8 ? seg(p, 0.18, 0.78) * (VDS.length - 1) : VDS.length - 1;
       var n = Math.floor(reveal), fr = reveal - n;
@@ -449,7 +454,7 @@
     pvOp.textContent = m.no;
     bigOp.textContent = m.no;
     pvName.textContent = m.name;
-    pvNote.textContent = "Schematic, not to scale. " + m.note;
+    pvNote.textContent = (m.stage >= 8 ? "" : "Schematic, not to scale. ") + m.note;
   }
 
   /* ---------- Scroll tracking ---------- */
