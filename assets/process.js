@@ -464,7 +464,7 @@
     heights = ops.map(function (op) { return op.offsetHeight; });
   }
 
-  var lastG = -1, signed = 0, lastNav = -2;
+  var lastG = -1, lastNav = -2;
   function update() {
     var anchor = window.scrollY + window.innerHeight * 0.42;
     var i = 0, p = 0, inRoute = true;
@@ -488,12 +488,6 @@
       setPanel(m);
       pvBar.style.width = (p * 100).toFixed(1) + "%";
       lastG = g;
-    }
-
-    // Sign each operation once it has been passed
-    while (signed < ops.length && (signed < i || (signed === i && p > 0.3) || (!inRoute && anchor >= tops[0]))) {
-      ops[signed].classList.add("signed");
-      signed++;
     }
 
     var navI = inRoute ? i : (anchor < tops[0] ? -1 : ops.length);

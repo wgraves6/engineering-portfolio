@@ -13,7 +13,7 @@
   --rule: #383120;
   --rule-2: #4b422d;
   --grid: rgba(255, 196, 92, .05);
-  --accent: #ffb547;            /* amber: stamps, primary buttons, links */
+  --accent: #ffb547;            /* amber: primary buttons, links */
   --accent-ink: #ffc266;
   --accent-soft: #2f2511;
   --on-accent: #1a1406;
@@ -221,8 +221,7 @@ h1, h2, h3, h4 { margin: 0; letter-spacing: -.015em; }
   color: var(--muted);
 }
 .sheet-strip b { color: var(--ink); font-weight: 600; }
-.sheet-strip .strip-route { flex: 1; min-width: 0; }
-.barcode { width: 190px; height: 28px; color: var(--ink); }
+.barcode { margin-left: auto; width: 190px; height: 28px; color: var(--ink); }
 .barcode rect { fill: currentColor; }
 
 /* ---------- Cover ---------- */
@@ -332,22 +331,6 @@ h1, h2, h3, h4 { margin: 0; letter-spacing: -.015em; }
 .op-title p { margin: 6px 0 0; color: var(--ink-2); font-size: 16px; }
 .op-sign { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px 16px; padding-top: 6px; max-width: 320px; }
 
-.stamp {
-  display: grid;
-  place-items: center;
-  width: 46px;
-  height: 46px;
-  border: 2px solid var(--accent-ink);
-  border-radius: 50%;
-  color: var(--accent-ink);
-  font: 600 13px/1 var(--mono);
-  letter-spacing: .04em;
-  transform: rotate(-12deg) scale(1.4);
-  opacity: 0;
-  transition: opacity .25s ease, transform .35s cubic-bezier(.2, 1.6, .4, 1);
-}
-.op.signed .stamp { opacity: .9; transform: rotate(-12deg) scale(1); }
-.no-js .stamp { opacity: .9; transform: rotate(-12deg); }
 
 .recipe {
   width: 100%;
@@ -756,7 +739,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .xsec .rays line { animation: photons .9s linear infinite; }
 @media (prefers-reduced-motion: reduce) {
   .xsec .rays line { animation: none; }
-  .stamp, .btn, .g-main img, .contact-link { transition: none; }
+  .btn, .g-main img, .contact-link { transition: none; }
 }
 
 /* ---------- Responsive ---------- */
@@ -837,5 +820,4 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .bar, .lightbox, .process, .g-thumbs, .tl-controls { display: none; }
   .op { min-height: 0; break-inside: avoid; }
   .card, .sheet { box-shadow: none; }
-  .stamp { opacity: .9; transform: rotate(-12deg); }
 }
