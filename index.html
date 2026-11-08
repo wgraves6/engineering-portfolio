@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/site.css?v=20261107a">
+  <link rel="stylesheet" href="assets/site.css?v=20261107b">
   <script>
     document.documentElement.className = document.documentElement.className.replace("no-js", "js");
   </script>
@@ -275,6 +275,8 @@
                 <div class="g-thumbs">
                   <a class="active" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cured_thickness_vs_speed.png" data-caption="Cured film thickness vs. spin speed with the constant-loss model fit and 95% confidence band."><img src="assets/thumbs/cured_thickness_vs_speed.webp" alt="Cured film thickness vs. spin speed plot" loading="lazy"></a>
                   <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/liftoff_vs_speed.png" data-caption="Cure and develop: the cured film holds to 1550 rpm, starts peeling at 1600 rpm and is fully removed above 2100 rpm."><img src="assets/thumbs/liftoff_vs_speed.webp" alt="Cure-and-develop result vs. spin speed" loading="lazy"></a>
+                  <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/constant_loss_model.png" data-caption="Constant-loss model: the IPA rinse removes a fixed uncured layer, so thin films wash off entirely. The dashed as-spun curve is modeled, not measured."><img src="assets/thumbs/constant_loss_model.webp" alt="Constant-loss model plot" loading="lazy"></a>
+                  <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/nonlinear_fit_report.png" data-caption="JMP nonlinear fit report for the constant-loss model."><img src="assets/thumbs/nonlinear_fit_report.webp" alt="JMP nonlinear fit report" loading="lazy"></a>
                 </div>
               </div>
               <div class="card-body">
@@ -289,9 +291,10 @@
                   <div class="stat"><b>~2.5–7 µm</b><span>cured thickness, 1000–1550 rpm</span></div>
                 </div>
                 <ul class="did">
-                  <li>Imaged how long the wet film resists dewetting vs. final speed and ramp time (op 0040).</li>
                   <li>Ran cure-and-develop tests (14 runs, 6 coupons) to find which films survive the IPA rinse.</li>
-                  <li>Measured cured thickness vs. spin speed by stylus profilometry (op 0070) and fit a rinse model in JMP (op 0060).</li>
+                  <li>Measured cured thickness vs. spin speed by stylus profilometry (op 0070).</li>
+                  <li>Tied the two together with a constant-loss model fit in JMP: the rinse removes a fixed uncured layer, <b>δ = 13.5 µm</b> (RMSE 0.59 µm), so films thinner than δ wash off and none remains above 2100 rpm (op 0060).</li>
+                  <li>Imaged how long the wet film resists dewetting vs. final speed and ramp time (op 0040).</li>
                 </ul>
                 <div class="links">
                   <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis#results">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -366,18 +369,19 @@
           </article>
 
           <!-- 0050 Expose -->
-          <article class="op op-short" id="op-0050" data-stage="expose" data-note="My FURI runs cure the whole film; the mask is schematic.">
+          <article class="op op-short" id="op-0050" data-stage="expose" data-note="My FURI runs cure the whole film; the drawing shows the club's maskless exposure.">
             <header class="op-head">
               <span class="op-no">0050</span>
-              <div class="op-title"><h3>Expose</h3><p>405 nm UV cure</p></div>
+              <div class="op-title"><h3>Expose</h3><p>405 nm UV cure and maskless patterning</p></div>
               <div class="op-sign"><span class="mode hands">Hands-on</span><span class="stamp" aria-hidden="true">WG</span></div>
             </header>
             <table class="recipe">
               <tr><th>Source</th><td>405 nm UV</td></tr>
               <tr><th>Dose</th><td>20 s cure before develop, 60 s final cure after</td></tr>
+              <tr><th>Patterning</th><td>The club's maskless setup: the pattern is projected through a microscope objective</td></tr>
               <tr><th>Resin</th><td>Grey, because clear resin exposed poorly on our setup</td></tr>
             </table>
-            <p class="op-text">In my FURI runs the whole film is cured with no mask, so thickness and adhesion can be measured on a uniform film. The process view shows the masked exposure the club's process is building toward.</p>
+            <p class="op-text">In my FURI runs the whole film is cured, so thickness and adhesion can be measured on a uniform film. For patterning, the club uses a maskless setup that projects the 405 nm pattern through a microscope objective onto the coupon, with no photomask. I didn't build it; it's the club's tool.</p>
 
             <article class="card row">
               <div class="gallery">
@@ -385,11 +389,16 @@
                   <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/patterned_triangles_405nm.jpg" alt="Triangular resin features on Si under the microscope" width="439" height="439" loading="lazy">
                   <span class="zoom"><svg width="14" height="14" aria-hidden="true"><use href="#i-zoom"/></svg> Enlarge</span>
                 </a>
+                <div class="g-thumbs">
+                  <a class="active" data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/patterned_triangles_405nm.jpg" data-caption="Triangular features patterned in the resin on Si with the club's 405 nm setup. Shown for context; patterning was not optimized in this work."><img src="assets/thumbs/patterned_triangles_405nm.webp" alt="Triangular resin features on Si" loading="lazy"></a>
+                  <a data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/club_maskless_litho_setup.jpg" data-caption="The club's maskless 405 nm lithography setup: the pattern is projected down through a microscope objective. Built by the club, not by me."><img src="assets/thumbs/club_maskless_litho_setup.webp" alt="Microscope in an aluminum frame with a blue-lit projection source above it" loading="lazy"></a>
+                  <a data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/club_maskless_exposure.jpg" data-caption="A coupon under the objective during exposure; the blue spot is the projected 405 nm light."><img src="assets/thumbs/club_maskless_exposure.webp" alt="Silicon coupon under a microscope objective with a small blue exposure spot" loading="lazy"></a>
+                </div>
               </div>
               <div class="card-body">
-                <p class="kicker">FURI · Context</p>
+                <p class="kicker">FURI · Club maskless setup</p>
                 <h4>Patterning</h4>
-                <p class="summary">Triangular features patterned in the resin on Si with the club's 405 nm setup. Shown for context; patterning was not optimized in this work.</p>
+                <p class="summary">Triangular features patterned in the resin on Si with the club's maskless 405 nm setup, which projects the pattern through a microscope objective. Shown for context; patterning was not optimized in this work.</p>
                 <div class="links">
                   <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis#patterning">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                 </div>
@@ -398,7 +407,7 @@
           </article>
 
           <!-- 0060 Develop -->
-          <article class="op" id="op-0060" data-stage="develop" data-note="Top-layer loss δ from my constant-loss fit in JMP.">
+          <article class="op op-short" id="op-0060" data-stage="develop" data-note="Top-layer loss δ from my constant-loss fit in JMP (FURI card, op 0030).">
             <header class="op-head">
               <span class="op-no">0060</span>
               <div class="op-title"><h3>Develop</h3><p>IPA develop, and how much film it takes with it</p></div>
@@ -407,30 +416,9 @@
             <table class="recipe">
               <tr><th>Developer</th><td>IPA rinse, about 10 s</td></tr>
               <tr><th>Model</th><td>h = δ[(ω/ω₀)ⁿ − 1], with ω₀ = 2100 rpm from the cure-and-develop test, fit in JMP</td></tr>
+              <tr><th>Fit</th><td>δ = 13.5 µm, n = −0.54, RMSE 0.59 µm</td></tr>
             </table>
-
-            <article class="card row">
-              <div class="gallery">
-                <a class="g-main" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/constant_loss_model.png" data-caption="Constant-loss model: the IPA rinse removes a fixed uncured layer, so thin films wash off entirely.">
-                  <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/constant_loss_model.png" alt="Constant-loss model plot" loading="lazy">
-                  <span class="zoom"><svg width="14" height="14" aria-hidden="true"><use href="#i-zoom"/></svg> Enlarge</span>
-                </a>
-                <div class="g-thumbs">
-                  <a class="active" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/constant_loss_model.png" data-caption="Constant-loss model: the IPA rinse removes a fixed uncured layer, so thin films wash off entirely."><img src="assets/thumbs/constant_loss_model.webp" alt="Constant-loss model plot" loading="lazy"></a>
-                  <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/nonlinear_fit_report.png" data-caption="JMP nonlinear fit report for the constant-loss model."><img src="assets/thumbs/nonlinear_fit_report.webp" alt="JMP nonlinear fit report" loading="lazy"></a>
-                </div>
-              </div>
-              <div class="card-body">
-                <p class="kicker">FURI · JMP nonlinear fit</p>
-                <h4>Why Thin Films Wash Off</h4>
-                <p class="summary">The rinse removes an uncured top layer of fixed depth δ. Films thinner than δ wash off entirely, so no film remains above 2100 rpm. δ and n are strongly correlated, so the fit predicts thickness well but doesn't pin them down separately.</p>
-                <div class="stats">
-                  <div class="stat"><b>δ = 13.5 µm</b><span>uncured layer lost in the rinse</span></div>
-                  <div class="stat"><b>n = −0.54</b><span>as-spun film ∝ ωⁿ</span></div>
-                  <div class="stat"><b>0.59 µm</b><span>RMSE</span></div>
-                </div>
-              </div>
-            </article>
+            <p class="op-text">The rinse removes an uncured top layer of fixed depth δ. Films thinner than δ wash off entirely, so no film remains above 2100 rpm. δ and n are strongly correlated, so the fit predicts thickness well but doesn't pin them down separately. The model plot and JMP report are in the <a href="#op-0030">FURI card at op 0030</a>.</p>
           </article>
 
           <!-- 0070 Measure -->
@@ -700,8 +688,9 @@ z.rect_to_phasor(Zin)  <span class="c"># (187.964, -57.858)</span></pre>
                 <g class="droplets"><circle r="2.6"/><circle r="2"/><circle r="2.4"/><circle r="1.8"/></g>
                 <g class="rays"></g>
                 <g class="mask">
-                  <rect class="quartz" x="20" y="0" width="520" height="12" rx="1.5"/>
-                  <rect class="chrome" x="245" y="12" width="70" height="4"/>
+                  <rect class="obj-body" x="254" y="0" width="52" height="52" rx="3"/>
+                  <rect class="obj-band" x="254" y="34" width="52" height="4"/>
+                  <path class="obj-tip" d="M258 52 H302 L294 70 H266 Z"/>
                 </g>
                 <g class="stylus">
                   <path class="arm" d="M0 0"/>
@@ -919,8 +908,8 @@ z.rect_to_phasor(Zin)  <span class="c"># (187.964, -57.858)</span></pre>
   </div>
 </dialog>
 
-<script src="assets/site.js?v=20261107a"></script>
-<script src="assets/process.js?v=20261107a"></script>
+<script src="assets/site.js?v=20261107b"></script>
+<script src="assets/process.js?v=20261107b"></script>
 <!-- GoatCounter: cookie-free visit and link-click counts (dashboard: https://willm06.goatcounter.com) -->
 <script data-goatcounter="https://willm06.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>

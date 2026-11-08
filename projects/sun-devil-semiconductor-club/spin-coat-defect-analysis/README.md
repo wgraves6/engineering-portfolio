@@ -146,6 +146,12 @@ The 1250 rpm ridge height is read from the plot, not from a statistics range.
   <br><em>Triangular features patterned in the resin on Si with the club's 405 nm setup. Shown for context; patterning was not optimized in this work.</em>
 </p>
 
+The club's setup is maskless: the 405 nm pattern is projected through a microscope objective onto the coupon, with no photomask. It was built by the club, not as part of this work.
+
+| Club maskless setup | Coupon under the objective |
+|---|---|
+| ![The club's maskless 405 nm lithography setup](docs/images/club_maskless_litho_setup.jpg) | ![Coupon under the objective with the projected 405 nm spot](docs/images/club_maskless_exposure.jpg) |
+
 ## Limitations and next steps
 
 - Ellipsometry would not fit (the ~9 µm grey film absorbs and scatters), and the film was too thick for optical profilometry. So n and k at 405 nm were not extracted.

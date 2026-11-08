@@ -33,8 +33,6 @@
   --resin-line: #ffdc9a;
   --cured: #cf7a2c;
   --cured-line: #f0a35a;
-  --chrome: #0d0c09;
-  --quartz: rgba(200, 220, 230, .18);
   --uv: #9d86ff;
   --screen: #0a0905;
   --screen-grid: rgba(255, 190, 80, .09);
@@ -617,8 +615,8 @@ h1, h2, h3, h4 { margin: 0; letter-spacing: -.015em; }
 .xsec .chuck rect { fill: var(--ink-2); opacity: .55; }
 .xsec .chuck .spin-arrow { fill: none; stroke: var(--accent-ink); stroke-width: 1.6; }
 .xsec .chuck .spin-head { fill: var(--accent-ink); }
-.xsec .quartz { fill: var(--quartz); stroke: var(--ox-line); stroke-width: .8; }
-.xsec .chrome { fill: var(--chrome); }
+.xsec .obj-body, .xsec .obj-tip { fill: var(--ink-2); stroke: var(--sheet); stroke-width: .8; }
+.xsec .obj-band { fill: var(--accent); }
 .xsec .rays line { stroke: url(#uv-fade); stroke-width: 2; stroke-dasharray: 6 7; }
 .xsec .uv-stop { stop-color: var(--uv); }
 .xsec .stylus .arm { fill: none; stroke: var(--ink-2); stroke-width: 3; stroke-linecap: round; }

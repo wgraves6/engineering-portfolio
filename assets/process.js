@@ -22,7 +22,7 @@
   var X0 = 30, X1 = 530;          // coupon edges
   var Y0 = 262;                   // original Si surface
   var YB = 350;                   // bottom of the drawn substrate
-  var OX0 = 245, OX1 = 315;       // mask opening (matches the chrome in index.html)
+  var OX0 = 245, OX1 = 315;       // unexposed window (dark in the projected pattern); later the etch window
   var HOX = 30;                   // drawn oxide thickness at the end of oxidation
   var T_RESIN = 26, BEAD = 9;     // drawn resin thickness and edge bead after the spin
   var LOSS = 7;                   // drawn top-layer loss in the IPA develop
@@ -97,7 +97,7 @@
 
   for (var rx = 42; rx <= 520; rx += 21) {
     if (rx > OX0 - 4 && rx < OX1 + 4) continue;
-    el("line", { x1: rx, x2: rx, y1: 0, y2: 10 }, rays);
+    el("line", { x1: rx, x2: rx, y1: 0, y2: 10, "data-rx": rx }, rays);
   }
 
   // Labels: one <g> each, positioned per frame
@@ -113,7 +113,7 @@
   label("orig", "original Si surface", "dim");
   label("ox", "SiO₂");
   label("resin", "resin · wet");
-  label("mask", "mask: chrome on quartz", "dim");
+  label("mask", "maskless · no photomask", "dim");
   label("uv", "405 nm");
   label("trench", "trench");
   function place(key, o, tx, ty, anchor, lx, ly) {
@@ -321,18 +321,20 @@
       show(c, 1 - f);
     });
 
-    // 0050: mask and 405 nm light
-    var maskY = -30, maskO = 0, raysO = 0;
+    // 0050: maskless exposure, the pattern projected through a microscope objective (the club's setup)
+    var maskY = -80, maskO = 0, raysO = 0;
     if (i === 4) {
-      maskY = -30 + 196 * ease(seg(p, 0, 0.26));
+      maskY = -80 + 140 * ease(seg(p, 0, 0.26));
       maskO = 1 - seg(p, 0.94, 1);
       raysO = seg(p, 0.24, 0.36) * (1 - seg(p, 0.86, 0.96));
     }
     mask.setAttribute("transform", "translate(0 " + f1(maskY) + ")");
     show(mask, maskO);
     var resinTopMid = topAt(120);
+    var tipY = maskY + 72;
     Array.prototype.forEach.call(rays.children, function (ln) {
-      set(ln, { y1: 20, y2: f1(resinTopMid + 4) });
+      var rx = Number(ln.getAttribute("data-rx"));
+      set(ln, { x1: f1(280 + (rx - 280) * 0.055), y1: f1(tipY), y2: f1(resinTopMid + 4) });
     });
     show(rays, raysO);
 
@@ -378,8 +380,8 @@
     var resinO = (i >= 2 && i <= 6) ? (i === 2 ? seg(p, 0.5, 0.65) : 1) : (i === 7 ? 1 - seg(p, 0.25, 0.35) : 0);
     labels.resin.text.textContent = curedAlpha > 0.5 ? "resin · cured" : "resin · wet";
     place("resin", (i === 3 ? resinO * (1 - insetO) : resinO) * (1 - maskO), 44, 168, "start", 84, topAt(84) + 6);
-    place("mask", maskO * seg(p, 0.2, 0.3), X1, maskY - 6, "end");
-    place("uv", raysO, 44, maskY - 8, "start");
+    place("mask", maskO * seg(p, 0.2, 0.3), 318, maskY + 30, "start");
+    place("uv", raysO, 242, maskY + 30, "end");
     place("trench", i === 7 ? seg(p, 0.6, 0.75) : 0, 392, ySi + 46, "start", OX1 - 8, ySi + depth * 0.55);
 
     // Scope and DOE take over the panel for the last two operations
@@ -423,7 +425,7 @@
         rows = [["After spin stop", clock(ti)], ["Speed · ramp", "3500 rpm · 2 s"], ["Lamp", "Capture only"]];
         break;
       }
-      case 4: rows = [["Wavelength", "405 nm"], ["Exposure", Math.round(20 * seg(p, 0.3, 0.86)) + " / 20 s"], ["Resin", curedAlpha > 0.5 ? "Cured" : "Curing"]]; break;
+      case 4: rows = [["Pattern", "Maskless"], ["Exposure", Math.round(20 * seg(p, 0.3, 0.86)) + " / 20 s"], ["Resin", curedAlpha > 0.5 ? "Cured" : "Curing"]]; break;
       case 5: rows = [["Developer", "IPA, ~10 s"], ["Removed", "Uncured resin"], ["Top-layer loss", "δ ≈ 13.5 µm"]]; break;
       case 6: rows = [["Tool", "Dektak XT"], ["Stylus force", "3 mg"], ["Scan", Math.round(scanF * 100) + "%"]]; break;
       case 7: {
