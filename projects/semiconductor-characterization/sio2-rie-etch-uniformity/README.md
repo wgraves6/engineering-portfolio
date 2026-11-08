@@ -1,6 +1,6 @@
 # SiO₂ RIE: Etch-Rate Uniformity
 
-**Tools:** JMP · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU. This was a group lab. This writeup covers my part, the data analysis.
+**Tools:** JMP · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU. This was a group lab. My part was the data analysis; the tool and process description comes from my group's report.
 
 <p align="center">
   <img src="plots/etch_rate_by_site.png" width="70%" alt="SiO₂ etch rate at each of 20 measurement sites with the average and ±3σ band">
@@ -17,11 +17,32 @@
 
 Find how evenly a CHF₃/O₂ reactive ion etch removed SiO₂ across a wafer: the etch rate at each measurement site, its average and 3σ spread, and which areas etched faster or slower.
 
+## Tool and process
+
+*From my group's report (tool and procedure sections).*
+
+The SiO₂ film was etched in a **Plasma-Therm 790**, a conventional parallel-plate RIE: a single RF supply between two parallel electrodes generates the plasma and creates the bias that accelerates ions toward the wafer. The substrate was presumed to be a Si wafer. The oxide thickness was measured across the wafer before the etch and again after it.
+
+| Step | Setting |
+|---|---|
+| Pump-down | Mechanical roughing pump through a ¼-inch line, then the main roughing valve at about 1,000 mTorr, then the turbo pump below 200 mTorr (specified base pressure 5.0 × 10⁻⁶ Torr) |
+| Gases | CHF₃ 40 sccm and O₂ 3 sccm, set independently and monitored on the tool's display |
+| Pressure | Stabilized near the 40 mTorr setpoint after gas flow-in |
+| RF power | 250 W forward setpoint (245–247 W recorded across the class groups) |
+| Etch time | 2 min |
+| After the etch | RF and gases off, pump down, turbo isolated, slow N₂ vent to atmosphere |
+
+**Etch chemistry.** The CHF₃/O₂ plasma produces fluorine radicals and positive ions such as CHF₂⁺ and CF⁺. The fluorine radicals diffuse to the SiO₂ surface and form volatile products, which the vacuum system pumps away. The simplified reaction from the lab slides is:
+
+```
+SiO₂(s) + 4F· → SiF₄(g) + O₂(g)
+```
+
+The positive ions accelerate toward the wafer and bombard its surface, which speeds up the etch and makes it predominantly vertical.
+
 ## Data
 
 The data is a course-provided dataset from my group's run. It gives the SiO₂ thickness at 20 sites before and after the etch, and the etch rate at each site. The sites run across the wafer from one edge (Site 1) to the opposite edge (Site 20).
-
-Etch conditions from the lab: Plasma-Therm 790 RIE, CHF₃ 40 sccm and O₂ 3 sccm, 40 mTorr, 250 W RF, 2 min.
 
 | | Pre-etch thickness (Å) | Post-etch thickness (Å) | Etch rate (Å/min) |
 |---|---:|---:|---:|
