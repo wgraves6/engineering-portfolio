@@ -145,23 +145,31 @@
   set(scQLabel, { x: scX(QPT.vgs) + 14, y: scY(QPT.vds) - 10 });
   scQLabel.textContent = "Q · gain −8.48 V/V";
 
-  // DOE design space (ramp time 2..10 s, final speed 1000..2500 rpm)
+  // Wet-film stability grid from the FURI poster: ramp time (2, 10 s) × final speed (1500–2500, 3500 rpm),
+  // each cell labelled with the time to the first dewetting site ("none" = none within 60 min).
   var DB = { x0: 150, x1: 450, y0: 298, y1: 78 };
+  var dMidX = (DB.x0 + DB.x1) / 2, dMidY = (DB.y0 + DB.y1) / 2;
+  var dCol = [(DB.x0 + dMidX) / 2, (dMidX + DB.x1) / 2], dRow = [(dMidY + DB.y0) / 2, (DB.y1 + dMidY) / 2];
   var dTicks = q(".doe-ticks"), dPts = q(".doe-pts");
-  [[2, DB.x0], [6, (DB.x0 + DB.x1) / 2], [10, DB.x1]].forEach(function (t) {
-    el("text", { x: t[1], y: DB.y0 + 18, "text-anchor": "middle" }, dTicks).textContent = t[0];
+  ["2", "10"].forEach(function (t, k) {
+    el("text", { x: dCol[k], y: DB.y0 + 18, "text-anchor": "middle" }, dTicks).textContent = t;
   });
-  [[1000, DB.y0], [1750, (DB.y0 + DB.y1) / 2], [2500, DB.y1]].forEach(function (t) {
-    el("text", { x: DB.x0 - 10, y: t[1] + 4, "text-anchor": "end" }, dTicks).textContent = t[0];
+  ["1500–2500", "3500"].forEach(function (t, k) {
+    el("text", { x: DB.x0 - 10, y: dRow[k] + 4, "text-anchor": "end" }, dTicks).textContent = t;
   });
-  el("line", { x1: (DB.x0 + DB.x1) / 2, x2: (DB.x0 + DB.x1) / 2, y1: DB.y1, y2: DB.y0 }, dTicks);
-  el("line", { x1: DB.x0, x2: DB.x1, y1: (DB.y0 + DB.y1) / 2, y2: (DB.y0 + DB.y1) / 2 }, dTicks);
-  var corners = [[DB.x0, DB.y0], [DB.x1, DB.y0], [DB.x0, DB.y1], [DB.x1, DB.y1]].map(function (c) {
-    return el("circle", { cx: c[0], cy: c[1], r: 9 }, dPts);
+  el("line", { x1: dMidX, x2: dMidX, y1: DB.y1, y2: DB.y0 }, dTicks);
+  el("line", { x1: DB.x0, x2: DB.x1, y1: dMidY, y2: dMidY }, dTicks);
+  var DOE_CELLS = [[0, 0, "none", true], [1, 0, "none", true], [0, 1, "0.5–1 min", false], [1, 1, "15 min", false]];
+  var doeCells = DOE_CELLS.map(function (c) {
+    var g = el("g", {}, dPts);
+    el("circle", { cx: dCol[c[0]], cy: dRow[c[1]] - 10, r: 9, "class": c[3] ? "held" : "" }, g);
+    el("text", { x: dCol[c[0]], y: dRow[c[1]] + 20, "text-anchor": "middle" }, g).textContent = c[2];
+    return g;
   });
-  var center = el("circle", { cx: (DB.x0 + DB.x1) / 2, cy: (DB.y0 + DB.y1) / 2, r: 11, "class": "center" }, dPts);
-  var centerLabel = el("text", { x: (DB.x0 + DB.x1) / 2 + 18, y: (DB.y0 + DB.y1) / 2 - 12 }, dPts);
-  centerLabel.textContent = "× 3 center points";
+  var doeRuns = el("g", {}, dPts);
+  [["6 runs", 0], ["4 runs", 1]].forEach(function (r) {
+    el("text", { x: DB.x1 + 10, y: dRow[r[1]] + 4, "class": "doe-runs" }, doeRuns).textContent = r[0];
+  });
 
   /* ---------- Panel text ---------- */
   var pvOp = document.querySelector(".pv-op b");
@@ -392,9 +400,8 @@
       show(scQ, i === 8 ? seg(p, 0.78, 0.88) : 1);
     }
     if (i === 9) {
-      corners.forEach(function (c, k) { show(c, seg(p, 0.24 + k * 0.1, 0.3 + k * 0.1)); });
-      show(center, seg(p, 0.66, 0.74));
-      show(centerLabel, seg(p, 0.7, 0.78));
+      doeCells.forEach(function (c, k) { show(c, seg(p, 0.24 + k * 0.1, 0.3 + k * 0.1)); });
+      show(doeRuns, seg(p, 0.66, 0.74));
     }
 
     // Readout
@@ -413,7 +420,7 @@
       }
       case 3: {
         var ti = TL_TIMES.length ? TL_TIMES[Math.max(0, lastFrame)] : 0;
-        rows = [["After spin stop", clock(ti)], ["Capture", "Run 02"], ["Lamp", "Capture only"]];
+        rows = [["After spin stop", clock(ti)], ["Speed · ramp", "3500 rpm · 2 s"], ["Lamp", "Capture only"]];
         break;
       }
       case 4: rows = [["Wavelength", "405 nm"], ["Exposure", Math.round(20 * seg(p, 0.3, 0.86)) + " / 20 s"], ["Resin", curedAlpha > 0.5 ? "Cured" : "Curing"]]; break;
@@ -429,7 +436,7 @@
         break;
       }
       case 8: rows = [["Device", "CD4007 NMOS"], ["VDD / RD", "15 V / 9.94 kΩ"], ["Gain at Q", p > 0.82 ? "−8.48 V/V" : "…"]]; break;
-      default: rows = [["Design", "2² + 3 center"], ["Factors", "Ramp, speed"], ["Responses", "Onset, nucleation"]];
+      default: rows = [["Factors", "Speed × ramp"], ["Response", "First dewetting"], ["1500–2500 rpm", "≥ 60 min"]];
     }
     setReadout(rows);
   }

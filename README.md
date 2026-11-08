@@ -12,7 +12,7 @@ Semiconductor processing, device characterization and circuits. Each project fol
 
 | Project | What it is | Tools |
 |---|---|---|
-| [**405 nm SLA Resin as a Low-Cost Photoresist**](projects/sun-devil-semiconductor-club/spin-coat-defect-analysis) | TSMC-sponsored FURI research: how spin speed sets the thickness and adhesion of a consumer SLA resin on Si, and when defects start forming in the wet film (DOE in progress) | Dektak · Gwyddion · ImageJ · JMP |
+| [**405 nm SLA Resin as a Low-Cost Photoresist**](projects/sun-devil-semiconductor-club/spin-coat-defect-analysis) | TSMC-sponsored FURI research: how spin speed sets the thickness and adhesion of a consumer SLA resin on Si (good film to 1550 rpm, ~2.5–7 µm), and how long the wet film resists dewetting (≥ 60 min at 1500–2500 rpm) | Dektak · Gwyddion · ImageJ · JMP |
 | [**Spin Coater Controller**](projects/sun-devil-semiconductor-club/spin-coater) | Arduino closed-loop speed control and a recipe menu for the club's photoresist spin coater, with a CNC-machined wafer chuck | C++ · Arduino |
 | [**Lab Monitoring**](projects/sun-devil-semiconductor-club/lab-monitoring-iiot) | Arduino sensor nodes that send equipment readings to an Ignition SCADA gateway over MQTT, starting with the spin coater | Arduino |
 

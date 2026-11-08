@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/site.css?v=20261102b">
+  <link rel="stylesheet" href="assets/site.css?v=20261107a">
   <script>
     document.documentElement.className = document.documentElement.className.replace("no-js", "js");
   </script>
@@ -274,7 +274,7 @@
                 <p class="g-caption">Cured film thickness vs. spin speed with the constant-loss model fit and 95% confidence band.</p>
                 <div class="g-thumbs">
                   <a class="active" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cured_thickness_vs_speed.png" data-caption="Cured film thickness vs. spin speed with the constant-loss model fit and 95% confidence band."><img src="assets/thumbs/cured_thickness_vs_speed.webp" alt="Cured film thickness vs. spin speed plot" loading="lazy"></a>
-                  <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/liftoff_vs_speed.png" data-caption="Lift-off test: the cured film holds to 1550 rpm, starts peeling at 1600 rpm and is fully removed above 2100 rpm."><img src="assets/thumbs/liftoff_vs_speed.webp" alt="Lift-off result vs. spin speed" loading="lazy"></a>
+                  <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/liftoff_vs_speed.png" data-caption="Cure and develop: the cured film holds to 1550 rpm, starts peeling at 1600 rpm and is fully removed above 2100 rpm."><img src="assets/thumbs/liftoff_vs_speed.webp" alt="Cure-and-develop result vs. spin speed" loading="lazy"></a>
                 </div>
               </div>
               <div class="card-body">
@@ -284,33 +284,35 @@
                 <p class="summary">Characterizing a consumer 405 nm UV-curable SLA resin as a photoresist for the club's student-run photolithography process. Advisor: Prof. Michael Kozicki, School of Electrical, Computer and Energy Engineering.</p>
                 <p class="question"><b>Research question:</b> how do spin-coating parameters control the thickness, wet-film stability and adhesion of the resin on silicon?</p>
                 <div class="stats">
-                  <div class="stat"><b>≤ 1550 rpm</b><span>clean cured film; fully removed above 2100</span></div>
-                  <div class="stat"><b>7.3 → 0.8 µm</b><span>cured thickness, 1000 → 2000 rpm</span></div>
-                  <div class="stat"><b>14 runs</b><span>lift-off tests on 6 coupons</span></div>
+                  <div class="stat"><b>≥ 60 min</b><span>wet-film stability at 1500–2500 rpm</span></div>
+                  <div class="stat"><b>1550 rpm</b><span>max speed for a good cured film</span></div>
+                  <div class="stat"><b>~2.5–7 µm</b><span>cured thickness, 1000–1550 rpm</span></div>
                 </div>
                 <ul class="did">
-                  <li>Ran spin, cure and develop lift-off tests to set the usable speed window.</li>
+                  <li>Imaged how long the wet film resists dewetting vs. final speed and ramp time (op 0040).</li>
+                  <li>Ran cure-and-develop tests (14 runs, 6 coupons) to find which films survive the IPA rinse.</li>
                   <li>Measured cured thickness vs. spin speed by stylus profilometry (op 0070) and fit a rinse model in JMP (op 0060).</li>
                 </ul>
                 <div class="links">
-                  <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis#results-so-far">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                  <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis#results">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                  <a class="btn btn-sm btn-ghost" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/Graves_FURI_poster.pdf"><svg width="16" height="16" aria-hidden="true"><use href="#i-file"/></svg> Poster (PDF)</a>
                 </div>
               </div>
             </article>
           </article>
 
           <!-- 0040 Hold -->
-          <article class="op" id="op-0040" data-stage="hold" data-note="Inset: real frames from FURI capture run 02, same field.">
+          <article class="op" id="op-0040" data-stage="hold" data-note="Inset: real frames from FURI run 02 (3500 rpm, 2 s ramp), same field.">
             <header class="op-head">
               <span class="op-no">0040</span>
-              <div class="op-title"><h3>Hold</h3><p>Queue time: when does the wet film start to fail?</p></div>
-              <div class="op-sign"><span class="mode hands">Hands-on</span><span class="pill">DOE in progress</span><span class="stamp" aria-hidden="true">WG</span></div>
+              <div class="op-title"><h3>Hold</h3><p>Queue time: how long the wet film holds before it dewets</p></div>
+              <div class="op-sign"><span class="mode hands">Hands-on</span><span class="stamp" aria-hidden="true">WG</span></div>
             </header>
             <table class="recipe">
-              <tr><th>Imaging</th><td>Olympus BH microscope with a webcam on the eyepiece</td></tr>
-              <tr><th>Lamp</th><td>Relay-switched on only during captures, to limit heating and exposure</td></tr>
-              <tr><th>Schedule</th><td>Bursts of 3 photos from a few seconds to 60 min after the spin stops</td></tr>
-              <tr><th>Counting</th><td>ImageJ macro: flat-field, threshold, count inside a circular region</td></tr>
+              <tr><th>Factors</th><td>Final speed (1500–2500 rpm and 3500 rpm) × ramp time (2 s and 10 s), 10 runs</td></tr>
+              <tr><th>Response</th><td>Time to the first dewetting site in the imaged field; "none" = none within 60 min</td></tr>
+              <tr><th>Imaging</th><td>Olympus BH microscope with an eyepiece webcam; lamp relay-switched on only during captures</td></tr>
+              <tr><th>Counting</th><td>3 frames per time point; ImageJ macro counts new dewetting sites</td></tr>
             </table>
 
             <figure class="timelapse" data-base="assets/timelapse/run02_1/" data-times="3,30,60,120,300,600,900,1200,1500,1800,2100,2400,2700,3000,3300,3600">
@@ -318,7 +320,7 @@
                 <img class="tl-frame" src="assets/timelapse/run02_1/t00003.webp" alt="Microscope view of the wet resin film after the spin stops" width="960" height="720" loading="lazy">
                 <img class="tl-check" src="assets/timelapse/run02_1/check_t00003.webp" alt="" width="960" height="720" loading="lazy">
                 <div class="tl-hud"><span class="tl-time">0:03</span><span class="tl-sub">after spin stop</span></div>
-                <span class="tl-tag">Run 02 · shard 1 · same field</span>
+                <span class="tl-tag">Run 02 · 3500 rpm, 2 s ramp · same field</span>
               </div>
               <div class="tl-controls">
                 <button class="tl-play" type="button" aria-label="Play the time-lapse"><svg width="18" height="18" aria-hidden="true"><use href="#i-play"/></svg></button>
@@ -328,31 +330,35 @@
                 </div>
                 <label class="tl-toggle"><input type="checkbox"> <span>ImageJ outlines</span></label>
               </div>
-              <figcaption>The same field of the wet film from 3 s to 60 min after the spin stops. A defect opens between 30 s and 1 min. Outlines are the ImageJ macro's detections.</figcaption>
+              <figcaption>The same field of the wet film from 3 s to 60 min after the spin stops (3500 rpm, 2 s ramp). A dewetting site forms between 30 s and 1 min. Outlines are the ImageJ macro's detections.</figcaption>
             </figure>
 
             <article class="card row">
               <div class="gallery">
-                <a class="g-main photo" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" data-caption="Defect imaging setup: Olympus BH microscope with an eyepiece webcam and a relay-switched lamp.">
+                <a class="g-main photo" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" data-caption="Wet-film imaging setup: Olympus BH microscope with an eyepiece webcam and a relay-switched lamp.">
                   <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" alt="Microscope with eyepiece webcam next to a laptop running the capture script" width="1600" height="1200" loading="lazy">
                   <span class="zoom"><svg width="14" height="14" aria-hidden="true"><use href="#i-zoom"/></svg> Enlarge</span>
                 </a>
                 <div class="g-thumbs">
-                  <a class="active" data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" data-caption="Defect imaging setup: Olympus BH microscope with an eyepiece webcam and a relay-switched lamp."><img src="assets/thumbs/imaging_setup.webp" alt="Microscope imaging setup" loading="lazy"></a>
-                  <a data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/wet_film_defect_t0p5min.jpg" data-caption="Wet resin film 0.5 min after the spin stops."><img src="assets/thumbs/wet_film_defect_t0p5min.webp" alt="Microscope view of the wet film at 0.5 minutes" loading="lazy"></a>
-                  <a data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/wet_film_defect_t1min.jpg" data-caption="Same field at 1 min: a defect has opened in the wet film."><img src="assets/thumbs/wet_film_defect_t1min.webp" alt="Microscope view of the wet film at 1 minute with a defect" loading="lazy"></a>
+                  <a class="active" data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/imaging_setup.jpg" data-caption="Wet-film imaging setup: Olympus BH microscope with an eyepiece webcam and a relay-switched lamp."><img src="assets/thumbs/imaging_setup.webp" alt="Microscope imaging setup" loading="lazy"></a>
+                  <a data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/wet_film_defect_t0p5min.jpg" data-caption="Wet resin film 0.5 min after the spin stops (3500 rpm, 2 s ramp)."><img src="assets/thumbs/wet_film_defect_t0p5min.webp" alt="Microscope view of the wet film at 0.5 minutes" loading="lazy"></a>
+                  <a data-fit="cover" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/wet_film_defect_t1min.jpg" data-caption="Same field at 1 min: a dewetting site has formed in the wet film."><img src="assets/thumbs/wet_film_defect_t1min.webp" alt="Microscope view of the wet film at 1 minute with a dewetting site" loading="lazy"></a>
                 </div>
               </div>
               <div class="card-body">
-                <p class="kicker">FURI · Fall 2026 · Defect-onset study</p>
-                <h4>Wet-Film Defect Onset Imaging</h4>
-                <p class="summary">Finding when defects start to form in the wet resin film as a function of spin coater ramp time and final speed, which sets how long a coated wafer can wait before exposure.</p>
+                <p class="kicker">FURI · Fall 2026 · Wet-film stability</p>
+                <h4>Wet-Film Stability</h4>
+                <p class="summary">How long the wet resin film resists dewetting after spinning, vs. final spin speed and ramp time. This sets how long a coated wafer can wait before exposure.</p>
+                <div class="stats">
+                  <div class="stat"><b>≥ 60 min</b><span>no dewetting at 1500–2500 rpm (5 of 6)</span></div>
+                  <div class="stat"><b>0.5–1 min</b><span>first site at 3500 rpm, 2 s ramp</span></div>
+                  <div class="stat"><b>15 min</b><span>first site at 3500 rpm, 10 s ramp</span></div>
+                </div>
                 <ul class="did">
                   <li>Built the time-lapse capture: Python camera control, with the lamp switched by an Arduino Opta relay.</li>
-                  <li>Planned design: 2² full factorial with 3 center points (ramp time × final speed), responses onset time and nucleation.</li>
                 </ul>
                 <div class="links">
-                  <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis#defect-onset-doe-in-progress">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                  <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis#wet-film-stability">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                   <a class="btn btn-sm btn-ghost" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/capture"><svg width="16" height="16" aria-hidden="true"><use href="#i-code"/></svg> Capture code</a>
                 </div>
               </div>
@@ -372,6 +378,23 @@
               <tr><th>Resin</th><td>Grey, because clear resin exposed poorly on our setup</td></tr>
             </table>
             <p class="op-text">In my FURI runs the whole film is cured with no mask, so thickness and adhesion can be measured on a uniform film. The process view shows the masked exposure the club's process is building toward.</p>
+
+            <article class="card row">
+              <div class="gallery">
+                <a class="g-main photo" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/patterned_triangles_405nm.jpg" data-caption="Triangular features patterned in the resin on Si with the club's 405 nm setup. Shown for context; patterning was not optimized in this work.">
+                  <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/patterned_triangles_405nm.jpg" alt="Triangular resin features on Si under the microscope" width="439" height="439" loading="lazy">
+                  <span class="zoom"><svg width="14" height="14" aria-hidden="true"><use href="#i-zoom"/></svg> Enlarge</span>
+                </a>
+              </div>
+              <div class="card-body">
+                <p class="kicker">FURI · Context</p>
+                <h4>Patterning</h4>
+                <p class="summary">Triangular features patterned in the resin on Si with the club's 405 nm setup. Shown for context; patterning was not optimized in this work.</p>
+                <div class="links">
+                  <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis#patterning">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </div>
+            </article>
           </article>
 
           <!-- 0060 Develop -->
@@ -383,7 +406,7 @@
             </header>
             <table class="recipe">
               <tr><th>Developer</th><td>IPA rinse, about 10 s</td></tr>
-              <tr><th>Model</th><td>h = δ[(ω/ω₀)ⁿ − 1], with ω₀ = 2100 rpm from the lift-off test, fit in JMP</td></tr>
+              <tr><th>Model</th><td>h = δ[(ω/ω₀)ⁿ − 1], with ω₀ = 2100 rpm from the cure-and-develop test, fit in JMP</td></tr>
             </table>
 
             <article class="card row">
@@ -558,7 +581,7 @@
           </article>
 
           <!-- 0100 Analyze -->
-          <article class="op" id="op-0100" data-stage="analyze" data-note="Planned design from my FURI write-up; levels are tentative.">
+          <article class="op" id="op-0100" data-stage="analyze" data-note="Wet-film stability design and results from my FURI poster.">
             <header class="op-head">
               <span class="op-no">0100</span>
               <div class="op-title"><h3>Analyze</h3><p>Data review: the tools behind every step</p></div>
@@ -596,7 +619,7 @@ z.rect_to_phasor(Zin)  <span class="c"># (187.964, -57.858)</span></pre>
                   <ul class="did">
                     <li><b>ellipsometry_contour_plot.jsl</b>: wafer-map contour plot of film thickness from ellipsometer X/Y data.</li>
                     <li><b>percent_error_table.jsl</b>: the percent-error comparison on a JMP data table.</li>
-                    <li><b>defect_doe_design.jsl</b>: full-factorial DOE generator for the FURI defect study.</li>
+                    <li><b>defect_doe_design.jsl</b>: DOE generator for the FURI screening design.</li>
                   </ul>
                   <div class="links">
                     <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/engineering-tools/jmp">Browse the scripts <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -711,13 +734,13 @@ z.rect_to_phasor(Zin)  <span class="c"># (187.964, -57.858)</span></pre>
               </g>
 
               <g class="doe">
-                <text class="doe-title" x="280" y="40" text-anchor="middle">Defect-onset DOE · planned</text>
+                <text class="doe-title" x="280" y="40" text-anchor="middle">Wet-film stability · 10 runs</text>
                 <rect class="doe-box" x="150" y="78" width="300" height="220"/>
                 <g class="doe-ticks"></g>
                 <g class="doe-pts"></g>
                 <text class="doe-axis" x="300" y="350" text-anchor="middle">Ramp time (s)</text>
-                <text class="doe-axis" x="92" y="190" text-anchor="middle" transform="rotate(-90 92 190)">Final speed (rpm)</text>
-                <text class="doe-note" x="280" y="384" text-anchor="middle">2² full factorial + 3 center points · levels tentative</text>
+                <text class="doe-axis" x="70" y="190" text-anchor="middle" transform="rotate(-90 70 190)">Final speed (rpm)</text>
+                <text class="doe-note" x="280" y="384" text-anchor="middle">Time to first dewetting site · none = none within 60 min</text>
               </g>
             </svg>
             <dl class="readout"></dl>
@@ -750,9 +773,9 @@ z.rect_to_phasor(Zin)  <span class="c"># (187.964, -57.858)</span></pre>
               <h3>Undergraduate Researcher</h3>
               <p class="h-org">TSMC-Sponsored FURI Program · advisor Prof. Michael Kozicki</p>
               <ul>
-                <li>Characterizing time-dependent dewetting of uncured 405 nm resin films on Si to define the post-spin processing window for photolithography.</li>
-                <li>Designing a full-factorial DOE with center points to separate defect nucleation rate from hole growth velocity; analysis in JMP.</li>
-                <li>Developing low-actinic (&gt;500 nm) time-lapse imaging and ImageJ defect quantification.</li>
+                <li>Characterized a 405 nm SLA resin as a low-cost photoresist on Si: good cured film up to 1550 rpm and ~2.5–7 µm cured thickness across 1000–1550 rpm, with a constant-loss rinse model fit in JMP.</li>
+                <li>Tested wet-film stability over final speed × ramp time (10 runs): ≥ 60 min without dewetting at 1500–2500 rpm; at 3500 rpm, the first site formed at 0.5–1 min with a 2 s ramp and 15 min with a 10 s ramp.</li>
+                <li>Built time-lapse microscope imaging (Python, relay-switched lamp) and ImageJ counting of dewetting sites.</li>
               </ul>
             </div>
           </li>
@@ -896,8 +919,8 @@ z.rect_to_phasor(Zin)  <span class="c"># (187.964, -57.858)</span></pre>
   </div>
 </dialog>
 
-<script src="assets/site.js?v=20261102b"></script>
-<script src="assets/process.js?v=20261102b"></script>
+<script src="assets/site.js?v=20261107a"></script>
+<script src="assets/process.js?v=20261107a"></script>
 <!-- GoatCounter: cookie-free visit and link-click counts (dashboard: https://willm06.goatcounter.com) -->
 <script data-goatcounter="https://willm06.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>

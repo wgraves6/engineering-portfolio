@@ -4,18 +4,18 @@
 
 **Research question:** How do spin-coating parameters control the thickness, wet-film stability and adhesion of a 405 nm SLA resin on silicon?
 
-> **Status:** process characterization (lift-off and cured thickness) is done. The defect-onset DOE is in progress, and its results will be added here.
+**Poster:** [Graves_FURI_poster.pdf](docs/Graves_FURI_poster.pdf)
 
 <p align="center">
-  <img src="docs/images/defect_timelapse_run02_1.webp" width="70%" alt="Time-lapse of the wet resin film from 3 s to 60 min after the spin stops, with a defect opening near 1 min">
-  <br><em>The same field of the wet film from 3 s to 60 min after the spin stops (capture run 02, shard 1). A defect opens between 30 s and 1 min.</em>
+  <img src="docs/images/defect_timelapse_run02_1.webp" width="70%" alt="Time-lapse of the wet resin film from 3 s to 60 min after the spin stops, with a dewetting site forming near 1 min">
+  <br><em>The same field of the wet film from 3 s to 60 min after the spin stops (capture run 02, shard 1: 3500 rpm, 2 s ramp). A dewetting site forms between 30 s and 1 min.</em>
 </p>
 
 ## Key results
 
-- **≤ 1550 rpm** for a clean cured film. It starts peeling at 1600 rpm and is fully removed above 2100 rpm (14 runs, 6 coupons).
-- **6.1–7.3 µm at 1000 rpm down to 0.8 µm at 2000 rpm** cured thickness, by Bruker Dektak XT stylus profilometry with each scan leveled in Gwyddion.
-- **δ = 13.5 µm** of uncured resin lost in the IPA rinse, from a constant-loss model fit in JMP (RMSE 0.59 µm).
+- **≥ 60 min** wet-film stability at 1500–2500 rpm (5 of 6). At 3500 rpm the first dewetting site appears at 0.5–1 min with a 2 s ramp and at 15 min with a 10 s ramp.
+- **1550 rpm** max speed for a good cured film. It starts peeling at 1600 rpm and is fully removed above 2100 rpm (14 runs, 6 coupons).
+- **~2.5–7 µm** cured thickness across 1000–1550 rpm, by Bruker Dektak XT stylus profilometry with each scan leveled in Gwyddion. The IPA rinse removes a fixed uncured layer, **δ = 13.5 µm** from a constant-loss fit in JMP.
 
 ## Background
 
@@ -29,17 +29,48 @@ A grey resin (Siraya Tech Fast) is used because clear resin exposed poorly on ou
 
 ### Objectives
 
-- Determine the point of defect onset and nucleation as a function of spin coater ramp time and final speed, which sets how long a coated wafer can wait before exposure.
+- Measure how long the wet film resists dewetting after spinning, which sets how long a coated wafer can wait before exposure.
 - Establish the final speed for a good cured film, which bounds the usable process window.
 - Measure cured thickness vs. spin speed, and the thickness lost in the IPA rinse, so a target resist thickness can be dialed in.
 
-## Results so far
+## Results
 
-Process for both tests below: 500 rpm spread for 10 s, 10 s ramp, 60 s hold; then UV for 20 s, IPA rinse for about 10 s, and UV for 60 s.
+### Wet-film stability
 
-### Lift-off: maximum speed for a good film
+After spinning, the resin stays wet and uncured until it is exposed. This test measures how long a coated coupon can wait before the film starts to dewet.
 
-![Lift-off result vs. spin speed](docs/images/liftoff_vs_speed.png)
+- **Factors:** final spin speed (1500–2500 rpm and 3500 rpm) × ramp time (2 s and 10 s).
+- **Response:** time to the first dewetting site in the imaged field; "none" = none within 60 min.
+- **Runs:** 10, in the club lab.
+
+| Final speed | 2 s ramp | 10 s ramp | Runs |
+|---|---|---|---:|
+| 1500–2500 rpm | none | none | 6 |
+| 3500 rpm | 0.5–1 min | 15 min | 4 |
+
+The film held for 60 min at 1500–2500 rpm (5 of 6). At 3500 rpm a dewetting site formed within 0.5–1 min with a 2 s ramp, and after 15 min with a 10 s ramp.
+
+| t = 0.5 min | t = 1 min |
+|---|---|
+| ![Wet film at 0.5 min](docs/images/wet_film_defect_t0p5min.jpg) | ![Wet film at 1 min, dewetting site forming](docs/images/wet_film_defect_t1min.jpg) |
+
+*A dewetting site forming on a wet film (3500 rpm, 2 s ramp).*
+
+![Wet-film imaging setup](docs/images/imaging_setup.jpg)
+
+**Imaging setup.** An Olympus BH microscope with an eyepiece webcam (Microsoft LifeCam) images the wet film. The incandescent lamp is relay-switched on only during captures to limit heating and exposure. 3 frames are taken per time point, and ImageJ counts new dewetting sites.
+
+<p align="center">
+  <img src="docs/images/run02_1_t00030s_1_check.jpg" width="45%" alt="Shard at 30 s after spin stop">
+  <img src="docs/images/run02_1_t03600s_1_check.jpg" width="45%" alt="Same shard at 60 min, dewetting sites outlined">
+  <br><em>The same shard (3500 rpm, 2 s ramp) 30 s and 60 min after the spin stops. Yellow outlines are sites found by the ImageJ macro inside the analysis circle.</em>
+</p>
+
+### Cure and develop: which films survive
+
+Process for this test and the thickness measurements below: 500 rpm spread for 10 s, 10 s ramp, 60 s hold; then UV for 20 s, IPA rinse for about 10 s, and UV for 60 s.
+
+![Cure and develop result vs. spin speed](docs/images/liftoff_vs_speed.png)
 
 The cured film is good up to 1550 rpm, starts peeling at 1600 rpm, and is fully removed above 2100 rpm (14 runs, 6 coupons).
 
@@ -59,7 +90,7 @@ The rinse removes an uncured top layer of fixed depth δ. Films thinner than δ 
 h = δ[(ω/ω₀)ⁿ − 1]
 ```
 
-ω₀ = 2100 rpm is fixed from the lift-off test. The fit gives **δ = 13.5 µm** and **n = −0.54**, with RMSE 0.59 µm. δ and n are 0.9994 correlated, so the fit predicts thickness well but does not pin them down separately. The dashed as-spun curve in the plot above is modeled, not measured.
+ω₀ = 2100 rpm is fixed from the cure-and-develop test. The fit gives **δ = 13.5 µm** and **n = −0.54**, with RMSE 0.59 µm. δ and n are 0.9994 correlated, so the fit predicts thickness well but does not pin them down separately. The dashed as-spun curve in the plot above is modeled, not measured.
 
 <details>
 <summary>JMP nonlinear fit report</summary>
@@ -108,34 +139,25 @@ The 1250 rpm ridge height is read from the plot, not from a statistics range.
 
 </details>
 
-### Obstacles
-
-Ellipsometry would not fit, because the ~9 µm grey film absorbs and scatters, and the film was too thick for optical profilometry. So n and k at 405 nm were not extracted.
-
-## Defect-onset DOE (in progress)
-
-![Defect imaging setup](docs/images/imaging_setup.jpg)
-
-An Olympus BH microscope with a webcam on the eyepiece images the wet film. The incandescent lamp is relay-switched on only during captures to limit heating and exposure. Several frames are taken per time point, and ImageJ counts new defect sites.
-
-| t = 0.5 min | t = 1 min |
-|---|---|
-| ![Wet film at 0.5 min](docs/images/wet_film_defect_t0p5min.jpg) | ![Wet film at 1 min, defect appearing](docs/images/wet_film_defect_t1min.jpg) |
-
-*A defect appearing on the wet film between 0.5 and 1 min.*
+### Patterning
 
 <p align="center">
-  <img src="docs/images/run02_1_t00030s_1_check.jpg" width="45%" alt="Shard at 30 s after spin stop">
-  <img src="docs/images/run02_1_t03600s_1_check.jpg" width="45%" alt="Same shard at 60 min, defects outlined">
-  <br><em>The same shard 30 s and 60 min after the spin stops. Yellow outlines are defects found by the ImageJ macro inside the analysis circle.</em>
+  <img src="docs/images/patterned_triangles_405nm.jpg" width="40%" alt="Triangular resin features on Si under the microscope">
+  <br><em>Triangular features patterned in the resin on Si with the club's 405 nm setup. Shown for context; patterning was not optimized in this work.</em>
 </p>
 
-**Planned design:** a 2² full factorial with 3 center points on the wet film, with dwell fixed at 60 s. The responses are onset time (time to the first defect) and nucleation (defects/mm² by a set time). The factor levels below are tentative.
+## Limitations and next steps
 
-| Factor | Low | Center | High |
-|---|---:|---:|---:|
-| Ramp time (s) | 2 | 6 | 10 |
-| Final speed (rpm) | 1000 | 1750 | 2500 |
+- Ellipsometry would not fit (the ~9 µm grey film absorbs and scatters), and the film was too thick for optical profilometry. So n and k at 405 nm were not extracted.
+- One run per setting in a non-cleanroom lab, so the dewetting results are relative to this environment, and the imaged field covers only part of each coupon.
+- Next: replicates, larger-area inspection, and a cleanroom comparison.
+
+## Conclusions
+
+- **≥ 60 min** wet-film stability at 1500–2500 rpm (5 of 6)
+- **1550 rpm** max speed for a good cured film
+- **~2.5–7 µm** cured thickness across 1000–1550 rpm
+- **Fixed-depth** uncured layer lost in the IPA rinse
 
 ## Pipeline
 
@@ -147,13 +169,13 @@ Spin coat shard ──▶ capture/defect_imaging.py ──▶ captures/runXX_sha
                                               (flat-field, threshold, count per image)
                                                                   │
                                                                   ▼
-                                              defect_count.csv ──▶ JMP DOE model
+                                              defect_count.csv ──▶ time to first dewetting site
 ```
 
 1. **Capture.** [`capture/defect_imaging.py`](capture/defect_imaging.py) drives a USB microscope camera with fixed focus, exposure and white balance, using uncompressed YUY2 frames. It switches the illumination lamp through an Arduino Opta relay. It takes a bare-shard reference, then bursts of 3 photos at set times after the spin stops (30 s up to 60 min). Every frame is logged to CSV with its timing and lamp-on duration. The lamp is only on while shooting, so it doesn't heat the film.
 2. **Lamp safety.** [`firmware/opta_lamp_relay`](firmware/opta_lamp_relay) is the Opta firmware. It takes single-character serial commands and has a hardware 30 s auto-off, so a crashed script can't leave the lamp on.
 3. **Defect counting.** [`analysis/imagej/defect_count.ijm`](analysis/imagej/defect_count.ijm) keeps the green channel and divides by a heavily blurred copy to flatten uneven lighting. It then thresholds spots darker than their surroundings by a set fraction, filters by size inside a circular region of interest and writes per-image and per-timepoint averaged counts and areas. It also saves a `_check.jpg` overlay for each image so the result can be checked by eye.
-4. **Design of experiments.** [`analysis/jmp/defect_doe_design.jsl`](analysis/jmp/defect_doe_design.jsl) generates the earlier four-factor screening design (covered/uncovered, ramp time 2–15 s, final speed 2000–5000 rpm, final dwell 15–120 s, 4 center points). The current plan is the two-factor design above.
+4. **Design of experiments.** [`analysis/jmp/defect_doe_design.jsl`](analysis/jmp/defect_doe_design.jsl) generates the earlier four-factor screening design (covered/uncovered, ramp time 2–15 s, final speed 2000–5000 rpm, final dwell 15–120 s, 4 center points). The study that was run is the two-factor design under [Wet-film stability](#wet-film-stability).
 
 ## Repository layout
 
@@ -164,7 +186,8 @@ Spin coat shard ──▶ capture/defect_imaging.py ──▶ captures/runXX_sha
 | `analysis/imagej/` | `defect_count.ijm` (current) and `simple_defect_count.ijm` (first version) |
 | `analysis/jmp/` | DOE design script, design table, screening data and joined results tables |
 | `sample_data/` | Example output from two runs: capture log, per-image counts, averaged counts and defect-tracking tables |
-| `docs/images/` | Poster figures, setup photos and example defect images |
+| `docs/Graves_FURI_poster.pdf` | The FURI poster |
+| `docs/images/` | Poster figures, setup photos and example dewetting images |
 
 Raw capture runs are about 100 MB each and are not committed.
 

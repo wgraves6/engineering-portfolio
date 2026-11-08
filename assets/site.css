@@ -648,8 +648,9 @@ h1, h2, h3, h4 { margin: 0; letter-spacing: -.015em; }
 .xsec .doe-axis { font-size: 11px; fill: var(--ink-2); }
 .xsec .doe-note { font-size: 10.5px; fill: var(--muted); }
 .xsec .doe-pts circle { fill: var(--accent); stroke: var(--sheet); stroke-width: 2; }
-.xsec .doe-pts circle.center { fill: var(--gold); }
+.xsec .doe-pts circle.held { fill: var(--raised); stroke: var(--accent); stroke-width: 2.5; }
 .xsec .doe-pts text { font-size: 11px; fill: var(--ink); }
+.xsec .doe-pts text.doe-runs { font-size: 10.5px; fill: var(--muted); }
 .xsec .scope, .xsec .doe { opacity: 0; }
 
 .readout {
