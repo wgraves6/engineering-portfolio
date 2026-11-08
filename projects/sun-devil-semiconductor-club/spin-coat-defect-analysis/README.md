@@ -155,7 +155,7 @@ The club's setup is maskless: the 405 nm pattern is projected through a microsco
 
 ## Limitations and next steps
 
-- Ellipsometry would not fit (the ~9 µm grey film absorbs and scatters), and the film was too thick for optical profilometry. So n and k at 405 nm were not extracted.
+- Ellipsometry would not fit: before develop the grey film is ~9 µm, even thicker than the cured film and far outside the measurable range, and it absorbs and scatters. The film was also too thick for optical profilometry. So n and k at 405 nm were not extracted.
 - One run per setting in a non-cleanroom lab, so the dewetting results are relative to this environment, and the imaged field covers only part of each coupon.
 - Next: replicates, larger-area inspection, and a cleanroom comparison.
 

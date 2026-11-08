@@ -31,7 +31,7 @@ The starting deck is based on Silvaco's `anelex18` Athena example: a GaAs substr
 | RIE model, SiO₂ | chemical 3.0 nm/min, directional 15 nm/min, divergence 40° |
 | Measurement | `extract ... thickness` at x = 1 µm (trench center) |
 
-I measured etch rates on blanket films so the trench geometry wouldn't skew them. For GaAs I ran the deck with no oxide. For SiO₂ I deposited the oxide without patterning it. Each case was swept from 0 to 300 s and the remaining thickness was fit linearly in JMP.
+I extracted etch rates from simulated blanket films so the trench geometry wouldn't skew them. For GaAs I ran the deck with no oxide. For SiO₂ I deposited the oxide without patterning it. Each case was swept from 0 to 300 s and the remaining thickness was fit linearly in JMP.
 
 ## Results
 
