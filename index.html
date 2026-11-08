@@ -144,7 +144,7 @@
               <figure class="photo-note">
                 <a href="assets/images/cleanroom-group.jpg" data-lightbox data-caption="Gowned up with classmates for cleanroom lab work at ASU."><img src="assets/images/cleanroom-group.jpg" alt="Four students in cleanroom gowns in the gowning room" loading="lazy" width="1050" height="1400"></a>
               </figure>
-              <p>My FURI coupons are acetone-cleaned before the resin goes on. In EEE 435 I gowned into the ASU NanoFab cleanroom for wafer-processing labs and trained in contamination control and cleanroom protocol.</p>
+              <p>My FURI coupons are acetone-cleaned before the resin goes on, in the club's lab space rather than a cleanroom. In EEE 435 I gowned into the ASU NanoFab cleanroom for wafer-processing labs and trained in contamination control and cleanroom protocol.</p>
             </div>
           </article>
 
@@ -261,6 +261,7 @@
               <tr><th>Resist</th><td>Siraya Tech Fast (grey), a consumer 405 nm SLA resin at about $37/kg</td></tr>
               <tr><th>Recipe</th><td>500 rpm spread for 10 s → 10 s ramp → 60 s hold at final speed</td></tr>
               <tr><th>Window</th><td>Clean cured film up to 1550 rpm</td></tr>
+              <tr><th>Environment</th><td>Non-cleanroom enclosure in the club's lab space</td></tr>
               <tr><th>Tool</th><td>The club's spin coater, running a <a href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coater">controller I built</a></td></tr>
             </table>
 
@@ -312,6 +313,7 @@
             <table class="recipe">
               <tr><th>Factors</th><td>Final speed (1500–2500 rpm and 3500 rpm) × ramp time (2 s and 10 s), 10 runs</td></tr>
               <tr><th>Response</th><td>Time to the first dewetting site in the imaged field; "none" = none within 60 min</td></tr>
+              <tr><th>Environment</th><td>Spun and imaged in the club's lab space, not a cleanroom</td></tr>
               <tr><th>Imaging</th><td>Olympus BH microscope with an eyepiece webcam; lamp relay-switched on only during captures</td></tr>
               <tr><th>Counting</th><td>3 frames per time point; ImageJ macro counts new dewetting sites</td></tr>
             </table>
@@ -357,6 +359,7 @@
                 </div>
                 <ul class="did">
                   <li>Built the time-lapse capture: Python camera control, with the lamp switched by an Arduino Opta relay.</li>
+                  <li>Limits: the films are spun in a non-cleanroom enclosure in the club's lab, with one run per setting, so the dewetting times are relative to that environment, and the imaged field covers only part of each coupon. Next: replicates, larger-area inspection and a cleanroom comparison.</li>
                 </ul>
                 <div class="links">
                   <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis#wet-film-stability">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>

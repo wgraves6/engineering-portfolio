@@ -41,7 +41,8 @@ After spinning, the resin stays wet and uncured until it is exposed. This test m
 
 - **Factors:** final spin speed (1500–2500 rpm and 3500 rpm) × ramp time (2 s and 10 s).
 - **Response:** time to the first dewetting site in the imaged field; "none" = none within 60 min.
-- **Runs:** 10, in the club lab.
+- **Runs:** 10, one per setting.
+- **Environment:** spun and imaged in the club's lab space, in a non-cleanroom enclosure, so the dewetting times are relative to that environment (see [Limitations](#limitations-and-next-steps)).
 
 | Final speed | 2 s ramp | 10 s ramp | Runs |
 |---|---|---|---:|
