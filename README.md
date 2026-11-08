@@ -21,6 +21,7 @@ Semiconductor processing, device characterization and circuits. Each project fol
 | Project | What it is | Tools |
 |---|---|---|
 | [**Wet Thermal Oxidation: Deal–Grove Fit**](projects/semiconductor-characterization/thermal-oxidation-deal-grove) | Deal–Grove constants from furnace data (B = 0.415 µm²/hr, A = 0.272 µm), within 2% of measured from 15 to 498 min; refractive index and uniformity of dry oxide, wet oxide and LPCVD nitride | JMP · Filmetrics · Ellipsometry |
+| [**SiO₂ RIE: Etch-Rate Uniformity**](projects/semiconductor-characterization/sio2-rie-etch-uniformity) | SiO₂ etch rate at 20 sites from a CHF₃/O₂ RIE run: 524 Å/min average with 3σ = 8.2 Å/min (1.6% of the mean), slowest at one edge and fastest near the center | JMP |
 | [**Diode & MOSFET I-V Characterization**](projects/semiconductor-characterization/device-iv-characterization) | Zener turn-on and breakdown voltages; CD4007 NMOS square-law parameters used in an LTspice common-source amplifier and checked against the bench circuit | Curve tracer · DMM · LTspice · JMP |
 
 ### [TCAD Simulations](projects/tcad-simulations)

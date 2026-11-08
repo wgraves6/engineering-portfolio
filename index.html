@@ -496,12 +496,12 @@
           <article class="op" id="op-0080" data-stage="etch" data-note="Etch numbers from my GaAs RIE simulation in Silvaco Athena.">
             <header class="op-head">
               <span class="op-no">0080</span>
-              <div class="op-title"><h3>Etch</h3><p>Reactive ion etch through a hard mask</p></div>
-              <div class="op-sign"><span class="mode sim">Simulation</span></div>
+              <div class="op-title"><h3>Etch</h3><p>Reactive ion etch: rate uniformity and mask design</p></div>
+              <div class="op-sign"><span class="mode data">Data analysis</span><span class="mode sim">Simulation</span></div>
             </header>
             <table class="recipe">
-              <tr><th>Simulation</th><td>Silvaco Athena RIE of GaAs under an SiO₂ hard mask</td></tr>
-              <tr><th>Feature</th><td>0.5 µm opening, 1 µm target depth</td></tr>
+              <tr><th>Process</th><td>CHF₃/O₂ RIE of SiO₂, Plasma-Therm 790, 2 min, 20 sites (course-provided dataset)</td></tr>
+              <tr><th>Simulation</th><td>Silvaco Athena RIE of GaAs under an SiO₂ hard mask, 0.5 µm opening, 1 µm target depth</td></tr>
               <tr><th>Tuning</th><td>Two-factor JMP DOE on oxide thickness and etch time</td></tr>
             </table>
 
@@ -536,6 +536,32 @@
                 <div class="links">
                   <a class="btn btn-sm btn-primary" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/gaas-rie-etch-selectivity">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                   <a class="btn btn-sm btn-ghost" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/tcad-simulations/gaas-rie-etch-selectivity/deck"><svg width="16" height="16" aria-hidden="true"><use href="#i-code"/></svg> Decks</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card row">
+              <div class="gallery">
+                <a class="g-main" href="projects/semiconductor-characterization/sio2-rie-etch-uniformity/plots/etch_rate_by_site.png" data-caption="SiO₂ etch rate at 20 sites, with the average and the ±3σ band.">
+                  <img src="projects/semiconductor-characterization/sio2-rie-etch-uniformity/plots/etch_rate_by_site.png" alt="SiO₂ etch rate at each of 20 measurement sites with the average and ±3σ band" loading="lazy">
+                  <span class="zoom"><svg width="14" height="14" aria-hidden="true"><use href="#i-zoom"/></svg> Enlarge</span>
+                </a>
+                <div class="g-thumbs">
+                  <a class="active" href="projects/semiconductor-characterization/sio2-rie-etch-uniformity/plots/etch_rate_by_site.png" data-caption="SiO₂ etch rate at 20 sites, with the average and the ±3σ band."><img src="assets/thumbs/etch_rate_by_site.webp" alt="Etch rate by site" loading="lazy"></a>
+                  <a href="projects/semiconductor-characterization/sio2-rie-etch-uniformity/plots/thickness_pre_post_by_site.png" data-caption="SiO₂ thickness at each site before and after the 2 min etch."><img src="assets/thumbs/thickness_pre_post_by_site.webp" alt="Pre- and post-etch oxide thickness by site" loading="lazy"></a>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="kicker">EEE 435 · JMP · Course-provided dataset</p>
+                <h4>SiO₂ RIE: Etch-Rate Uniformity</h4>
+                <p class="summary">Analyzed oxide thickness at 20 sites before and after a 2 min CHF₃/O₂ reactive ion etch: the etch rate at each site, its average and 3σ spread, and which areas etched faster or slower.</p>
+                <div class="stats">
+                  <div class="stat"><b>524 Å/min</b><span>average etch rate</span></div>
+                  <div class="stat"><b>1.6%</b><span>3σ of the mean (8.2 Å/min)</span></div>
+                  <div class="stat"><b>516 Å/min</b><span>slowest site, at one edge</span></div>
+                </div>
+                <div class="links">
+                  <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/semiconductor-characterization/sio2-rie-etch-uniformity">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                 </div>
               </div>
             </article>
