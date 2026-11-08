@@ -70,7 +70,7 @@ The film held for 60 min at 1500–2500 rpm (5 of 6). At 3500 rpm a dewetting si
 
 Process for this test and the thickness measurements below: 500 rpm spread for 10 s, 10 s ramp, 60 s hold; then UV for 20 s, IPA rinse for about 10 s, and UV for 60 s.
 
-![Cure and develop result vs. spin speed](docs/images/liftoff_vs_speed.png)
+![Cure and develop result vs. spin speed](docs/images/cure_and_develop_vs_speed.png)
 
 The cured film is good up to 1550 rpm, starts peeling at 1600 rpm, and is fully removed above 2100 rpm (14 runs, 6 coupons).
 

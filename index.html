@@ -274,7 +274,6 @@
                 <p class="g-caption">Cured film thickness vs. spin speed with the constant-loss model fit and 95% confidence band.</p>
                 <div class="g-thumbs">
                   <a class="active" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cured_thickness_vs_speed.png" data-caption="Cured film thickness vs. spin speed with the constant-loss model fit and 95% confidence band."><img src="assets/thumbs/cured_thickness_vs_speed.webp" alt="Cured film thickness vs. spin speed plot" loading="lazy"></a>
-                  <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/liftoff_vs_speed.png" data-caption="Cure and develop: the cured film holds to 1550 rpm, starts peeling at 1600 rpm and is fully removed above 2100 rpm."><img src="assets/thumbs/liftoff_vs_speed.webp" alt="Cure-and-develop result vs. spin speed" loading="lazy"></a>
                   <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/constant_loss_model.png" data-caption="Constant-loss model: the IPA rinse removes a fixed uncured layer, so thin films wash off entirely. The dashed as-spun curve is modeled, not measured."><img src="assets/thumbs/constant_loss_model.webp" alt="Constant-loss model plot" loading="lazy"></a>
                   <a href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/nonlinear_fit_report.png" data-caption="JMP nonlinear fit report for the constant-loss model."><img src="assets/thumbs/nonlinear_fit_report.webp" alt="JMP nonlinear fit report" loading="lazy"></a>
                 </div>
@@ -291,7 +290,7 @@
                   <div class="stat"><b>~2.5–7 µm</b><span>cured thickness, 1000–1550 rpm</span></div>
                 </div>
                 <ul class="did">
-                  <li>Ran cure-and-develop tests (14 runs, 6 coupons) to find which films survive the IPA rinse.</li>
+                  <li>Ran cure-and-develop tests (14 runs, 6 coupons) to find which films survive the IPA rinse (op 0060).</li>
                   <li>Measured cured thickness vs. spin speed by stylus profilometry (op 0070).</li>
                   <li>Tied the two together with a constant-loss model fit in JMP: the rinse removes a fixed uncured layer, <b>δ = 13.5 µm</b> (RMSE 0.59 µm), so films thinner than δ wash off and none remains above 2100 rpm (op 0060).</li>
                   <li>Imaged how long the wet film resists dewetting vs. final speed and ramp time (op 0040).</li>
@@ -407,7 +406,7 @@
           </article>
 
           <!-- 0060 Develop -->
-          <article class="op op-short" id="op-0060" data-stage="develop" data-note="Top-layer loss δ from my constant-loss fit in JMP (FURI card, op 0030).">
+          <article class="op" id="op-0060" data-stage="develop" data-note="Top-layer loss δ from my constant-loss fit in JMP (FURI card, op 0030).">
             <header class="op-head">
               <span class="op-no">0060</span>
               <div class="op-title"><h3>Develop</h3><p>IPA develop, and how much film it takes with it</p></div>
@@ -418,6 +417,30 @@
               <tr><th>Model</th><td>h = δ[(ω/ω₀)ⁿ − 1], with ω₀ = 2100 rpm from the cure-and-develop test, fit in JMP</td></tr>
               <tr><th>Fit</th><td>δ = 13.5 µm, n = −0.54, RMSE 0.59 µm</td></tr>
             </table>
+
+            <article class="card">
+              <div class="gallery">
+                <a class="g-main" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cure_and_develop_vs_speed.png" data-caption="Cure and develop: the cured film holds to 1550 rpm, starts peeling at 1600 rpm and is fully removed above 2100 rpm (14 runs, 6 coupons).">
+                  <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cure_and_develop_vs_speed.png" alt="Cure-and-develop result vs. spin speed: good, thin and peeling, or removed" width="1519" height="904" loading="lazy">
+                  <span class="zoom"><svg width="14" height="14" aria-hidden="true"><use href="#i-zoom"/></svg> Enlarge</span>
+                </a>
+                <p class="g-caption">Cure and develop: the cured film holds to 1550 rpm, starts peeling at 1600 rpm and is fully removed above 2100 rpm (14 runs, 6 coupons).</p>
+              </div>
+              <div class="card-body">
+                <p class="kicker">FURI · Cure and develop</p>
+                <h4>Which Films Survive</h4>
+                <p class="summary">Each coupon is spun, cured for 20 s, rinsed in IPA for about 10 s and cured for 60 s. Good to 1550 rpm, peeling from 1600 rpm, fully removed above 2100 rpm (14 runs, 6 coupons).</p>
+                <div class="stats">
+                  <div class="stat"><b>1550 rpm</b><span>max speed for a good cured film</span></div>
+                  <div class="stat"><b>1600 rpm</b><span>film starts peeling</span></div>
+                  <div class="stat"><b>&gt; 2100 rpm</b><span>film fully removed</span></div>
+                </div>
+                <div class="links">
+                  <a class="btn btn-sm" href="https://github.com/wgraves6/engineering-portfolio/tree/main/projects/sun-devil-semiconductor-club/spin-coat-defect-analysis#cure-and-develop-which-films-survive">Read the write-up <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </div>
+            </article>
+
             <p class="op-text">The rinse removes an uncured top layer of fixed depth δ. Films thinner than δ wash off entirely, so no film remains above 2100 rpm. δ and n are strongly correlated, so the fit predicts thickness well but doesn't pin them down separately. The model plot and JMP report are in the <a href="#op-0030">FURI card at op 0030</a>.</p>
           </article>
 
