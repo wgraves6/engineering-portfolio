@@ -37,12 +37,12 @@ A grey resin (Siraya Tech Fast) is used because clear resin exposed poorly on ou
 
 ### Wet-film stability
 
-After spinning, the resin stays wet and uncured until it is exposed. This test measures how long a coated coupon can wait before the film starts to dewet.
+After spinning, the resin stays wet and uncured until it is exposed. This test measures how long a coated coupon can wait before the film starts to dewet. Dewetting is not normal resist behavior, and normally a different resist would be chosen; the test is here because the films are spun outside a cleanroom, so the process is optimized for a non-cleanroom environment.
 
 - **Factors:** final spin speed (1500–2500 rpm and 3500 rpm) × ramp time (2 s and 10 s).
 - **Response:** time to the first dewetting site in the imaged field; "none" = none within 60 min.
 - **Runs:** 10, one per setting.
-- **Environment:** spun and imaged in the club's lab space, in a non-cleanroom enclosure, so the dewetting times are relative to that environment (see [Limitations](#limitations-and-next-steps)).
+- **Environment:** spun and imaged in the club's lab space, in a non-cleanroom enclosure, so the dewetting times are relative to that environment (see [Limitations](#limitations)).
 
 | Final speed | 2 s ramp | 10 s ramp | Runs |
 |---|---|---|---:|
@@ -153,11 +153,10 @@ The club's setup is maskless: the 405 nm pattern is projected through a microsco
 |---|---|
 | ![The club's maskless 405 nm lithography setup](docs/images/club_maskless_litho_setup.jpg) | ![Coupon under the objective with the projected 405 nm spot](docs/images/club_maskless_exposure.jpg) |
 
-## Limitations and next steps
+## Limitations
 
 - Ellipsometry would not fit: before develop the grey film is ~9 µm, even thicker than the cured film and far outside the measurable range, and it absorbs and scatters. The film was also too thick for optical profilometry. So n and k at 405 nm were not extracted.
 - One run per setting in a non-cleanroom lab, so the dewetting results are relative to this environment, and the imaged field covers only part of each coupon.
-- Next: replicates, larger-area inspection, and a cleanroom comparison.
 
 ## Conclusions
 
