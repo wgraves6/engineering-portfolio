@@ -4,7 +4,7 @@
 
 **Research question:** How do spin-coating parameters control the thickness, wet-film stability and adhesion of a 405 nm SLA resin on silicon?
 
-**Poster:** [Graves_FURI_poster.pdf](docs/Graves_FURI_poster.pdf)
+**Poster:** [Graves_FURI_poster.pdf](docs/Graves_FURI_poster.pdf) · **FURI expo page:** [Fulton Forge Student Research Expo](https://forge.engineering.asu.edu/participant/graves-william/)
 
 <p align="center">
   <img src="docs/images/defect_timelapse_run02_1.webp" width="70%" alt="Time-lapse of the wet resin film from 3 s to 60 min after the spin stops, with a dewetting site forming near 1 min">
