@@ -178,12 +178,17 @@
     }
   });
 
-  /* ---------- Click events for GoatCounter ---------- */
+  /* ---------- Links that leave the page ---------- */
+  // Write-ups, PDFs, LinkedIn and GitHub open in a new tab so the traveler stays open behind them.
   // count.js (loaded after this file) counts clicks on any element with data-goatcounter-click,
-  // so name the links that leave the page: résumé, poster, email, LinkedIn, the FURI expo page and each GitHub write-up.
+  // so name those links: résumé, poster, email, LinkedIn, the FURI expo page and each GitHub write-up.
   document.querySelectorAll("a[href]").forEach(function (a) {
     var href = a.getAttribute("href");
     var name = null;
+    if (/^https?:/i.test(href) || /\.pdf$/i.test(href)) {
+      a.target = "_blank";
+      a.rel = "noopener";
+    }
     if (/Resume\.pdf$/i.test(href)) name = "resume-pdf";
     else if (/\.pdf$/i.test(href)) name = "pdf/" + href.replace(/^.*\//, "");
     else if (href.indexOf("mailto:") === 0) name = "email";

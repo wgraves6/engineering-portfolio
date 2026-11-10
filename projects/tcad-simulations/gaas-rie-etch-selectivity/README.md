@@ -1,4 +1,4 @@
-# GaAs RIE: Etch Selectivity and Mask Design
+# GaAs RIE: Etch Selectivity & Mask Design
 
 **Tools:** Silvaco Athena, JMP · **Course / context:** EEE 435 (Fundamentals of CMOS and MEMS Processing), ASU
 
@@ -44,7 +44,7 @@ I extracted etch rates from simulated blanket films so the trench geometry would
 
 That gives a **selectivity of 6.93 : 1** (GaAs : SiO₂). Etching 1 µm of GaAs should then need at least 1 / 6.93 = **0.144 µm** of oxide and about **8.0 min** of etch time.
 
-**Overetching the baseline mask** ([`gaas_rie_8min.in`](deck/gaas_rie_8min.in)). The 0.10 µm baseline mask lasts only about 5.6 min. In an 8-minute run it disappears, and the GaAs field around the trench recesses by about 0.27 µm. The trench ends up shallower than intended and its top edges are rounded.
+**Overetching the baseline mask** ([`gaas_rie_8min.in`](deck/gaas_rie_8min.in)). The 0.10 µm baseline mask lasts only about 5.6 min. In an 8-minute run it disappears, and the GaAs field around the trench recesses by about 0.3 µm. The trench ends up shallower than intended and its top edges are rounded.
 
 ![8 minute etch with mask consumed](plots/8min_mask_lost.png)
 

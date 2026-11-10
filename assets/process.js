@@ -438,7 +438,8 @@
         else if (p < 0.45) rows = [["Step", "Strip resin"], ["Hard mask", "0.171 µm SiO₂"], ["Window", "0.5 µm"]];
         else {
           var qe2 = seg(p, 0.45, 1);
-          rows = [["RIE time", (9.32 * qe2).toFixed(2) + " min"], ["Depth", (1.0 * qe2).toFixed(2) + " µm"], ["Mask left", (0.171 - 0.168 * qe2).toFixed(3) + " µm"]];
+          // The drawing is the generic Si flow; these numbers are the GaAs simulation's, so the labels say so.
+          rows = [["GaAs RIE time", (9.32 * qe2).toFixed(2) + " min"], ["GaAs depth", (1.0 * qe2).toFixed(2) + " µm"], ["SiO₂ mask left", (0.171 - 0.168 * qe2).toFixed(3) + " µm"]];
         }
         break;
       }

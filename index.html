@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/site.css?v=20261109a">
+  <link rel="stylesheet" href="assets/site.css?v=20261109b">
   <script>
     document.documentElement.className = document.documentElement.className.replace("no-js", "js");
   </script>
@@ -107,6 +107,29 @@
           <div><dt>Role</dt><dd>Equipment Team Lead<span>Sun Devil Semiconductor Club</span></dd></div>
           <div class="next"><dt>Next operation</dt><dd><i class="dot" aria-hidden="true"></i>Summer 2027 internship<span>Process, equipment or integration engineering</span></dd></div>
         </dl>
+
+        <nav class="results" aria-label="Selected results">
+          <a href="#op-0030">
+            <span class="r-op"><b>0030</b> Coat<span class="mode hands">Hands-on</span></span>
+            <strong>1550 rpm</strong>
+            <span class="r-what">max speed for a good cured film · FURI photoresist research</span>
+          </a>
+          <a href="#op-0020">
+            <span class="r-op"><b>0020</b> Oxidize<span class="mode data">Data analysis</span></span>
+            <strong>&lt; 2%</strong>
+            <span class="r-what">Deal–Grove model error, 15 to 498 min</span>
+          </a>
+          <a href="#op-0080">
+            <span class="r-op"><b>0080</b> Etch<span class="mode sim">Simulation</span></span>
+            <strong>9.32 min</strong>
+            <span class="r-what">GaAs RIE etch to 1 µm depth, sized with a JMP DOE</span>
+          </a>
+          <a href="#op-0090">
+            <span class="r-op"><b>0090</b> Test<span class="mode hands">Hands-on</span></span>
+            <strong>0.872 V</strong>
+            <span class="r-what">NMOS threshold, Vt, from bench I-V</span>
+          </a>
+        </nav>
       </div>
     </div>
   </section>
@@ -129,7 +152,7 @@
         <div class="ops">
 
           <!-- 0010 Clean -->
-          <article class="op" id="op-0010" data-stage="clean" data-note="Coupon prep from my FURI runs.">
+          <article class="op op-short" id="op-0010" data-stage="clean" data-note="Coupon prep from my FURI runs.">
             <header class="op-head">
               <span class="op-no">0010</span>
               <div class="op-title"><h3>Clean</h3><p>Substrate prep and cleanroom protocol</p></div>
@@ -162,6 +185,10 @@
             </table>
 
             <article class="card">
+              <header class="card-head">
+                <p class="kicker">EEE 435 · CMOS &amp; MEMS processing · JMP</p>
+                <h4>Wet Thermal Oxidation: Deal–Grove Fit</h4>
+              </header>
               <div class="gallery">
                 <a class="g-main" href="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/predicted_vs_measured.png" data-caption="Deal–Grove prediction vs. measured oxide thickness from 5 to 498 min.">
                   <img src="projects/semiconductor-characterization/thermal-oxidation-deal-grove/plots/predicted_vs_measured.png" alt="Predicted and measured oxide thickness vs. time" loading="lazy">
@@ -176,8 +203,6 @@
                 </div>
               </div>
               <div class="card-body">
-                <p class="kicker">EEE 435 · CMOS &amp; MEMS processing · JMP</p>
-                <h4>Wet Thermal Oxidation: Deal–Grove Fit</h4>
                 <p class="summary">Extracted Deal–Grove rate constants from 9-point oxide thickness measurements at six wet-oxidation times (5 to 498 min), and compared refractive index and uniformity of dry oxide, wet oxide and LPCVD nitride.</p>
                 <div class="stats">
                   <div class="stat"><b>0.415 µm²/hr</b><span>B, parabolic rate constant</span></div>
@@ -266,6 +291,11 @@
             </table>
 
             <article class="card featured">
+              <header class="card-head">
+                <div class="card-meta"><span class="flag">Featured research</span></div>
+                <p class="kicker">FURI · Fall 2026 · Sponsored by TSMC</p>
+                <h4>405 nm SLA Resin as a Low-Cost Photoresist</h4>
+              </header>
               <div class="gallery">
                 <a class="g-main" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cured_thickness_vs_speed.png" data-caption="Cured film thickness vs. spin speed with the constant-loss model fit and 95% confidence band.">
                   <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cured_thickness_vs_speed.png" alt="Cured film thickness vs. spin speed plot" loading="lazy" width="1150" height="694">
@@ -279,9 +309,6 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="card-meta"><span class="flag">Featured research</span></div>
-                <p class="kicker">FURI · Fall 2026 · Sponsored by TSMC</p>
-                <h4>405 nm SLA Resin as a Low-Cost Photoresist</h4>
                 <p class="summary">Characterizing a consumer 405 nm UV-curable SLA resin as a photoresist for the club's student-run photolithography process. Advisor: Prof. Michael Kozicki, School of Electrical, Computer and Energy Engineering.</p>
                 <p class="question"><b>Research question:</b> how do spin-coating parameters control the thickness, wet-film stability and adhesion of the resin on silicon?</p>
                 <div class="stats">
@@ -422,6 +449,10 @@
             </table>
 
             <article class="card">
+              <header class="card-head">
+                <p class="kicker">FURI · Cure and develop</p>
+                <h4>Which Films Survive</h4>
+              </header>
               <div class="gallery">
                 <a class="g-main" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cure_and_develop_vs_speed.png" data-caption="Cure and develop: the cured film holds to 1550 rpm, starts peeling at 1600 rpm and is fully removed above 2100 rpm (14 runs, 6 coupons).">
                   <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/cure_and_develop_vs_speed.png" alt="Cure-and-develop result vs. spin speed: good, thin and peeling, or removed" width="1519" height="904" loading="lazy">
@@ -430,8 +461,6 @@
                 <p class="g-caption">Cure and develop: the cured film holds to 1550 rpm, starts peeling at 1600 rpm and is fully removed above 2100 rpm (14 runs, 6 coupons).</p>
               </div>
               <div class="card-body">
-                <p class="kicker">FURI · Cure and develop</p>
-                <h4>Which Films Survive</h4>
                 <p class="summary">Each coupon is spun, cured for 20 s, rinsed in IPA for about 10 s and cured for 60 s. Good to 1550 rpm, peeling from 1600 rpm, fully removed above 2100 rpm (14 runs, 6 coupons).</p>
                 <div class="stats">
                   <div class="stat"><b>1550 rpm</b><span>max speed for a good cured film</span></div>
@@ -461,6 +490,10 @@
             </table>
 
             <article class="card">
+              <header class="card-head">
+                <p class="kicker">FURI · Metrology</p>
+                <h4>Cured-Film Thickness by Dektak + Gwyddion</h4>
+              </header>
               <div class="gallery">
                 <a class="g-main photo" href="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/dektak_xt.jpg" data-caption="Bruker Dektak XT stylus profilometer used for cured-film thickness.">
                   <img src="projects/sun-devil-semiconductor-club/spin-coat-defect-analysis/docs/images/dektak_xt.jpg" alt="Bruker Dektak XT profilometer and its software" width="1600" height="1200" loading="lazy">
@@ -475,8 +508,6 @@
                 </div>
               </div>
               <div class="card-body">
-                <p class="kicker">FURI · Metrology</p>
-                <h4>Cured-Film Thickness by Dektak + Gwyddion</h4>
                 <p class="summary">Each scan is leveled on the bare Si, then the film plateau gives cured thickness and roughness, and the maximum near the tape edge gives the edge-ridge height.</p>
                 <table class="datatable">
                   <thead><tr><th>Speed</th><th>Thickness</th><th>Ra</th><th>Rq</th><th>Edge ridge</th></tr></thead>
@@ -494,7 +525,7 @@
           </article>
 
           <!-- 0080 Etch -->
-          <article class="op" id="op-0080" data-stage="etch" data-note="Etch numbers from my GaAs RIE simulation in Silvaco Athena.">
+          <article class="op" id="op-0080" data-stage="etch" data-note="Drawn on Si; the etch numbers are from my GaAs RIE simulation in Silvaco Athena.">
             <header class="op-head">
               <span class="op-no">0080</span>
               <div class="op-title"><h3>Etch</h3><p>Reactive ion etch: rate uniformity and mask design</p></div>
@@ -507,6 +538,10 @@
             </table>
 
             <article class="card">
+              <header class="card-head">
+                <p class="kicker">EEE 435 · Silvaco Athena · JMP DOE</p>
+                <h4>GaAs RIE: Etch Selectivity &amp; Mask Design</h4>
+              </header>
               <div class="gallery">
                 <a class="g-main" href="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/final_1um_trench.png" data-caption="Final 1 µm deep GaAs trench with 0.171 µm oxide mask and a 9.32 min etch.">
                   <img src="projects/tcad-simulations/gaas-rie-etch-selectivity/plots/final_1um_trench.png" alt="Simulated 1 µm deep GaAs trench cross-section" loading="lazy">
@@ -522,8 +557,6 @@
                 </div>
               </div>
               <div class="card-body">
-                <p class="kicker">EEE 435 · Silvaco Athena · JMP DOE</p>
-                <h4>GaAs RIE: Etch Selectivity &amp; Mask Design</h4>
                 <p class="summary">Simulated reactive ion etching of a 0.5 µm wide GaAs trench under an SiO₂ hard mask, extracted blanket etch rates and selectivity, then used a JMP DOE to size the thinnest mask and shortest etch for a 1 µm deep trench.</p>
                 <div class="stats">
                   <div class="stat"><b>6.93 : 1</b><span>blanket GaAs : SiO₂ selectivity</span></div>
@@ -582,6 +615,10 @@
             </table>
 
             <article class="card">
+              <header class="card-head">
+                <p class="kicker">EEE 334 lab · Bench measurement</p>
+                <h4>Diode &amp; MOSFET I-V Characterization</h4>
+              </header>
               <div class="gallery">
                 <a class="g-main photo" href="projects/semiconductor-characterization/device-iv-characterization/plots/curve_tracer_setup.jpg" data-caption="Bench setup: LEADER LTC-905 curve tracer driving a Tektronix DPO4032 in XY mode.">
                   <img src="projects/semiconductor-characterization/device-iv-characterization/plots/curve_tracer_setup.jpg" alt="Curve tracer, function generator, power supply and oscilloscope on a lab bench" loading="lazy">
@@ -600,8 +637,6 @@
                 </div>
               </div>
               <div class="card-body">
-                <p class="kicker">EEE 334 lab · Bench measurement</p>
-                <h4>Diode &amp; MOSFET I-V Characterization</h4>
                 <p class="summary">Measured Zener diode I-V curves on a curve tracer and extracted CD4007 NMOS square-law parameters, then used them in an LTspice model of a common-source amplifier and compared it against the bench circuit.</p>
                 <div class="stats">
                   <div class="stat"><b>0.872 V</b><span>NMOS threshold, Vt</span></div>
@@ -638,9 +673,10 @@
                   <p class="kicker">Python</p>
                   <h4>Circuit &amp; lab-data helpers</h4>
 <pre class="code"><span class="k">import</span> impedance <span class="k">as</span> z
-z.set_frequency(<span class="n">1e3</span>)            <span class="c"># 1 kHz</span>
+z.set_frequency(<span class="n">1e3</span>)  <span class="c"># 1 kHz</span>
 Zin = z.Zser(<span class="n">100</span>, z.Zcap(<span class="n">1e-6</span>))
-z.rect_to_phasor(Zin)  <span class="c"># (187.964, -57.858)</span></pre>
+z.rect_to_phasor(Zin)
+<span class="c"># (187.964, -57.858)</span></pre>
                   <ul class="did">
                     <li><b>impedance.py</b>: phasor and AC impedance helpers.</li>
                     <li><b>bode_plotter.py</b>: magnitude and phase for any H(jω).</li>
@@ -961,8 +997,8 @@ z.rect_to_phasor(Zin)  <span class="c"># (187.964, -57.858)</span></pre>
   </div>
 </dialog>
 
-<script src="assets/site.js?v=20261109a"></script>
-<script src="assets/process.js?v=20261109a"></script>
+<script src="assets/site.js?v=20261109b"></script>
+<script src="assets/process.js?v=20261109b"></script>
 <!-- GoatCounter: cookie-free visit and link-click counts (dashboard: https://willm06.goatcounter.com) -->
 <script data-goatcounter="https://willm06.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
